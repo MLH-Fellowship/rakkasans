@@ -6,7 +6,15 @@ import SinglePost from "../../components/SinglePost";
 import { replyThread } from "../otherScreens/PostClasses/ReplyThread";
 export default function ChatHomeScreens({ navigation }) {
   const [threads, setThreads] = useState([]);
-  const rooms = ["General", "Fitness", "Music", "Sports", "Misc"];
+  const rooms = [
+    "General",
+    "Training",
+    "Army Schools",
+    "Civilian Education",
+    "Health and Fitness",
+    "Army E-Sports",
+    "Events",
+  ];
   replyThread.length = 0;
   useEffect(() => {
     const threads = rooms.map((room) => {
