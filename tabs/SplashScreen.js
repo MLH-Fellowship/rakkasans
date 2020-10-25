@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { AppRegistry, StyleSheet, View, Animated, MaskedViewIOS, Text, StatusBar, Image } from 'react-native'
+import { AppRegistry, StyleSheet, View, Animated, Text, StatusBar, Image } from 'react-native'
+import MaskedViewIOS from '@react-native-community/masked-view'
 import Dimensions from "../constants/Dimensions";
 
 export default class SplashScreen extends Component {

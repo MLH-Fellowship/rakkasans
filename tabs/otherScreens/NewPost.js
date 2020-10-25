@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { homeFeed } from "../otherScreens/PostClasses/DummyPosts";
 import Firebase from "../../constants/FireBaseDb";
 import {
   StyleSheet,
@@ -11,19 +10,35 @@ import {
 } from "react-native";
 import Dimensions from "../../constants/Dimensions";
 import Colors from "../../constants/Colors";
+import { useNavigation } from "@react-navigation/native";
+
 const { width, height } = Dimensions.window;
 
-export default function NewPost({ navigation }) {
-  const [post, setPost] = useState("");
-  const userName = Firebase.auth().currentUser.displayName;
-  const userEmail = Firebase.auth().currentUser.email;
+export default function NewPost({ route }) {
+  const navigation = useNavigation();
+  const { parent_id, post_id } = route.params;
 
-  const handleSubmit = () => {
-    homeFeed.unshift({ user: userName, username: userEmail, content: post });
-    navigation.navigate("Forums", {
-      posted: { user: userName, username: userEmail, content: post },
-    });
-    alert(`Submitting Post ${post}`);
+  const [post, setPost] = useState("");
+  const handleSubmit = async () => {
+    try {
+      const response = await fetch(`http://localhost:3000/posts/${post_id}/comments`, {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          content: post,
+          user_id: 1,
+          parent_id
+        })
+      });
+
+      navigation.goBack()
+    } catch (error) {
+      console.log(error);
+    }
+
   };
   return (
     <View>

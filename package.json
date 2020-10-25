@@ -5,24 +5,45 @@
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
-    "eject": "expo eject"
+    "eject": "expo eject",
+    "test": "jest"
+  },
+  "jest": {
+    "preset": "jest-expo",
+    "transformIgnorePatterns": [
+      "node_modules/(?!(jest-)?react-native|react-clone-referenced-element|@react-native-community|expo(nent)?|@expo(nent)?/.*|react-navigation|@react-navigation/.*|@unimodules/.*|unimodules|sentry-expo|native-base|@sentry/.*|rn-pdf-reader-js|@codler/react-native-keyboard-aware-scroll-view)"
+    ],
+    "setupFiles": [
+      "./mock.js"
+    ],
+    "collectCoverage": true,
+    "collectCoverageFrom": [
+      "**/*.{js,jsx}",
+      "!**/coverage/**",
+      "!**/node_modules/**",
+      "!**/babel.config.js",
+      "!**/jest.setup.js"
+    ]
   },
   "dependencies": {
     "@expo-google-fonts/inter": "^0.1.0",
     "@expo/vector-icons": "^10.2.0",
-    "@react-native-community/masked-view": "0.1.6",
+    "@react-native-community/masked-view": "^0.1.10",
     "@react-native-community/segmented-control": "^2.0.1",
     "@react-navigation/bottom-tabs": "^5.6.1",
     "@react-navigation/material-bottom-tabs": "^5.2.10",
     "@react-navigation/native": "^5.5.1",
     "@react-navigation/stack": "^5.5.1",
     "@use-expo/font": "^2.0.0",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.5",
     "expo": "~37.0.3",
     "expo-constants": "~9.0.0",
     "expo-file-system": "~8.1.0",
     "expo-font": "~8.1.0",
     "expo-linear-gradient": "~8.1.0",
     "firebase": "^7.15.4",
+    "moment": "^2.29.1",
     "native-base": "^2.13.12",
     "npm-assets": "^0.1.2",
     "react": "~16.9.0",
@@ -54,6 +75,8 @@
   "devDependencies": {
     "@babel/core": "^7.8.6",
     "babel-preset-expo": "~8.1.0",
+    "jest-expo": "37.0.0",
+    "react-test-renderer": "^17.0.1",
     "typescript": "^3.3.4000"
   },
   "private": true
