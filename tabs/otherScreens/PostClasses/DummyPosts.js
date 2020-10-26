@@ -3,35 +3,45 @@ import Post from "./Post";
 //exports a list of data to use for the example feed
 export var homeFeed = [
   {
-    user: "SolderBoy",
-    username: "solder@mil.something",
-    content: "man that workout was kinda tough not gonna lie or flex",
+    user: "John Doe",
+    username: "JohnDoe@mail.com",
+    content: "Question about our next debriefing at 1200 hours",
+    date: "Wed Oct 18 2017 12:41:34 GMT+0000 (UTC)",
   },
   {
-    user: "JCole",
-    username: "coleworld@mil",
-    content: "I am Jcole and I am part of the army now",
-  },
-  {
-    user: "Kendrick Lamar",
-    username: "GOAT@mil",
-
-    content:
-      "I remember you was conflicted misusing your influence, sometimes I did the same",
+    user: "Jane Smith",
+    username: "JaneSmith@mail.com",
+    content: "Training begins at 0400 hours every Monday",
+    date: "Wed Oct 18 2017 12:41:34 GMT+0000 (UTC)",
   },
   {
     user: "John Doe",
-    username: "easilyHackable@mil.com",
-    content: "ON God, ON Word, ON Facts",
+    username: "JohnDoe@mail.com",
+    content: "What's the best army school?",
+    date: "Wed Oct 18 2017 12:41:34 GMT+0000 (UTC)",
   },
   {
-    user: "Hawks Griffin",
-    username: "griffin@mil",
-    content: "Anyone wanna give me some tips on improving my workout",
+    user: "Jane Smith",
+    username: "JaneSmith@mail.com",
+    content: "CES is required for all civilian supervisors",
+    date: "Wed Oct 18 2017 12:41:34 GMT+0000 (UTC)",
   },
   {
-    user: "Jane Whoah",
-    username: "whoahayy@mil",
-    content: "If anyone has any questions please email me",
+    user: "John Doe",
+    username: "JohnDoe@mail.com",
+    content: "To build strength I encourage a push/pull split",
+    date: "Wed Oct 18 2017 12:41:34 GMT+0000 (UTC)",
+  },
+  {
+    user: "Jane Smith",
+    username: "JaneSmith@mail.com",
+    content: "The Rangers are taking it home this year",
+    date: "Wed Oct 18 2017 12:41:34 GMT+0000 (UTC)",
+  },
+  {
+    user: "John Doe",
+    username: "JohnDoe@mail.com",
+    content: "All personnel debriefing at 1400 hours",
+    date: "Wed Oct 18 2017 12:41:34 GMT+0000 (UTC)",
   },
 ];
