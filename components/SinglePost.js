@@ -3,7 +3,7 @@ import { ListItem, Thumbnail, Text, Body } from "native-base";
 import { View, Image, FlatList, StyleSheet } from "react-native";
 //a post instance is necessary to track replies
 export default function SinglePost(props) {
-  let { user, username, content } = props.data;
+  let { user, username, content, date } = props.data;
   return (
     <ListItem>
       <Body>
@@ -12,6 +12,7 @@ export default function SinglePost(props) {
           <Text style={styles.username}>{username}</Text>
         </View>
         <Text style={styles.content}>{content}</Text>
+        <Text style={styles.date}>{date}</Text>
       </Body>
     </ListItem>
   );
@@ -32,5 +33,9 @@ const styles = StyleSheet.create({
   },
   content: {
     fontSize: 16,
+  },
+  date: {
+    fontWeight: "200",
+    fontSize: 12,
   },
 });

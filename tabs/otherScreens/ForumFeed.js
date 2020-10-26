@@ -6,6 +6,7 @@ import { homeFeed } from "../otherScreens/PostClasses/DummyPosts";
 import NewPost from "../otherScreens/NewPost";
 import { TouchableOpacity } from "react-native-gesture-handler";
 var thisFeed = homeFeed;
+
 export default function ForumFeed({ navigation, route }) {
   React.useEffect(() => {
     if (route.params?.posted) {
