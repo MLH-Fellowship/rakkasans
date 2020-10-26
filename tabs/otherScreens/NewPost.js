@@ -19,9 +19,20 @@ export default function NewPost({ navigation }) {
   const userEmail = Firebase.auth().currentUser.email;
 
   const handleSubmit = () => {
-    homeFeed.unshift({ user: userName, username: userEmail, content: post });
+    const date = new Date().toUTCString();
+    homeFeed.unshift({
+      user: userName,
+      username: userEmail,
+      content: post,
+      date: date,
+    });
     navigation.navigate("Forums", {
-      posted: { user: userName, username: userEmail, content: post },
+      posted: {
+        user: userName,
+        username: userEmail,
+        content: post,
+        date: date,
+      },
     });
     alert(`Submitting Post ${post}`);
   };
