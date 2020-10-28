@@ -73,7 +73,7 @@ export default function HubTab() {
           text="Forums"
           buttonSize={75}
           textSize={11}
-          onPress={() => navigation.navigate("Forum Topics")}
+          onPress={() => navigation.navigate("Topics")}
         />
       </View>
       <View style={[styles.buttonView, { paddingBottom: 25 }]}>
