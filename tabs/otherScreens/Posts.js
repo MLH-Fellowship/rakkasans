@@ -1,28 +1,37 @@
 import React, { useState, useEffect } from "react";
-import { TouchableHighlight, FlatList, StyleSheet, Text, View } from "react-native";
+import {
+  TouchableHighlight,
+  FlatList,
+  StyleSheet,
+  Text,
+  View,
+} from "react-native";
+import moment from "moment";
 import { useNavigation } from "@react-navigation/native";
 
 export default function Posts({ route, navigation }) {
-  const topic_id = route.params.topic_id
+  const topic_id = route.params.topic_id;
 
   const [posts, setPosts] = useState([]);
   useEffect(() => {
     const getTopics = async () => {
       try {
-        const response = await fetch(`http://localhost:3000/topics/${topic_id}/posts`)
+        const response = await fetch(
+          `http://localhost:3000/topics/${topic_id}/posts`
+        );
         const json = await response.json();
         setPosts(json);
       } catch (error) {
         console.log(error);
       }
-    }
+    };
 
     getTopics();
-  }, [])
+  }, []);
 
   const _handleOnPress = (post) => {
-    navigation.navigate("Comments", { post })
-  }
+    navigation.navigate("Comments", { post });
+  };
 
   return (
     <View style={styles.container}>
@@ -30,12 +39,19 @@ export default function Posts({ route, navigation }) {
         data={posts}
         keyExtractor={(item) => item.id}
         renderItem={({ item }) => (
-          <TouchableHighlight style={styles.item} onPress={() => {
-            _handleOnPress(item)
-          }}>
+          <TouchableHighlight
+            style={styles.item}
+            onPress={() => {
+              _handleOnPress(item);
+            }}
+          >
             <View>
               <Text style={styles.title}>{item.title}</Text>
               <Text>{item.body}</Text>
+              <Text>{item.first_name + " " + item.last_name}</Text>
+              <Text>
+                {moment(item.created_at).format("Do MMM YY, HH:mm:ss")}
+              </Text>
             </View>
           </TouchableHighlight>
         )}
@@ -51,12 +67,12 @@ const styles = StyleSheet.create({
     marginHorizontal: 25,
   },
   item: {
-    backgroundColor: '#f9c2ff',
+    backgroundColor: "#f9c2ff",
     padding: 20,
     marginVertical: 8,
     marginHorizontal: 16,
   },
   title: {
-    fontSize: 24
-  }
+    fontSize: 24,
+  },
 });
