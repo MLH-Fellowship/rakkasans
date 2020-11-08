@@ -44,10 +44,11 @@ import WelcomeLetterScreen from "./tabs/cmdScreens/WelcomeLetterScreen";
 //other screens
 import WelcomeScreen from "./tabs/otherScreens/WelcomeScreen";
 import NewsScreen from "./tabs/otherScreens/NewsScreen";
-import ChatsHome from "./tabs/otherScreens/ChatsHome";
+import Topics from "./tabs/otherScreens/Topics";
+import Posts from "./tabs/otherScreens/Posts";
 import ChatRoom from "./tabs/otherScreens/ChatRoom";
-import ForumFeed from "./tabs/otherScreens/ForumFeed";
-import NewPost from "./tabs/otherScreens/NewPost";
+import Comments from "./tabs/otherScreens/Comments";
+import NewComment from "./tabs/otherScreens/NewComment";
 import PostDetail from "./tabs/otherScreens/PostDetail";
 import PostReply from "./tabs/otherScreens/PostReply";
 // authentication screens
@@ -97,9 +98,10 @@ function HubStackScreen() {
       <HubStack.Screen name="Call Roster" component={CallRosterScreen} />
       <HubStack.Screen name="Resource" component={ResourcePageScreen} />
       <HubStack.Screen name="Chat Room" component={ChatRoom} />
-      <HubStack.Screen name="Forum Topics" component={ChatsHome} />
-      <HubStack.Screen name="Forums" component={ForumFeed} />
-      <HubStack.Screen name="New Post" component={NewPost} />
+      <HubStack.Screen name="Topics" component={Topics} />
+      <HubStack.Screen name="Posts" component={Posts} />
+      <HubStack.Screen name="Comments" component={Comments} />
+      <HubStack.Screen name="New Comment" component={NewComment} />
       <HubStack.Screen name="Post Detail" component={PostDetail} />
       <HubStack.Screen name="Reply Post" component={PostReply} />
     </HubStack.Navigator>
@@ -238,13 +240,13 @@ function TabBar() {
         headerLeft: null,
         headerBackTitleVisible: false,
       }}
-      /*
-          
-    tabBarOptions={((activeTintColor = Colors.accent),
-    (inactiveTintColor = Colors.lightGray))(
-      (activeBackgroundColor = { Colors }.primary)
-    )}
-    */
+    /*
+        
+  tabBarOptions={((activeTintColor = Colors.accent),
+  (inactiveTintColor = Colors.lightGray))(
+    (activeBackgroundColor = { Colors }.primary)
+  )}
+  */
     >
       <Tab.Screen
         name="News"
@@ -325,8 +327,8 @@ export default function Navigation() {
         component={SplashScreen}
         options={
           ({ title: "SplashScreen" },
-          { headerLeft: null },
-          { headerBackTitleVisible: false })
+            { headerLeft: null },
+            { headerBackTitleVisible: false })
         }
       />
       <Stack.Screen
@@ -334,8 +336,8 @@ export default function Navigation() {
         component={Login}
         options={
           ({ title: "Login" },
-          { headerLeft: null },
-          { headerBackTitleVisible: false })
+            { headerLeft: null },
+            { headerBackTitleVisible: false })
         }
       />
       <Stack.Screen
@@ -343,8 +345,8 @@ export default function Navigation() {
         component={TabBar}
         options={
           ({ title: "Tab Bar" },
-          { headerLeft: null },
-          { headerBackTitleVisible: false })
+            { headerLeft: null },
+            { headerBackTitleVisible: false })
         }
       />
     </Stack.Navigator>

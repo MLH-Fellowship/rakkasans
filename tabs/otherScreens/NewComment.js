@@ -14,11 +14,14 @@ import { useNavigation } from "@react-navigation/native";
 
 const { width, height } = Dimensions.window;
 
-export default function NewPost({ route }) {
+export default function NewComment({ route }) {
   const navigation = useNavigation();
   const { parent_id, post_id } = route.params;
 
-  const [post, setPost] = useState("");
+  const [comment, setComment] = useState("");
+  const userName = Firebase.auth().currentUser.displayName;
+  const userEmail = Firebase.auth().currentUser.email;
+
   const handleSubmit = async () => {
     try {
       const response = await fetch(`http://localhost:3000/posts/${post_id}/comments`, {
@@ -28,7 +31,7 @@ export default function NewPost({ route }) {
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-          content: post,
+          content: comment,
           user_id: 1,
           parent_id
         })
@@ -48,8 +51,8 @@ export default function NewPost({ route }) {
         placeholderTextColor={Colors.gray}
         autoCorrect={false}
         autoCapitalize="none"
-        value={post}
-        onChangeText={(val) => setPost(val)}
+        value={comment}
+        onChangeText={(val) => setComment(val)}
         maxLength={300}
       />
 
