@@ -33,17 +33,6 @@ export default function Posts({ route, navigation }) {
     navigation.navigate("Comments", { post });
   };
 
-  const getUserDetails = async (id) => {
-    try {
-      const response = await fetch(`http://localhost:3000/users/${id}`);
-      const json = await response.json();
-      let user = json.first_name.toString() + " " + json.last_name.toString();
-      return user;
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
   return (
     <View style={styles.container}>
       <FlatList
@@ -59,7 +48,7 @@ export default function Posts({ route, navigation }) {
             <View>
               <Text style={styles.title}>{item.title}</Text>
               <Text>{item.body}</Text>
-              <Text>{getUserDetails(item.user_id).toString()}</Text>
+              <Text>{item.first_name + " " + item.last_name}</Text>
               <Text>
                 {moment(item.created_at).format("Do MMM YY, HH:mm:ss")}
               </Text>
