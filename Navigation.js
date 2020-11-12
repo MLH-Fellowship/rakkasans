@@ -46,6 +46,7 @@ import WelcomeScreen from "./tabs/otherScreens/WelcomeScreen";
 import NewsScreen from "./tabs/otherScreens/NewsScreen";
 import Topics from "./tabs/otherScreens/Topics";
 import Posts from "./tabs/otherScreens/Posts";
+import NewPost from "./tabs/otherScreens/NewPost";
 import ChatRoom from "./tabs/otherScreens/ChatRoom";
 import Comments from "./tabs/otherScreens/Comments";
 import NewComment from "./tabs/otherScreens/NewComment";
@@ -100,6 +101,7 @@ function HubStackScreen() {
       <HubStack.Screen name="Chat Room" component={ChatRoom} />
       <HubStack.Screen name="Topics" component={Topics} />
       <HubStack.Screen name="Posts" component={Posts} />
+      <HubStack.Screen name="New Post" component={NewPost} />
       <HubStack.Screen name="Comments" component={Comments} />
       <HubStack.Screen name="New Comment" component={NewComment} />
       <HubStack.Screen name="Post Detail" component={PostDetail} />

@@ -40,7 +40,7 @@ export default function Topics({ navigation }) {
           <View style={styles.buttonView}>
             <RectButton
               text={item.title}
-              onPress={() => navigation.navigate("Posts", { topic_id: item.id })}
+              onPress={() => navigation.navigate("Posts", { topic_id: item.id, topic_title: item.title })}
             />
           </View>
         )}
