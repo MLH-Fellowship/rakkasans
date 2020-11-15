@@ -7,10 +7,15 @@ import {
   View,
 } from "react-native";
 import moment from "moment";
-import { useNavigation } from "@react-navigation/native";
+import Colors from "../../constants/Colors";
+import { useIsFocused } from "@react-navigation/native";
+import RectButton from '../../components/RectButton';
 
 export default function Posts({ route, navigation }) {
   const topic_id = route.params.topic_id;
+
+  const topic_title = route.params.topic_title
+  const isFocused = useIsFocused();
 
   const [posts, setPosts] = useState([]);
   useEffect(() => {
@@ -27,7 +32,7 @@ export default function Posts({ route, navigation }) {
     };
 
     getTopics();
-  }, []);
+  }, [isFocused])
 
   const _handleOnPress = (post) => {
     navigation.navigate("Comments", { post });
@@ -35,6 +40,15 @@ export default function Posts({ route, navigation }) {
 
   return (
     <View style={styles.container}>
+      <RectButton
+        text="Submit New Post"
+        onPress={() =>
+          navigation.navigate(
+            "New Post",
+            { topic_id: topic_id, topic_title: topic_title }
+          )
+        }
+      />
       <FlatList
         data={posts}
         keyExtractor={(item) => item.id}
@@ -47,11 +61,7 @@ export default function Posts({ route, navigation }) {
           >
             <View>
               <Text style={styles.title}>{item.title}</Text>
-              <Text>{item.body}</Text>
-              <Text>{item.first_name + " " + item.last_name}</Text>
-              <Text>
-                {moment(item.created_at).format("Do MMM YY, HH:mm:ss")}
-              </Text>
+              <Text style={styles.postInfo}>{item.first_name + " " + item.last_name} | {moment(item.created_at).format("Do MMM YY, HH:mm:ss")}</Text>
             </View>
           </TouchableHighlight>
         )}
@@ -64,15 +74,38 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: "center",
-    marginHorizontal: 25,
+    marginHorizontal: 10
   },
   item: {
-    backgroundColor: "#f9c2ff",
-    padding: 20,
-    marginVertical: 8,
     marginHorizontal: 16,
+    borderBottomColor: 'black',
+    borderBottomWidth: 1,
+    paddingVertical: 10
   },
   title: {
-    fontSize: 24,
+    fontSize: 22,
+    fontWeight: '500'
   },
+  button: {
+    backgroundColor: Colors.primary,
+    height: 65,
+    marginHorizontal: 30,
+    borderRadius: 35,
+    alignItems: "center",
+    justifyContent: "center",
+    marginVertical: 5,
+    shadowOffset: { width: 2, height: 2 },
+    shadowColor: "black",
+    shadowOpacity: 0.2,
+    marginTop: 10,
+  },
+  buttonText: {
+    color: "white",
+    fontSize: 20,
+    fontWeight: "bold",
+    fontFamily: "fira-sans",
+  },
+  postInfo: {
+    color: "grey"
+  }
 });
