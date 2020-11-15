@@ -3,7 +3,7 @@ import { ListItem, Thumbnail, Text, Body } from "native-base";
 import { ScrollView, StyleSheet, View } from "react-native";
 import { NavigationEvents } from "react-navigation";
 
-import SinglePost from "../../components/SinglePost";
+import Comment from "../../components/Comment";
 import RectButton from "../../components/RectButton";
 import { replyThread } from "../otherScreens/PostClasses/ReplyThread";
 import { useIsFocused } from "@react-navigation/native";
@@ -15,7 +15,7 @@ export default function PostDetail({ navigation, route }) {
   const forceUpdate = React.useCallback(() => updateState({}), []);
   return (
     <ScrollView style={styles.container}>
-      <SinglePost data={route.params.data} />
+      <Comment data={route.params.data} />
 
       <View style={styles.buttonView}>
         <RectButton
@@ -28,7 +28,7 @@ export default function PostDetail({ navigation, route }) {
 
       <View>
         {thisThread.map((i) => (
-          <SinglePost data={i} />
+          <Comment data={i} />
         ))}
       </View>
     </ScrollView>

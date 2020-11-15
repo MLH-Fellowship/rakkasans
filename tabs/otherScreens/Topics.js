@@ -35,7 +35,7 @@ export default function Topics({ navigation }) {
       </View>
       <FlatList
         data={topics}
-        keyExtractor={(item) => item.id}
+        keyExtractor={(item) => item.id.toString()}
         renderItem={({ item }) => (
           <View style={styles.buttonView}>
             <RectButton

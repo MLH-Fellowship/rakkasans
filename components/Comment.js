@@ -4,7 +4,7 @@ import Thread from "./Thread";
 import moment from 'moment';
 import { useNavigation } from "@react-navigation/native";
 
-export default function SinglePost({ comment, post, children = null }) {
+export default function Comment({ comment, post, children = null }) {
   const navigation = useNavigation();
   let { first_name, last_name, content, created_at, id } = comment;
 
@@ -53,6 +53,7 @@ const styles = StyleSheet.create({
   name: {
     fontWeight: "800",
     fontSize: 12,
+    marginRight: 5
   },
   username: {
     fontWeight: "200",
