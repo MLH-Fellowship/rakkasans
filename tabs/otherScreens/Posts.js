@@ -40,6 +40,9 @@ export default function Posts({ route, navigation }) {
 
   return (
     <View style={styles.container}>
+      <View>
+        <Text style={styles.topicTitle}>{topic_title}</Text>
+      </View>
       <RectButton
         text="Submit New Post"
         onPress={() =>
@@ -49,9 +52,6 @@ export default function Posts({ route, navigation }) {
           )
         }
       />
-      <View>
-        <Text style={styles.topicTitle}>{topic_title}</Text>
-      </View>
       <FlatList
         data={posts}
         keyExtractor={(item) => item.id.toString()}
