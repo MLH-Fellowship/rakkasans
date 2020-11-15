@@ -12,7 +12,7 @@ import {
 import Dimensions from "../../constants/Dimensions";
 import Colors from "../../constants/Colors";
 import { BaseRouter } from "@react-navigation/native";
-import SinglePost from "../../components/SinglePost";
+import Comment from "../../components/Comment";
 import { replyThread } from "../otherScreens/PostClasses/ReplyThread";
 
 const { width, height } = Dimensions.window;
@@ -32,7 +32,7 @@ export default function PostReply({ navigation, route }) {
   };
   return (
     <View>
-      <SinglePost data={route.params.post} />
+      <Comment data={route.params.post} />
       <TextInput
         placeholder="Enter Awesome Reply"
         style={styles.textInput}

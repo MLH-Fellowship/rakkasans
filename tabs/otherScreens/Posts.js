@@ -13,8 +13,8 @@ import RectButton from '../../components/RectButton';
 
 export default function Posts({ route, navigation }) {
   const topic_id = route.params.topic_id;
+  const topic_title = route.params.topic_title;
 
-  const topic_title = route.params.topic_title
   const isFocused = useIsFocused();
 
   const [posts, setPosts] = useState([]);
@@ -49,9 +49,12 @@ export default function Posts({ route, navigation }) {
           )
         }
       />
+      <View>
+        <Text style={styles.topicTitle}>{topic_title}</Text>
+      </View>
       <FlatList
         data={posts}
-        keyExtractor={(item) => item.id}
+        keyExtractor={(item) => item.id.toString()}
         renderItem={({ item }) => (
           <TouchableHighlight
             style={styles.item}
@@ -107,5 +110,12 @@ const styles = StyleSheet.create({
   },
   postInfo: {
     color: "grey"
+  },
+  topicTitle: {
+    fontSize: 30,
+    fontWeight: '700',
+    marginTop: 20,
+    marginBottom: 20,
+    textAlign: "center"
   }
 });

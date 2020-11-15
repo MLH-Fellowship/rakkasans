@@ -83,7 +83,7 @@ export default function Comments({ route, navigation }) {
       { post && (
         <View >
           <View style={styles.nameContainer}>
-            {/* <Text style={styles.name}>{first_name} {last_name}</Text> */}
+            <Text style={styles.name}>{post.first_name} {post.last_name}</Text>
             <Text style={styles.date}>{moment(post.created_at).fromNow()}</Text>
           </View>
           <View>
@@ -118,5 +118,10 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 24
+  },
+  name: {
+    fontWeight: "800",
+    fontSize: 12,
+    marginRight: 5
   }
 });

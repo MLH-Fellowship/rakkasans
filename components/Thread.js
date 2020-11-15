@@ -1,6 +1,6 @@
 import React from "react";
 import { View, StyleSheet } from "react-native";
-import SinglePost from "./SinglePost";
+import Comment from "./Comment";
 
 const Thread = ({ comments, post }) => {
 
@@ -8,7 +8,7 @@ const Thread = ({ comments, post }) => {
     const parents = [];
     for (const postId in entries) {
       parents.push(
-        <SinglePost
+        <Comment
           key={postId}
           comment={entries[postId].content}
           children={entries[postId].children}
