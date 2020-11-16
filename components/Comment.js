@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { TouchableHighlight, View, StyleSheet, Text } from "react-native";
+import { TouchableHighlight, View, StyleSheet, Text, Image } from "react-native";
 import Thread from "./Thread";
 import moment from 'moment';
 import { useNavigation } from "@react-navigation/native";
@@ -33,6 +33,8 @@ export default function Comment({ comment, post, children = null }) {
         onPress={() => setRepliesShown(!repliesShown)}>
       <View>
         <View style={styles.nameContainer}>
+          {Object.keys(children).length > 0 && repliesShown && <Image source={require('../assets/images/less_ic.png')} style={{height: 18, width: 18}} />}
+          {Object.keys(children).length > 0 && !repliesShown && <Image source={require('../assets/images/more_ic.png')} style={{height: 18, width: 18}} />}
           <Text style={styles.name}>{first_name} {last_name}</Text>
           <Text style={styles.date}>{moment(created_at).fromNow()}</Text>
         </View>
