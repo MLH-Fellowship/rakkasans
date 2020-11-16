@@ -1,5 +1,5 @@
-import React from "react";
-import { View, StyleSheet, Text } from "react-native";
+import React, { useState } from "react";
+import { TouchableHighlight, View, StyleSheet, Text, Image } from "react-native";
 import Thread from "./Thread";
 import moment from 'moment';
 import { useNavigation } from "@react-navigation/native";
@@ -7,6 +7,8 @@ import { useNavigation } from "@react-navigation/native";
 export default function Comment({ comment, post, children = null }) {
   const navigation = useNavigation();
   let { first_name, last_name, content, created_at, id } = comment;
+
+  const [repliesShown, setRepliesShown] = useState(false);
 
   const renderChildren = (responses) => {
     if (responses) {
@@ -24,18 +26,27 @@ export default function Comment({ comment, post, children = null }) {
   }
 
   return (
-    <View >
-      <View style={styles.nameContainer}>
-        <Text style={styles.name}>{first_name} {last_name}</Text>
-        <Text style={styles.date}>{moment(created_at).fromNow()}</Text>
-      </View>
-      <Text style={styles.content}>{content}</Text>
+    <View>
+      <TouchableHighlight
+        activeOpacity={0.6}
+        underlayColor="#CFCFCF"
+        onPress={() => setRepliesShown(!repliesShown)}>
       <View>
-        <Text onPress={_handlePress}>Reply</Text>
+        <View style={styles.nameContainer}>
+          {Object.keys(children).length > 0 && repliesShown && <Image source={require('../assets/images/less_ic.png')} style={{height: 18, width: 18}} />}
+          {Object.keys(children).length > 0 && !repliesShown && <Image source={require('../assets/images/more_ic.png')} style={{height: 18, width: 18}} />}
+          <Text style={styles.name}>{first_name} {last_name}</Text>
+          <Text style={styles.date}>{moment(created_at).fromNow()}</Text>
+        </View>
+        <Text style={styles.content}>{content}</Text>
+        <View>
+          <Text onPress={_handlePress}>Reply</Text>
+        </View>
       </View>
+      </TouchableHighlight>
 
       <View style={styles.container}>
-        {renderChildren(children)}
+        {repliesShown && renderChildren(children)}
       </View>
     </View>
   );
