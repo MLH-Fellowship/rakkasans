@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import Thread from "../../components/Thread";
 import { useFocusEffect } from '@react-navigation/native';
 import moment from 'moment';
+import { AntDesign } from '@expo/vector-icons'; 
 
 export default function Comments({ route, navigation }) {
   const { post } = route.params
@@ -81,17 +82,17 @@ export default function Comments({ route, navigation }) {
   return (
     <ScrollView style={styles.container}>
       { post && (
-        <View >
+        <View style={styles.padding}>
           <View style={styles.nameContainer}>
             <Text style={styles.name}>{post.first_name} {post.last_name}</Text>
             <Text style={styles.date}>{moment(post.created_at).fromNow()}</Text>
           </View>
           <View>
             <Text style={styles.title}>{post.title}</Text>
-            <Text>{post.body}</Text>
+            <Text style={styles.post}>{post.body}</Text>
           </View>
-          <View>
-            <Text onPress={_handlePress}>Reply</Text>
+          <View style={styles.borderContainer}>
+            <Text style={styles.reply} onPress={_handlePress}><AntDesign name="plussquareo" size={16} color="black" /> Reply</Text>
           </View>
         </View>
       )}
@@ -103,25 +104,42 @@ export default function Comments({ route, navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginHorizontal: 15,
+    marginHorizontal: 5
   },
   date: {
     fontWeight: "200",
     fontSize: 12,
+    color: "#474747"
   },
   nameContainer: {
     flex: 1,
     flexDirection: "row",
+    paddingTop: 20
   },
   buttonView: {
-    width: "100%",
+    width: "100%"
   },
   title: {
-    fontSize: 24
+    fontSize: 24,
+    paddingBottom: 10
   },
   name: {
-    fontWeight: "800",
+    fontWeight: "500",
     fontSize: 12,
-    marginRight: 5
+    marginRight: 5,
+    color: "#474747"
+  },
+  post: {
+    paddingBottom: 15
+  },
+  borderContainer: {
+    borderBottomColor: "#939393",
+    borderBottomWidth: .5
+  },
+  reply: {
+    paddingBottom: 10
+  },
+  padding: {
+    paddingHorizontal: 10
   }
 });
