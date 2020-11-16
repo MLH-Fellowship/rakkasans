@@ -9,7 +9,8 @@ import {
 import moment from "moment";
 import Colors from "../../constants/Colors";
 import { useIsFocused } from "@react-navigation/native";
-import RectButton from '../../components/RectButton';
+import Post from "../../components/Post";
+import Button from "react-native-button";
 
 export default function Posts({ route, navigation }) {
   const topic_id = route.params.topic_id;
@@ -32,7 +33,7 @@ export default function Posts({ route, navigation }) {
     };
 
     getTopics();
-  }, [isFocused])
+  }, [isFocused]);
 
   const _handleOnPress = (post) => {
     navigation.navigate("Comments", { post });
@@ -43,15 +44,6 @@ export default function Posts({ route, navigation }) {
       <View>
         <Text style={styles.topicTitle}>{topic_title}</Text>
       </View>
-      <RectButton
-        text="Submit New Post"
-        onPress={() =>
-          navigation.navigate(
-            "New Post",
-            { topic_id: topic_id, topic_title: topic_title }
-          )
-        }
-      />
       <FlatList
         data={posts}
         keyExtractor={(item) => item.id.toString()}
@@ -63,12 +55,42 @@ export default function Posts({ route, navigation }) {
             }}
           >
             <View>
-              <Text style={styles.title}>{item.title}</Text>
-              <Text style={styles.postInfo}>{item.first_name + " " + item.last_name} | {moment(item.created_at).format("Do MMM YY, HH:mm:ss")}</Text>
+              <Post
+                username={item.first_name + " " + item.last_name}
+                title={item.title}
+                content={item.body}
+                date={moment(item.created_at).format("Do MMM YY, HH:mm:ss")}
+              />
             </View>
           </TouchableHighlight>
         )}
       />
+      <View style={{ width: "80%", marginBottom: 5 }}>
+        <Button
+          containerStyle={{
+            padding: 10,
+            height: 45,
+            overflow: "hidden",
+            borderRadius: 20,
+            backgroundColor: Colors.primary,
+          }}
+          disabledContainerStyle={{ backgroundColor: "grey" }}
+          style={{
+            color: "white",
+            fontSize: 20,
+            fontWeight: "bold",
+            fontFamily: "fira-sans",
+          }}
+          onPress={() =>
+            navigation.navigate("New Post", {
+              topic_id: topic_id,
+              topic_title: topic_title,
+            })
+          }
+        >
+          Submit New Post
+        </Button>
+      </View>
     </View>
   );
 }
@@ -76,46 +98,15 @@ export default function Posts({ route, navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "center",
-    marginHorizontal: 10
-  },
-  item: {
-    marginHorizontal: 16,
-    borderBottomColor: 'black',
-    borderBottomWidth: 1,
-    paddingVertical: 10
-  },
-  title: {
-    fontSize: 22,
-    fontWeight: '500'
-  },
-  button: {
-    backgroundColor: Colors.primary,
-    height: 65,
-    marginHorizontal: 30,
-    borderRadius: 35,
+    backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "center",
-    marginVertical: 5,
-    shadowOffset: { width: 2, height: 2 },
-    shadowColor: "black",
-    shadowOpacity: 0.2,
-    marginTop: 10,
-  },
-  buttonText: {
-    color: "white",
-    fontSize: 20,
-    fontWeight: "bold",
-    fontFamily: "fira-sans",
-  },
-  postInfo: {
-    color: "grey"
   },
   topicTitle: {
     fontSize: 30,
-    fontWeight: '700',
+    fontWeight: "700",
     marginTop: 20,
     marginBottom: 20,
-    textAlign: "center"
-  }
+    textAlign: "center",
+  },
 });
