@@ -26,9 +26,9 @@ const Post = ({ username, title, content, date }) => {
           />
         </TouchableOpacity>
         <View style={{ flex: 1, textAlign: "center" }}>
-          <Text>{username}</Text>
+          <Text style={styles.username}>{username}</Text>
         </View>
-        <TouchableOpacity
+        {/* <TouchableOpacity
           onPress={() => {
             alert("question icon");
           }}
@@ -39,14 +39,15 @@ const Post = ({ username, title, content, date }) => {
             color="#5D669A"
             style={{ paddingHorizontal: 10, paddingVertical: 10 }}
           />
-        </TouchableOpacity>
+        </TouchableOpacity> */}
       </View>
       <View style={styles.content}>
-        <Text style={{ fontSize: 18, fontWeight: "600" }}>{title}</Text>
-        <Text style={{ fontSize: 12 }}>{content}</Text>
+        <Text style={styles.title}>{title}</Text>
+        <Text style={styles.content_text}>{content}</Text>
+        <Text style={styles.date}>{date}</Text>
       </View>
       <View style={styles.footer}>
-        <View
+        {/* <View
           style={{
             flex: 1.5,
             flexDirection: "row",
@@ -67,8 +68,8 @@ const Post = ({ username, title, content, date }) => {
             />
           </TouchableOpacity>
           <Text>255</Text>
-        </View>
-        <TouchableOpacity
+        </View> */}
+        {/* <TouchableOpacity
           style={{
             flex: 1,
             textAlign: "center",
@@ -76,8 +77,8 @@ const Post = ({ username, title, content, date }) => {
           onPress={() => alert("comment icon")}
         >
           <FontIcon name="commenting-o" size={24} color="black" />
-        </TouchableOpacity>
-        <TouchableOpacity
+        </TouchableOpacity> */}
+        {/* <TouchableOpacity
           style={{
             flex: 1,
             textAlign: "center",
@@ -94,7 +95,7 @@ const Post = ({ username, title, content, date }) => {
           onPress={() => alert("more icon")}
         >
           <FIcon name="more-horizontal" size={24} color="black" />
-        </TouchableOpacity>
+        </TouchableOpacity> */}
       </View>
     </View>
   );
@@ -125,5 +126,23 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     backgroundColor: "#EFEFEF",
     paddingVertical: 10,
+  },
+  username: {
+    fontSize: 20,
+  },
+  title: {
+    fontSize: 22,
+    fontWeight: "600",
+    paddingVertical: 3,
+  },
+  content_text: {
+    fontSize: 16,
+    marginTop: 10,
+  },
+  date: {
+    fontSize: 14,
+    color: "dimgray",
+    textAlign: "right",
+    marginTop: 15,
   },
 });
