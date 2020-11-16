@@ -3,7 +3,7 @@ import { TouchableHighlight, View, StyleSheet, Text, Image } from "react-native"
 import Thread from "./Thread";
 import moment from 'moment';
 import { useNavigation } from "@react-navigation/native";
-import { AntDesign } from '@expo/vector-icons';
+import { AntDesign, FontAwesome as FontIcon } from '@expo/vector-icons';
 
 export default function Comment({ comment, post, children = null }) {
   const navigation = useNavigation();
@@ -49,18 +49,24 @@ export default function Comment({ comment, post, children = null }) {
   }
 
   return (
-    <View>
+    <View style={styles.container}>
       <TouchableHighlight
         activeOpacity={0.6}
         underlayColor="#CFCFCF"
         onPress={() => setRepliesShown(!repliesShown)}>
-      <View style={styles.commentContainer}>
+      <View style={styles.box}>
         <View style={styles.nameContainer}>
+          <FontIcon
+            name="user"
+            size={24}
+            color="#5D669A"
+            style={{ marginRight: 10, paddingVertical: 10 }}
+          />
           <Text style={styles.name}>{first_name} {last_name}</Text>
           <Text style={styles.date}>{moment(created_at).fromNow()}</Text>
         </View>
         <Text style={styles.content}>{content}</Text>
-        <View style={styles.nameContainer}>
+        <View style={styles.repliesContainer}>
           <Text onPress={_handlePress}><AntDesign name="plussquareo" size={16} color="black" /> Reply</Text>
           {_hasReplies() && <Text style={{marginLeft: 8, marginRight: 8}}>|</Text>}
           {_hasReplies() && <ToggleRepliesComponent/>}
@@ -68,7 +74,7 @@ export default function Comment({ comment, post, children = null }) {
       </View>
       </TouchableHighlight>
 
-      <View style={styles.container}>
+      <View>
         {repliesShown && renderChildren(children)}
       </View>
     </View>
@@ -77,33 +83,34 @@ export default function Comment({ comment, post, children = null }) {
 
 const styles = StyleSheet.create({
   container: {
-    borderLeftWidth: 1,
-    borderLeftColor: "black"
+    borderColor: "#D1D1D1",
+    borderWidth: 1,
+    marginVertical: 10
+  },
+  box: {
+    marginLeft: 10
   },
   nameContainer: {
     flex: 1,
     flexDirection: "row",
-    paddingTop: 2,
-    alignContent: "center"
+    alignItems: "center"
+  },
+  repliesContainer: {
+    flex: 1,
+    flexDirection: "row",
+    alignItems: "center",
+    marginBottom: 5
   },
   name: {
-    fontWeight: "800",
-    fontSize: 12,
+    fontSize: 16,
     marginRight: 5
   },
-  username: {
+  date: {
     fontWeight: "200",
-    fontSize: 12,
+    fontSize: 16,
   },
   content: {
     fontSize: 16,
     paddingBottom: 10
-  },
-  date: {
-    fontWeight: "200",
-    fontSize: 12,
-  },
-  commentContainer:{
-    marginVertical: 5
   }
 });
