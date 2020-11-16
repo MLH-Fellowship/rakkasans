@@ -19,11 +19,33 @@ export default function Comment({ comment, post, children = null }) {
     }
   }
 
+  const _hasReplies = () => {
+    return Object.keys(children).length > 0
+  }
+
   const _handlePress = () => {
     navigation.navigate("New Comment", {
       parent_id: id,
       post_id: post.id
     });
+  }
+
+  const ToggleRepliesComponent = () => {
+    if (repliesShown){
+      return (
+        <View style={styles.nameContainer}>
+          <Text style={{ alignItems: 'center', justifyContent: 'center' }}>Hide replies</Text>
+          <Image source={require('../assets/images/less_ic.png')} style={{height: 18, width: 18}}/>
+        </View>
+      )
+    } else {
+      return (
+        <View style={styles.nameContainer}>
+          <Text>Show replies</Text>
+          <Image source={require('../assets/images/more_ic.png')} style={{height: 18, width: 18}} />
+        </View>
+      )
+    }
   }
 
   return (
@@ -34,14 +56,14 @@ export default function Comment({ comment, post, children = null }) {
         onPress={() => setRepliesShown(!repliesShown)}>
       <View style={styles.commentContainer}>
         <View style={styles.nameContainer}>
-          {Object.keys(children).length > 0 && repliesShown && <Image source={require('../assets/images/less_ic.png')} style={{height: 18, width: 18}} />}
-          {Object.keys(children).length > 0 && !repliesShown && <Image source={require('../assets/images/more_ic.png')} style={{height: 18, width: 18}} />}
           <Text style={styles.name}>{first_name} {last_name}</Text>
           <Text style={styles.date}>{moment(created_at).fromNow()}</Text>
         </View>
         <Text style={styles.content}>{content}</Text>
-        <View>
+        <View style={styles.nameContainer}>
           <Text onPress={_handlePress}><AntDesign name="plussquareo" size={16} color="black" /> Reply</Text>
+          {_hasReplies() && <Text style={{marginLeft: 8, marginRight: 8}}>|</Text>}
+          {_hasReplies() && <ToggleRepliesComponent/>}
         </View>
       </View>
       </TouchableHighlight>
@@ -61,7 +83,8 @@ const styles = StyleSheet.create({
   nameContainer: {
     flex: 1,
     flexDirection: "row",
-    paddingTop: 2
+    paddingTop: 2,
+    alignContent: "center"
   },
   name: {
     fontWeight: "800",
