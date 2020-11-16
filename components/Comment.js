@@ -3,6 +3,7 @@ import { TouchableHighlight, View, StyleSheet, Text, Image } from "react-native"
 import Thread from "./Thread";
 import moment from 'moment';
 import { useNavigation } from "@react-navigation/native";
+import { AntDesign } from '@expo/vector-icons';
 
 export default function Comment({ comment, post, children = null }) {
   const navigation = useNavigation();
@@ -31,7 +32,7 @@ export default function Comment({ comment, post, children = null }) {
         activeOpacity={0.6}
         underlayColor="#CFCFCF"
         onPress={() => setRepliesShown(!repliesShown)}>
-      <View>
+      <View style={styles.commentContainer}>
         <View style={styles.nameContainer}>
           {Object.keys(children).length > 0 && repliesShown && <Image source={require('../assets/images/less_ic.png')} style={{height: 18, width: 18}} />}
           {Object.keys(children).length > 0 && !repliesShown && <Image source={require('../assets/images/more_ic.png')} style={{height: 18, width: 18}} />}
@@ -40,7 +41,7 @@ export default function Comment({ comment, post, children = null }) {
         </View>
         <Text style={styles.content}>{content}</Text>
         <View>
-          <Text onPress={_handlePress}>Reply</Text>
+          <Text onPress={_handlePress}><AntDesign name="plussquareo" size={16} color="black" /> Reply</Text>
         </View>
       </View>
       </TouchableHighlight>
@@ -60,6 +61,7 @@ const styles = StyleSheet.create({
   nameContainer: {
     flex: 1,
     flexDirection: "row",
+    paddingTop: 2
   },
   name: {
     fontWeight: "800",
@@ -72,9 +74,13 @@ const styles = StyleSheet.create({
   },
   content: {
     fontSize: 16,
+    paddingBottom: 10
   },
   date: {
     fontWeight: "200",
     fontSize: 12,
   },
+  commentContainer:{
+    marginVertical: 5
+  }
 });
