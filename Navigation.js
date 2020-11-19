@@ -34,6 +34,7 @@ import BattShopScreen from "./tabs/hubScreens/BattShopScreen";
 import CallRosterScreen from "./tabs/hubScreens/CallRosterScreen";
 import ResourcePageScreen from "./tabs/hubScreens/ResourcePageScreen";
 import SchoolsPageScreen from "./tabs/hubScreens/SchoolsPageScreen";
+import MoH from ""
 
 // cmd screens
 import OffLimitsScreen from "./tabs/cmdScreens/OffLimitsScreen";
@@ -207,6 +208,27 @@ function AccountStackScreen() {
       />
       <AccountStack.Screen name="Log Out" component={LogOut} />
     </AccountStack.Navigator>
+  );
+}
+const HistoryStack = createStackNavigator();
+function HistoryStackScreen() {
+  return (
+    <HistoryStack.Navigator
+      headerMode="float"
+      screenOptions={{
+        headerStyle: {
+          backgroundColor: Colors.primary,
+        },
+        headerTintColor: Colors.white,
+        headerTitleStyle: { fontSize: 25, fontFamily: "fira-sans" },
+      }}
+    >
+      <HistoryStack.Screen
+        name="MoH"
+        component={MoH}
+        options={{ headerLeft: null }}
+      />
+    </HistoryStack.Navigator>
   );
 }
 /*
