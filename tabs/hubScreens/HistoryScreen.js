@@ -28,7 +28,13 @@ export default function HistoryScreen() {
           }}
           icons={true}
         />
-        <RectButton text="Lineage Honors" onPress={() => {}} icons={true} />
+        <RectButton
+          text="Lineage Honors"
+          onPress={() => {
+            navigation.navigate("LineageHonors");
+          }}
+          icons={true}
+        />
         <RectButton text="Fallen Rakkasans" onPress={() => {}} icons={true} />
         <RectButton text="DMOR_HMOR" onPress={() => {}} icons={true} />
         <RectButton text="Division History" onPress={() => {}} icons={true} />

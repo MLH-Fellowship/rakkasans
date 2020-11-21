@@ -35,6 +35,7 @@ import CallRosterScreen from "./tabs/hubScreens/CallRosterScreen";
 import ResourcePageScreen from "./tabs/hubScreens/ResourcePageScreen";
 import SchoolsPageScreen from "./tabs/hubScreens/SchoolsPageScreen";
 import MoH from "./tabs/hubScreens/MoHScreen";
+import LineageHonorsScreen from "./tabs/hubScreens/LineageHonorsScreen"
 
 // cmd screens
 import OffLimitsScreen from "./tabs/cmdScreens/OffLimitsScreen";
@@ -108,6 +109,7 @@ function HubStackScreen() {
       <HubStack.Screen name="Post Detail" component={PostDetail} />
       <HubStack.Screen name="Reply Post" component={PostReply} />
       <HubStack.Screen name="MoH" component={MoH} />
+      <HubStack.Screen name="Lineage Honors" component={LineageHonorsScreen} />
     </HubStack.Navigator>
   );
 }
