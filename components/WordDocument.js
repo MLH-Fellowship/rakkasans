@@ -4,6 +4,8 @@ import { StyleSheet, ScrollView, View } from "react-native";
 import Paragraph from "./Paragraph";
 import Title from "./Title";
 import Subtitle from "./Subtitle";
+import Italicized from "./Italicized"
+import Image from "./Image"
 
 export default function WordDocument({ page }) {
   return (
@@ -14,12 +16,20 @@ export default function WordDocument({ page }) {
             return <Paragraph content={section.content} />;
           }
 
+          if (section.type === "Italicized") {
+            return <Italicized content={section.content} />;
+          }
+
           if (section.type === "Title") {
             return <Title content={section.content} />;
           }
 
           if (section.type === "Subtitle") {
             return <Subtitle content={section.content} />;
+          }
+
+          if (section.type === "Image") {
+            return <Image uri={section.content} />;
           }
         })}
       </View>
