@@ -21,7 +21,13 @@ export default function HistoryScreen() {
       </View>
       <View style={styles.buttonView}>
         <RectButton text="Notable Events" onPress={() => {}} icons={true} />
-        <RectButton text="MoH Recipients" onPress={() => {}} icons={true} />
+        <RectButton
+          text="MoH Recipients"
+          onPress={() => {
+            navigation.navigate("MoH");
+          }}
+          icons={true}
+        />
         <RectButton text="Lineage Honors" onPress={() => {}} icons={true} />
         <RectButton text="Fallen Rakkasans" onPress={() => {}} icons={true} />
         <RectButton text="DMOR_HMOR" onPress={() => {}} icons={true} />

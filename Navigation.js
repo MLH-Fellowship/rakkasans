@@ -34,7 +34,7 @@ import BattShopScreen from "./tabs/hubScreens/BattShopScreen";
 import CallRosterScreen from "./tabs/hubScreens/CallRosterScreen";
 import ResourcePageScreen from "./tabs/hubScreens/ResourcePageScreen";
 import SchoolsPageScreen from "./tabs/hubScreens/SchoolsPageScreen";
-import MoH from ""
+import MoH from "./tabs/hubScreens/MoHScreen";
 
 // cmd screens
 import OffLimitsScreen from "./tabs/cmdScreens/OffLimitsScreen";
@@ -107,6 +107,7 @@ function HubStackScreen() {
       <HubStack.Screen name="New Comment" component={NewComment} />
       <HubStack.Screen name="Post Detail" component={PostDetail} />
       <HubStack.Screen name="Reply Post" component={PostReply} />
+      <HubStack.Screen name="MoH" component={MoH} />
     </HubStack.Navigator>
   );
 }
@@ -210,27 +211,6 @@ function AccountStackScreen() {
     </AccountStack.Navigator>
   );
 }
-const HistoryStack = createStackNavigator();
-function HistoryStackScreen() {
-  return (
-    <HistoryStack.Navigator
-      headerMode="float"
-      screenOptions={{
-        headerStyle: {
-          backgroundColor: Colors.primary,
-        },
-        headerTintColor: Colors.white,
-        headerTitleStyle: { fontSize: 25, fontFamily: "fira-sans" },
-      }}
-    >
-      <HistoryStack.Screen
-        name="MoH"
-        component={MoH}
-        options={{ headerLeft: null }}
-      />
-    </HistoryStack.Navigator>
-  );
-}
 /*
 const AuthStack = createStackNavigator();
 function AuthStackScreen() {
@@ -264,7 +244,7 @@ function TabBar() {
         headerLeft: null,
         headerBackTitleVisible: false,
       }}
-    /*
+      /*
         
   tabBarOptions={((activeTintColor = Colors.accent),
   (inactiveTintColor = Colors.lightGray))(
@@ -351,8 +331,8 @@ export default function Navigation() {
         component={SplashScreen}
         options={
           ({ title: "SplashScreen" },
-            { headerLeft: null },
-            { headerBackTitleVisible: false })
+          { headerLeft: null },
+          { headerBackTitleVisible: false })
         }
       />
       <Stack.Screen
@@ -360,8 +340,8 @@ export default function Navigation() {
         component={Login}
         options={
           ({ title: "Login" },
-            { headerLeft: null },
-            { headerBackTitleVisible: false })
+          { headerLeft: null },
+          { headerBackTitleVisible: false })
         }
       />
       <Stack.Screen
@@ -369,8 +349,8 @@ export default function Navigation() {
         component={TabBar}
         options={
           ({ title: "Tab Bar" },
-            { headerLeft: null },
-            { headerBackTitleVisible: false })
+          { headerLeft: null },
+          { headerBackTitleVisible: false })
         }
       />
     </Stack.Navigator>
