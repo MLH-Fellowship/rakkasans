@@ -20,7 +20,13 @@ export default function HistoryScreen() {
         />
       </View>
       <View style={styles.buttonView}>
-        <RectButton text="Notable Events" onPress={() => {}} icons={true} />
+        <RectButton
+          text="Notable Events"
+          onPress={() => {
+            navigation.navigate("Notable Events");
+          }}
+          icons={true}
+        />
         <RectButton
           text="MoH Recipients"
           onPress={() => {
@@ -31,7 +37,7 @@ export default function HistoryScreen() {
         <RectButton
           text="Lineage Honors"
           onPress={() => {
-            navigation.navigate("LineageHonors");
+            navigation.navigate("Lineage Honors");
           }}
           icons={true}
         />
