@@ -4,8 +4,9 @@ import { StyleSheet, ScrollView, View } from "react-native";
 import Paragraph from "./Paragraph";
 import Title from "./Title";
 import Subtitle from "./Subtitle";
-import Italicized from "./Italicized"
-import Image from "./Image"
+import Italicized from "./Italicized";
+import Image from "./Image";
+import FallenList from "./FallenList";
 
 export default function WordDocument({ page }) {
   return (
@@ -30,6 +31,10 @@ export default function WordDocument({ page }) {
 
           if (section.type === "Image") {
             return <Image uri={section.content} />;
+          }
+
+          if (section.type === "FallenList") {
+            return <FallenList content={section.content} />;
           }
         })}
       </View>
