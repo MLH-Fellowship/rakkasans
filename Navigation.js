@@ -35,8 +35,9 @@ import CallRosterScreen from "./tabs/hubScreens/CallRosterScreen";
 import ResourcePageScreen from "./tabs/hubScreens/ResourcePageScreen";
 import SchoolsPageScreen from "./tabs/hubScreens/SchoolsPageScreen";
 import MoH from "./tabs/hubScreens/MoHScreen";
-import LineageHonorsScreen from "./tabs/hubScreens/LineageHonorsScreen"
-import NotableEventsScreen from "./tabs/hubScreens/NotableEventsScreen"
+import FallenScreen from "./tabs/hubScreens/FallenScreen";
+import LineageHonorsScreen from "./tabs/hubScreens/LineageHonorsScreen";
+import NotableEventsScreen from "./tabs/hubScreens/NotableEventsScreen";
 
 // cmd screens
 import OffLimitsScreen from "./tabs/cmdScreens/OffLimitsScreen";
@@ -111,6 +112,7 @@ function HubStackScreen() {
       <HubStack.Screen name="Reply Post" component={PostReply} />
       <HubStack.Screen name="MoH" component={MoH} />
       <HubStack.Screen name="Lineage Honors" component={LineageHonorsScreen} />
+      <HubStack.Screen name="Fallen Rakkasans" component={FallenScreen} />
       <HubStack.Screen name="Notable Events" component={NotableEventsScreen} />
     </HubStack.Navigator>
   );
