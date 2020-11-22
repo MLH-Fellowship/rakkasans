@@ -48,7 +48,13 @@ export default function HistoryScreen() {
           }}
           icons={true}
         />
-        <RectButton text="DMOR_HMOR" onPress={() => {}} icons={true} />
+        <RectButton
+          text="DMOR_HMOR"
+          onPress={() => {
+            navigation.navigate("DMOR_HMOR");
+          }}
+          icons={true}
+        />
         <RectButton text="Division History" onPress={() => {}} icons={true} />
         <RectButton text="BN History" onPress={() => {}} icons={true} />
         <RectButton text="3BDE History" onPress={() => {}} icons={true} />

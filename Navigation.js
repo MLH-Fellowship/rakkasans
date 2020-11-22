@@ -38,6 +38,7 @@ import MoH from "./tabs/hubScreens/MoHScreen";
 import FallenScreen from "./tabs/hubScreens/FallenScreen";
 import LineageHonorsScreen from "./tabs/hubScreens/LineageHonorsScreen";
 import NotableEventsScreen from "./tabs/hubScreens/NotableEventsScreen";
+import DMOR_HMOR_Screen from "./tabs/hubScreens/DMOR_HMOR_Screen"
 
 // cmd screens
 import OffLimitsScreen from "./tabs/cmdScreens/OffLimitsScreen";
@@ -114,6 +115,7 @@ function HubStackScreen() {
       <HubStack.Screen name="Lineage Honors" component={LineageHonorsScreen} />
       <HubStack.Screen name="Fallen Rakkasans" component={FallenScreen} />
       <HubStack.Screen name="Notable Events" component={NotableEventsScreen} />
+      <HubStack.Screen name="DMOR_HMOR" component={DMOR_HMOR_Screen} />
     </HubStack.Navigator>
   );
 }

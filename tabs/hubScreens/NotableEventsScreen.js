@@ -5,7 +5,7 @@ import notableEventsData from "../../assets/word_documents/notable_events"
 export default function NotableEventsScreen({  }) {
   return (
     <SafeAreaView>
-      <View>
+      <View style={styles.main}>
         <Text style={styles.header}>History of the 187th Infantry Regiment and the 3d Brigade Combat Team
         </Text>
         <FlatList
@@ -25,6 +25,9 @@ export default function NotableEventsScreen({  }) {
 }
 
 const styles = StyleSheet.create({
+  main: {
+    marginBottom: 200
+  },
   container: {
     flex: 1,
     width: "100%",

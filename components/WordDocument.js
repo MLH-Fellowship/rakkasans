@@ -7,6 +7,7 @@ import Subtitle from "./Subtitle";
 import Italicized from "./Italicized";
 import Image from "./Image";
 import FallenList from "./FallenList";
+import DmorHmorList from "./DmorHmorList";
 
 export default function WordDocument({ page }) {
   return (
@@ -35,6 +36,10 @@ export default function WordDocument({ page }) {
 
           if (section.type === "FallenList") {
             return <FallenList content={section.content} />;
+          }
+
+          if (section.type === "DmorHmorList") {
+            return <DmorHmorList content={section.content} />;
           }
         })}
       </View>
