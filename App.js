@@ -37,6 +37,8 @@ const _loadResourcesAsync = () => {
       //"crimson-text": require("./assets/fonts/CrimsonText-Regular.ttf"),
       "fira-sans": require("./assets/fonts/FiraSans-Regular.ttf"),
       "torri-custom": require("./assets/icomoon/icomoon.ttf"),
+      "navbar-icons": require("./assets/icomoon/navbar-icons/icomoon.ttf"),
+      "hub-icons": require("./assets/icomoon/hub-icons/icomoon.ttf"),
     }),
   ]);
 };

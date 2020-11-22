@@ -5,8 +5,14 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { createSwitchNavigator, createAppContainer } from "react-navigation";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+
+// custom icons
 import IcomoonConfig from "./assets/icomoon/selection.json";
 import MyIcon from "./assets/icomoon/iconConfig";
+import NavbarConfig from "./assets/icomoon/navbar-icons/selection.json";
+import NavbarIcons from "./assets/icomoon/navbar-icons/navbarConfig";
+import HubConfig from "./assets/icomoon/hub-icons/selection.json";
+import HubIcons from "./assets/icomoon/hub-icons/hubConfig";
 
 import Colors from "./constants/Colors";
 import HubTab from "./tabs/HubTab";
@@ -57,6 +63,7 @@ import Login from "./tabs/Login";
 import LogOut from "./tabs/LogOut";
 import SignUp from "./tabs/SignUp";
 import SplashScreen from "./tabs/SplashScreen";
+import iconConfig from "./assets/icomoon/iconConfig";
 
 const HubStack = createStackNavigator();
 function HubStackScreen() {
@@ -242,7 +249,7 @@ function TabBar() {
         headerLeft: null,
         headerBackTitleVisible: false,
       }}
-    /*
+      /*
         
   tabBarOptions={((activeTintColor = Colors.accent),
   (inactiveTintColor = Colors.lightGray))(
@@ -255,7 +262,12 @@ function TabBar() {
         component={NewsStackScreen}
         options={{
           tabBarIcon: ({ color }) => (
-            <MaterialCommunityIcons name="earth" color={color} size={26} />
+            <NavbarIcons
+              name="News"
+              color={color}
+              size={26}
+              config={NavbarConfig}
+            />
           ),
         }}
       />
@@ -264,10 +276,11 @@ function TabBar() {
         component={CommandStackScreen}
         options={{
           tabBarIcon: ({ color }) => (
-            <MaterialCommunityIcons
-              name="account-group"
+            <NavbarIcons
+              name="Group"
               color={color}
               size={26}
+              config={NavbarConfig}
             />
           ),
         }}
@@ -301,10 +314,11 @@ function TabBar() {
         options={{
           tabBarColor: Colors.primary,
           tabBarIcon: ({ color }) => (
-            <MaterialCommunityIcons
-              name="account-circle"
+            <NavbarIcons
+              name="Account"
               color={color}
               size={26}
+              config={NavbarConfig}
             />
           ),
         }}
@@ -329,8 +343,8 @@ export default function Navigation() {
         component={SplashScreen}
         options={
           ({ title: "SplashScreen" },
-            { headerLeft: null },
-            { headerBackTitleVisible: false })
+          { headerLeft: null },
+          { headerBackTitleVisible: false })
         }
       />
       <Stack.Screen
@@ -338,8 +352,8 @@ export default function Navigation() {
         component={Login}
         options={
           ({ title: "Login" },
-            { headerLeft: null },
-            { headerBackTitleVisible: false })
+          { headerLeft: null },
+          { headerBackTitleVisible: false })
         }
       />
       <Stack.Screen
@@ -347,8 +361,8 @@ export default function Navigation() {
         component={TabBar}
         options={
           ({ title: "Tab Bar" },
-            { headerLeft: null },
-            { headerBackTitleVisible: false })
+          { headerLeft: null },
+          { headerBackTitleVisible: false })
         }
       />
     </Stack.Navigator>
