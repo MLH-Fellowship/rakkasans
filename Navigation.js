@@ -40,6 +40,7 @@ import LineageHonorsScreen from "./tabs/hubScreens/LineageHonorsScreen";
 import NotableEventsScreen from "./tabs/hubScreens/NotableEventsScreen";
 import DivisionHistoryScreen from "./tabs/hubScreens/DivisionHistoryScreen";
 import DMOR_HMOR_Screen from "./tabs/hubScreens/DMOR_HMOR_Screen"
+import The38DEHistoryScreen from "./tabs/hubScreens/The38DEHistoryScreen"
 
 // cmd screens
 import OffLimitsScreen from "./tabs/cmdScreens/OffLimitsScreen";
@@ -139,6 +140,7 @@ function HubStackScreen() {
                 name="Division History"
                 component={DivisionHistoryScreen}
             />
+            <HubStack.Screen name="38DE History" component={The38DEHistoryScreen} />
         </HubStack.Navigator>
     );
 }
