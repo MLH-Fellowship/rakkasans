@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import Thread from "../../components/Thread";
 import { useFocusEffect } from '@react-navigation/native';
 import moment from 'moment';
-import { AntDesign } from '@expo/vector-icons'; 
+import Post from "../../components/Post";
 
 export default function Comments({ route, navigation }) {
   const { post } = route.params
@@ -82,19 +82,12 @@ export default function Comments({ route, navigation }) {
   return (
     <ScrollView style={styles.container}>
       { post && (
-        <View style={styles.padding}>
-          <View style={styles.nameContainer}>
-            <Text style={styles.name}>{post.first_name} {post.last_name}</Text>
-            <Text style={styles.date}>{moment(post.created_at).fromNow()}</Text>
-          </View>
-          <View>
-            <Text style={styles.title}>{post.title}</Text>
-            <Text style={styles.post}>{post.body}</Text>
-          </View>
-          <View style={styles.borderContainer}>
-            <Text style={styles.reply} onPress={_handlePress}><AntDesign name="plussquareo" size={16} color="black" /> Reply</Text>
-          </View>
-        </View>
+          <Post
+          username={post.first_name + " " + post.last_name}
+          title={post.title}
+          content={post.body}
+          date={moment(post.created_at).format("Do MMM YY, HH:mm:ss")}
+        />
       )}
       <Thread comments={comments} post={post} />
     </ScrollView>
