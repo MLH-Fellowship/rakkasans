@@ -40,6 +40,13 @@ import BattShopScreen from "./tabs/hubScreens/BattShopScreen";
 import CallRosterScreen from "./tabs/hubScreens/CallRosterScreen";
 import ResourcePageScreen from "./tabs/hubScreens/ResourcePageScreen";
 import SchoolsPageScreen from "./tabs/hubScreens/SchoolsPageScreen";
+import MoH from "./tabs/hubScreens/MoHScreen";
+import FallenScreen from "./tabs/hubScreens/FallenScreen";
+import LineageHonorsScreen from "./tabs/hubScreens/LineageHonorsScreen";
+import NotableEventsScreen from "./tabs/hubScreens/NotableEventsScreen";
+import DivisionHistoryScreen from "./tabs/hubScreens/DivisionHistoryScreen";
+import DMOR_HMOR_Screen from "./tabs/hubScreens/DMOR_HMOR_Screen";
+import The38DEHistoryScreen from "./tabs/hubScreens/The38DEHistoryScreen";
 
 // cmd screens
 import OffLimitsScreen from "./tabs/cmdScreens/OffLimitsScreen";
@@ -113,6 +120,16 @@ function HubStackScreen() {
       <HubStack.Screen name="New Comment" component={NewComment} />
       <HubStack.Screen name="Post Detail" component={PostDetail} />
       <HubStack.Screen name="Reply Post" component={PostReply} />
+      <HubStack.Screen name="MoH" component={MoH} />
+      <HubStack.Screen name="Lineage Honors" component={LineageHonorsScreen} />
+      <HubStack.Screen name="Fallen Rakkasans" component={FallenScreen} />
+      <HubStack.Screen name="DMOR_HMOR" component={DMOR_HMOR_Screen} />
+      <HubStack.Screen name="Notable Events" component={NotableEventsScreen} />
+      <HubStack.Screen
+        name="Division History"
+        component={DivisionHistoryScreen}
+      />
+      <HubStack.Screen name="38DE History" component={The38DEHistoryScreen} />
     </HubStack.Navigator>
   );
 }
