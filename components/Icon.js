@@ -4,6 +4,10 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 import Colors from "../constants/Colors";
 
+// updated icons
+import HubConfig from "../assets/icomoon/hub-icons/selection.json";
+import HubIcons from "../assets/icomoon/hub-icons/hubConfig";
+
 export default function Icon({ name, size = 40, color = Colors.blue5 }) {
   return (
     <View
@@ -15,7 +19,11 @@ export default function Icon({ name, size = 40, color = Colors.blue5 }) {
         alignItems: "center",
       }}
     >
-      <MaterialCommunityIcons name={name} color={color} size={size} />
+      {name === "History" || name === "Training" ? (
+        <HubIcons name={name} color={color} size={size} config={HubConfig} />
+      ) : (
+        <MaterialCommunityIcons name={name} color={color} size={size} />
+      )}
     </View>
   );
 }
