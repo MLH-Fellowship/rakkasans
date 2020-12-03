@@ -37,7 +37,7 @@ export default function HubTab() {
           onPress={() => navigation.navigate("Battalions")}
         />
         <SquareButton
-          name="history"
+          name="History"
           text="RAK History"
           buttonSize={75}
           textSize={10}
@@ -53,7 +53,7 @@ export default function HubTab() {
           onPress={() => navigation.navigate("Bluebook")}
         />
         <SquareButton
-          name="airplane"
+          name="Training"
           text="Training & Schools"
           buttonSize={75}
           textSize={10}

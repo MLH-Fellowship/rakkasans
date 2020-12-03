@@ -65,7 +65,9 @@ export default function HistoryScreen() {
                 <RectButton text="BN History" onPress={() => {}} icons={true} />
                 <RectButton
                     text="3BDE History"
-                    onPress={() => {}}
+                    onPress={() => {
+                        navigation.navigate("38DE History");
+                    }}
                     icons={true}
                 />
             </View>
