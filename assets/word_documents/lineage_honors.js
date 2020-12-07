@@ -12,7 +12,7 @@ export default [
     content: "187th Infantry Regiment"
   },
   {
-    type: "Title",
+    type: "Subtitle",
     content: "Lineage"
   },
   {
@@ -48,7 +48,7 @@ export default [
     content: "Withdrawn 1 October 1983 from the Combat Arms Regimental System and reorganized under the United States Army Regimental System"
   },
   {
-    type: "Title",
+    type: "Subtitle",
     content: "Honors"
   },
   {

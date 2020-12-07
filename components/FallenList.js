@@ -1,39 +1,37 @@
 import React from "react";
 import { View, StyleSheet, FlatList, Text } from "react-native";
-
+import { Card, CardItem, Body } from 'native-base';
 export default function FallenList({ content }) {
   const renderItem = ({ item }) => {
     return (
-      <View style={styles.container} key={item.id}>
-        <View style={styles.textContainer}>
-          <Text>Name: </Text>
-          <Text>{`${item.first_name} ${item.last_name}`}</Text>
-        </View>
-        <View style={styles.textContainer}>
-          <Text>Battalion: </Text>
-          <Text>{item.battalion}</Text>
-        </View>
-        <View style={styles.textContainer}>
-          <Text>Unit: </Text>
-          <Text>{item.unit}</Text>
-        </View>
-        <View style={styles.textContainer}>
-          <Text>Rank: </Text>
-          <Text>{item.rank}</Text>
-        </View>
-        <View style={styles.textContainer}>
-          <Text>Campaign: </Text>
-          <Text>{item.campaign}</Text>
-        </View>
-        <View style={styles.textContainer}>
-          <Text>Date: </Text>
-          <Text>{item.date}</Text>
-        </View>
-        <View style={styles.textContainer}>
-          <Text>Location: </Text>
-          <Text>{item.location}</Text>
-        </View>
+      <View style={styles.container}>
+        <Card key={item.id}>
+          <CardItem header>
+            <Body>
+              <Text style={styles.title}>{`${item.first_name} ${item.last_name}`}</Text>
+              <Text>
+                Battalion: {item.battalion}
+              </Text>
+              <Text>
+                Unit: {item.unit}
+              </Text>
+              <Text>
+                Rank: {item.rank}
+              </Text>
+              <Text>
+              Campaign: {item.campaign}
+              </Text>
+              <Text>
+                Date: {item.date}
+              </Text>
+              <Text>
+                Location: {item.location}
+              </Text>
+            </Body>
+          </CardItem>
+        </Card>
       </View>
+
     );
   };
 
@@ -50,10 +48,17 @@ export default function FallenList({ content }) {
 
 const styles = StyleSheet.create({
   container: {
-    marginVertical: 5,
+    paddingHorizontal: 30
   },
   textContainer: {
     flex: 1,
     flexDirection: "row",
   },
+  title:{
+    fontSize: 15,
+    fontWeight: "500",
+    textAlign: "center",
+    marginBottom: 10,
+    alignContent: "center"
+  }
 });

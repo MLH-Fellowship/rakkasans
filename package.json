@@ -44,7 +44,7 @@
     "expo-linear-gradient": "~8.1.0",
     "firebase": "^7.15.4",
     "moment": "^2.29.1",
-    "native-base": "^2.13.12",
+    "native-base": "^2.13.15",
     "npm-assets": "^0.1.2",
     "react": "~16.9.0",
     "react-dom": "~16.9.0",

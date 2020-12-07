@@ -1,16 +1,25 @@
 import React from "react";
 import { View, StyleSheet, FlatList, Text } from "react-native";
+import { Card, CardItem, Body } from 'native-base';
 
 export default function FallenList({ content }) {
   const renderItem = ({ item }) => {
     return (
-      <View style={styles.container}  key={item.id}>
-        <Text style={styles.name}>{item.last_name}, {item.first_name}</Text>
-        <Text>Rank: {item.rank}</Text>
-        <Text>Date Accepted: {item.date_accepted}</Text>
-        {item.notes &&
-          <Text>Notes: {item.notes}</Text>
-        }
+      <View style={styles.container}>
+        <Card key={item.id}>
+          <CardItem>
+            <Body>
+              <Text style={styles.title}>{item.last_name}, {item.first_name}</Text>
+              <Text>Rank: {item.rank}</Text>
+              <Text>Date Accepted: {item.date_accepted}</Text>
+              {item.notes &&
+                <Text>
+                  Notes: {item.notes}
+                </Text>
+              }
+          </Body>
+          </CardItem>
+        </Card>
       </View>
     );
   };
@@ -32,12 +41,7 @@ const styles = StyleSheet.create({
     width: "100%",
     height: "100%",
     flexDirection: "column",
-    paddingHorizontal: 15,
-    paddingVertical: 10
-  },
-  name:{
-    fontSize: 15,
-    fontWeight: "500",
+    paddingHorizontal: 30
   },
   header: {
     fontSize: 20,
@@ -45,5 +49,10 @@ const styles = StyleSheet.create({
     marginTop: 20,
     marginBottom: 20,
     textAlign: "center"
-  }
+  },
+  title:{
+    fontSize: 15,
+    fontWeight: "500",
+    paddingBottom: 10
+  },
 });

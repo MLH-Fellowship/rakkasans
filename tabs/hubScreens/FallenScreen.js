@@ -11,7 +11,6 @@ export default function MoHDocument() {
         const json = await response.json();
 
         const pageJSON = [
-          { content: "Fallen Rakkasans", type: "Title" },
           { content: json, type: "FallenList" },
         ];
 
