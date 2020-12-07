@@ -30,11 +30,12 @@ export default function HubTab() {
 
       <View style={[styles.buttonView, { paddingTop: 5 }]}>
         <SquareButton
-          name="shield"
+          name="Battalions"
           text="Battalions"
           buttonSize={75}
           textSize={10}
           onPress={() => navigation.navigate("Battalions")}
+          hubIcon={true}
         />
         <SquareButton
           name="History"
@@ -42,15 +43,17 @@ export default function HubTab() {
           buttonSize={75}
           textSize={10}
           onPress={() => navigation.navigate("RAK History")}
+          hubIcon={true}
         />
       </View>
       <View style={styles.buttonView}>
         <SquareButton
-          name="book"
+          name="Bluebook"
           text="Bluebook"
           buttonSize={75}
           textSize={10}
           onPress={() => navigation.navigate("Bluebook")}
+          hubIcon={true}
         />
         <SquareButton
           name="Training"
@@ -58,38 +61,43 @@ export default function HubTab() {
           buttonSize={75}
           textSize={10}
           onPress={() => navigation.navigate("Training & Schools")}
+          hubIcon={true}
         />
       </View>
       <View style={styles.buttonView}>
         <SquareButton
-          name="briefcase"
+          name="Processing"
           text="In/Out Processing"
           buttonSize={75}
           textSize={10}
           onPress={() => navigation.navigate("In/Out Processing")}
+          hubIcon={true}
         />
         <SquareButton
-          name="message-processing"
+          name="Forums"
           text="Forums"
           buttonSize={75}
           textSize={11}
           onPress={() => navigation.navigate("Topics")}
+          hubIcon={true}
         />
       </View>
       <View style={[styles.buttonView, { paddingBottom: 25 }]}>
         <SquareButton
-          name="information"
+          name="Resources"
           text="Army Resources"
           buttonSize={75}
           textSize={10}
           onPress={() => navigation.navigate("Army Resources")}
+          hubIcon={true}
         />
         <SquareButton
-          name="dumbbell"
+          name="RAKFIT"
           text="RAKFIT"
           buttonSize={75}
           textSize={11}
           onPress={() => navigation.navigate("RAKFIT")}
+          hubIcon={true}
         />
       </View>
     </View>

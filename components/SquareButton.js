@@ -12,7 +12,8 @@ export default function SquareButton({
   name,
   buttonSize,
   textSize,
-  iconSize = 40,
+  iconSize = 50,
+  hubIcon = false,
 }) {
   return (
     <TouchableOpacity
@@ -25,7 +26,7 @@ export default function SquareButton({
         <Text style={[styles.text, Dimensions.font, { fontSize: textSize }]}>
           {text}
         </Text>
-        <Icon name={name} iconColor={color} size={iconSize} />
+        <Icon name={name} iconColor={color} size={iconSize} hubIcon={hubIcon} />
       </View>
     </TouchableOpacity>
   );
@@ -34,7 +35,7 @@ export default function SquareButton({
 const styles = StyleSheet.create({
   button: {
     backgroundColor: Colors.white,
-    padding: 5,
+    padding: 10,
   },
   container: {
     alignItems: "center",

@@ -8,7 +8,12 @@ import Colors from "../constants/Colors";
 import HubConfig from "../assets/icomoon/hub-icons/selection.json";
 import HubIcons from "../assets/icomoon/hub-icons/hubConfig";
 
-export default function Icon({ name, size = 40, color = Colors.blue5 }) {
+export default function Icon({
+  name,
+  size = 40,
+  color = Colors.blue5,
+  hubIcon,
+}) {
   return (
     <View
       style={{
@@ -19,7 +24,7 @@ export default function Icon({ name, size = 40, color = Colors.blue5 }) {
         alignItems: "center",
       }}
     >
-      {name === "History" || name === "Training" ? (
+      {hubIcon === true ? (
         <HubIcons name={name} color={color} size={size} config={HubConfig} />
       ) : (
         <MaterialCommunityIcons name={name} color={color} size={size} />
