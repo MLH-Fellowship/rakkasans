@@ -103,8 +103,9 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         margin: 16,
         borderStyle: "solid",
-        borderWidth: 2,
-        padding: 4,
+        borderWidth: .4,
+        padding: 10,
+        backgroundColor: '#E5E5E5'
     },
     cardTitle: {
         fontSize: 24,

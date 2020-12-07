@@ -1,5 +1,7 @@
 import React from "react";
-import { StyleSheet, SafeAreaView, View, Text, FlatList} from "react-native";
+import { StyleSheet, SafeAreaView, View, FlatList, Text} from "react-native";
+import {  Card, CardItem, Body } from 'native-base';
+
 import notableEventsData from "../../assets/word_documents/notable_events"
 
 export default function NotableEventsScreen({  }) {
@@ -13,10 +15,18 @@ export default function NotableEventsScreen({  }) {
           keyExtractor={(item) => item.id}
           renderItem={({ item }) => (
             <View style={styles.container}>
-              <Text style={styles.title}>{item[0]}</Text>
-              <Text style={styles.unit}>Unit: {item[1]}</Text>
-              <Text style={styles.date}>Date: {item[3]} {item[2]}, {item[4]}</Text>
-          </View>
+              <Card key={item.id}>
+                <CardItem>
+                  <Text style={styles.title}>{item[0]}</Text>
+                </CardItem>
+                <CardItem>
+                  <Body>
+                    <Text>Unit: {item[1]}</Text>
+                    <Text>Date: {item[3]} {item[2]}, {item[4]}</Text>
+                </Body>
+                </CardItem>
+              </Card>
+            </View>
           )}
         />
       </View>
