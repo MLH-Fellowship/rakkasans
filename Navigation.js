@@ -12,6 +12,7 @@ import MyIcon from "./assets/icomoon/iconConfig";
 import NavbarConfig from "./assets/icomoon/navbar-icons/selection.json";
 import NavbarIcons from "./assets/icomoon/navbar-icons/navbarConfig";
 
+// tabs
 import Colors from "./constants/Colors";
 import HubTab from "./tabs/HubTab";
 import NewsTab from "./tabs/NewsTab";
