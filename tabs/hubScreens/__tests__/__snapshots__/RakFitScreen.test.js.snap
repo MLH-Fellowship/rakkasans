@@ -231,7 +231,7 @@ exports[`renders correctly 1`] = `
             "borderRadius": 15,
             "elevation": 5,
             "opacity": 1,
-            "padding": 5,
+            "padding": 10,
             "shadowColor": "#a0a0a0",
             "shadowOffset": Object {
               "height": 2,
@@ -307,7 +307,7 @@ exports[`renders correctly 1`] = `
             "borderRadius": 15,
             "elevation": 5,
             "opacity": 1,
-            "padding": 5,
+            "padding": 10,
             "shadowColor": "#a0a0a0",
             "shadowOffset": Object {
               "height": 2,

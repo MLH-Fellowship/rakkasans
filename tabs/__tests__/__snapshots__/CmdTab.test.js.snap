@@ -445,7 +445,7 @@ exports[`renders correctly 1`] = `
             "borderRadius": 15,
             "elevation": 5,
             "opacity": 1,
-            "padding": 5,
+            "padding": 10,
             "shadowColor": "#a0a0a0",
             "shadowOffset": Object {
               "height": 2,
@@ -493,10 +493,10 @@ exports[`renders correctly 1`] = `
             style={
               Object {
                 "alignItems": "center",
-                "borderRadius": 20,
-                "height": 40,
+                "borderRadius": 25,
+                "height": 50,
                 "justifyContent": "center",
-                "width": 40,
+                "width": 50,
               }
             }
           >
@@ -521,7 +521,7 @@ exports[`renders correctly 1`] = `
             "borderRadius": 15,
             "elevation": 5,
             "opacity": 1,
-            "padding": 5,
+            "padding": 10,
             "shadowColor": "#a0a0a0",
             "shadowOffset": Object {
               "height": 2,
@@ -569,10 +569,10 @@ exports[`renders correctly 1`] = `
             style={
               Object {
                 "alignItems": "center",
-                "borderRadius": 20,
-                "height": 40,
+                "borderRadius": 25,
+                "height": 50,
                 "justifyContent": "center",
-                "width": 40,
+                "width": 50,
               }
             }
           >
@@ -614,7 +614,7 @@ exports[`renders correctly 1`] = `
             "borderRadius": 15,
             "elevation": 5,
             "opacity": 1,
-            "padding": 5,
+            "padding": 10,
             "shadowColor": "#a0a0a0",
             "shadowOffset": Object {
               "height": 2,
@@ -662,10 +662,10 @@ exports[`renders correctly 1`] = `
             style={
               Object {
                 "alignItems": "center",
-                "borderRadius": 20,
-                "height": 40,
+                "borderRadius": 25,
+                "height": 50,
                 "justifyContent": "center",
-                "width": 40,
+                "width": 50,
               }
             }
           >
@@ -690,7 +690,7 @@ exports[`renders correctly 1`] = `
             "borderRadius": 15,
             "elevation": 5,
             "opacity": 1,
-            "padding": 5,
+            "padding": 10,
             "shadowColor": "#a0a0a0",
             "shadowOffset": Object {
               "height": 2,
@@ -738,10 +738,10 @@ exports[`renders correctly 1`] = `
             style={
               Object {
                 "alignItems": "center",
-                "borderRadius": 20,
-                "height": 40,
+                "borderRadius": 25,
+                "height": 50,
                 "justifyContent": "center",
-                "width": 40,
+                "width": 50,
               }
             }
           >
