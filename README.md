@@ -83,11 +83,3 @@ This project uses Firebase for authentication. For development, we hard coded cr
 https://github.com/MLH-Fellowship/rakkasans/blob/a36c0a6b4df16f24565739f12c2c1577898a0855/tabs/Login.js#L153
 
 This cohort did not implement or improve this feature. To learn more, please ask Matt Dillabough (most likely your GMP).
-
-Dillabough
-
-Dillabough
-
-Dillabough
-
-Dillabough
