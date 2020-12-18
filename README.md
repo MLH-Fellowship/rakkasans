@@ -76,3 +76,18 @@ The comments are rendered in `tabs/otherScreens/Comments.js`, and are threading;
 Users can create new posts in topics and new comments on posts.
 
 TODO: Allow users to delete their own posts/comments and admins to delete any posts/comments. (requires user authentication)
+
+## Authentication
+
+This project uses Firebase for authentication. For development, we hard coded credentials so that typing anythig into the inputs works. Check out: 
+https://github.com/MLH-Fellowship/rakkasans/blob/a36c0a6b4df16f24565739f12c2c1577898a0855/tabs/Login.js#L153
+
+This cohort did not implement or improve this feature. To learn more, please ask Matt Dillabough (most likely your GMP).
+
+Dillabough
+
+Dillabough
+
+Dillabough
+
+Dillabough
