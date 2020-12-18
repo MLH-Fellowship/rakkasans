@@ -64,3 +64,15 @@ Most tests are [Snapshot Tests](https://jestjs.io/docs/en/snapshot-testing#:~:te
 A typical snapshot test case renders a UI component, takes a snapshot, then compares it to a reference snapshot file stored alongside the test. The test will fail if the two snapshots do not match: either the change is unexpected, or the reference snapshot needs to be updated to the new version of the UI component.
 ```
 If you make a UI change, run `npm test -- -u` to create a new snapshot reference that will include your new changes.
+
+
+## Forum Component
+The Forum functionality is distributed across a number of files, the majority of which are found in `tabs/otherScreens/`. The component that is rendered by the navigation is `tabs/otherScreens/Topics.js`. This file makes a request to the API to render the currently available Forum topics.
+
+When a topic is selected, the `tabs/otherScreens/Posts.js` component is rendered, which makes another API call to render the posts available under the selected topic.
+
+The comments are rendered in `tabs/otherScreens/Comments.js`, and are threading; any comment can be replied to, resulting in chains of comments. On render, sub-comments (comments replying to other comments) are hidden. Those comments can be toggled in the UI.
+
+Users can create new posts in topics and new comments on posts.
+
+TODO: Allow users to delete their own posts/comments and admins to delete any posts/comments. (requires user authentication)
