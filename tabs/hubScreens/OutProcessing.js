@@ -1,10 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import { View, Text, Image, StyleSheet, TouchableOpacity } from "react-native";
 
 import Colors from "../../constants/Colors";
+import { CheckBox } from "react-native-elements";
 
 export default function BattScreen() {
-  return <View style={styles.container}></View>;
+  const [checked, setChecked] = useState(false);
+  return <View style={styles.container}>
+    <CheckBox title="Click Here" checked={checked} onPress={() => setChecked(!checked)} />
+  </View>;
 }
 
 const styles = StyleSheet.create({

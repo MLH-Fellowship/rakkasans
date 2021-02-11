@@ -8,7 +8,7 @@ export default function InProcessing() {
   const [checked, setChecked] = useState(false);
   return (
     <View style={styles.container}>
-      <CheckBox title="Click Here" checked={setChecked(!checked)} />
+      <CheckBox title="Click Here" checked={checked} onPress={() => setChecked(!checked)} />
     </View>
   );
 }

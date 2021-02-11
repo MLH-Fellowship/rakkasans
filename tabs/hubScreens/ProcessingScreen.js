@@ -16,14 +16,14 @@ export default function BattScreen() {
       <View style={[styles.buttonView, { paddingTop: 10 }]}>
         <SquareButton
           name="shield"
-          text="Out"
+          text="In"
           buttonSize={90}
           textSize={13}
           onPress={() => navigation.navigate("In Processing")}
         />
         <SquareButton
           name="history"
-          text="In"
+          text="Out"
           buttonSize={90}
           textSize={13}
           onPress={() => navigation.navigate("Out Processing")}
