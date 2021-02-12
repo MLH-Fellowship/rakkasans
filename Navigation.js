@@ -1,5 +1,5 @@
 import * as React from "react";
-import { StatusBar, View } from "react-native";
+import { StatusBar, View, Button } from "react-native";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
@@ -19,6 +19,7 @@ import NewsTab from "./tabs/NewsTab";
 import CmdTab from "./tabs/CmdTab";
 import GameTab from "./tabs/GameTab";
 import AccountTab from "./tabs/AccountTab";
+import ChatTab from "./tabs/ChatTab";
 
 // hub screens
 import BattScreen from "./tabs/hubScreens/BattScreen";
@@ -83,6 +84,13 @@ function HubStackScreen() {
         },
         headerTintColor: Colors.white,
         headerTitleStyle: { fontSize: 25, fontFamily: "fira-sans" },
+        headerRight: () => (
+          <Button
+            component={AccountStack.Screen}
+            title="Account"
+            color="#fff"
+          />
+        ),
       }}
     >
       <HubStack.Screen
@@ -143,6 +151,13 @@ function NewsStackScreen() {
         headerStyle: {
           backgroundColor: Colors.primary,
         },
+        headerRight: () => (
+          <Button
+            onPress={() => alert("This will be the account button")}
+            title="Account"
+            color="#fff"
+          />
+        ),
         headerTintColor: Colors.white,
         headerTitleStyle: { fontSize: 25, fontFamily: "fira-sans" },
       }}
@@ -165,6 +180,13 @@ function CommandStackScreen() {
         headerStyle: {
           backgroundColor: Colors.primary,
         },
+        headerRight: () => (
+          <Button
+            onPress={() => alert("This will be the account button")}
+            title="Account"
+            color="#fff"
+          />
+        ),
         headerTintColor: Colors.white,
         headerTitleStyle: { fontSize: 25, fontFamily: "fira-sans" },
       }}
@@ -172,7 +194,9 @@ function CommandStackScreen() {
       <CommandStack.Screen
         name="Command"
         component={CmdTab}
-        options={{ headerLeft: null }}
+        options={{
+          headerLeft: null,
+        }}
       />
       <CommandStack.Screen name="Welcome" component={WelcomeScreen} />
       <CommandStack.Screen
@@ -200,6 +224,13 @@ function GameStackScreen() {
         headerStyle: {
           backgroundColor: Colors.primary,
         },
+        headerRight: () => (
+          <Button
+            onPress={() => alert("This will be the account button")}
+            title="Account"
+            color="#fff"
+          />
+        ),
         headerTintColor: Colors.white,
         headerTitleStyle: { fontSize: 25, fontFamily: "fira-sans" },
       }}
@@ -232,6 +263,34 @@ function AccountStackScreen() {
       />
       <AccountStack.Screen name="Log Out" component={LogOut} />
     </AccountStack.Navigator>
+  );
+}
+const ChatStack = createStackNavigator();
+function ChatStackScreen() {
+  return (
+    <ChatStack.Navigator
+      headerMode="float"
+      screenOptions={{
+        headerStyle: {
+          backgroundColor: Colors.primary,
+        },
+        headerRight: () => (
+          <Button
+            onPress={() => alert("This will be the account button")}
+            title="Account"
+            color="#fff"
+          />
+        ),
+        headerTintColor: Colors.white,
+        headerTitleStyle: { fontSize: 25, fontFamily: "fira-sans" },
+      }}
+    >
+      <ChatStack.Screen
+        name="Chat"
+        component={ChatTab}
+        options={{ headerLeft: null }}
+      />
+    </ChatStack.Navigator>
   );
 }
 /*
@@ -331,7 +390,23 @@ function TabBar() {
           ),
         }}
       />
-      <Tab.Screen
+      {
+        <Tab.Screen
+          name="Chat"
+          component={ChatStackScreen}
+          options={{
+            tabBarIcon: ({ color }) => (
+              <MaterialCommunityIcons
+                name="chat"
+                color={color}
+                size={26}
+                config={NavbarConfig}
+              />
+            ),
+          }}
+        />
+      }
+      {/* <Tab.Screen
         name="Account"
         component={AccountStackScreen}
         options={{
@@ -345,7 +420,7 @@ function TabBar() {
             />
           ),
         }}
-      />
+      /> */}
     </Tab.Navigator>
   );
 }
