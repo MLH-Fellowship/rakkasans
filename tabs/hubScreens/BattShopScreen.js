@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { View, Text, StyleSheet, Image } from "react-native";
 import { Table, Rows } from "react-native-table-component";
 import { useNavigation } from "@react-navigation/native";
@@ -7,11 +7,29 @@ import Colors from "../../constants/Colors";
 import RectButton from "../../components/RectButton";
 import Dimensions from "../../constants/Dimensions";
 
-export default function BattShopScreen({ route }) {
+export default function BattShopScreen ({ route }) {
+  const [batt, setBatt] = useState([]);
+  const { name } = route.params;
+  const {shop_number, hours, location} = batt
+  useEffect(() => {
+    const getBatt = async () => {
+      try {
+        // TODO Change to localhost for non Mike development
+        const response = await fetch(`http://192.168.1.208:3000/batallion/HHC`);
+        const json = await response.json();
+        setBatt(json);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    getBatt();
+  }, []);
+
   const tableData = [
-    ["Shop #:", "xxx-xxx-xxxx"],
-    ["Location:", "Example address which will be dynamically replaced"],
-    ["Hours:", "This is the hour schedule"],
+    ["Shop #:", `${shop_number}`],
+    ["Location:", `${location}`],
+    ["Hours:", `${hours}`]
   ];
   const titleWidth = Dimensions.window.width * 0.27;
   const contentWidth = Dimensions.window.width * 0.65;
@@ -45,27 +63,27 @@ const styles = StyleSheet.create({
     flex: 1,
     // justifyContent: "center",
     alignItems: "center",
-    backgroundColor: Colors.white,
+    backgroundColor: Colors.white
   },
   title: {
     fontSize: 36,
     color: Colors.darkGray,
     fontFamily: "andale-mono",
-    marginBottom: 10,
+    marginBottom: 10
   },
   titlePic: {
     width: 130,
     height: 130,
     top: "-5%",
-    marginTop: 20,
+    marginTop: 20
   },
   titleContainer: {
     alignItems: "center",
-    marginTop: 80,
+    marginTop: 80
   },
   buttonContainer: {
     marginTop: 20,
-    width: "90%",
+    width: "90%"
   },
   buttonView: {
     marginTop: 35,
@@ -73,10 +91,10 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "space-evenly",
     paddingBottom: 15,
-    width: "100%",
+    width: "100%"
   },
   tableText: {
     fontSize: 16,
-    margin: 6,
-  },
+    margin: 6
+  }
 });

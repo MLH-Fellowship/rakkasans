@@ -1,14 +1,15 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { View, Text, StyleSheet, Image } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
 import Colors from "../../constants/Colors";
 import SquareButton from "../../components/SquareButton";
 
-export default function BattHHCScreen({ route }) {
+export default function BattHHCScreen ({ route }) {
   const navigation = useNavigation();
   const { name } = route.params;
   const { image } = route.params;
+
   return (
     <View style={styles.container}>
       <View style={styles.titleContainer}>
@@ -20,14 +21,14 @@ export default function BattHHCScreen({ route }) {
             text="News"
             buttonSize={90}
             textSize={14}
-            // onPress={() => navigation.navigate("Welcome Letter")}
+            onPress={() => navigation.navigate("Welcome Letter")}
           />
           <SquareButton
             name="book-open"
             text="Policies" // Could change to "Commanders' Vision", but it doesn't fit
             buttonSize={90}
             textSize={14}
-            // onPress={() => navigation.navigate("Commanders' Vision")}
+            onPress={() => navigation.navigate("Commanders' Vision")}
           />
         </View>
         <View style={[styles.buttonView, { paddingBottom: 25 }]}>
@@ -36,7 +37,7 @@ export default function BattHHCScreen({ route }) {
             text="Call Roster"
             buttonSize={90}
             textSize={14}
-            // onPress={() => navigation.navigate("Policy Letters")}
+            onPress={() => navigation.navigate("Policy Letters")}
           />
           <SquareButton
             name="star-circle"
@@ -56,23 +57,23 @@ const styles = StyleSheet.create({
     flex: 1,
     // justifyContent: "center",
     alignItems: "center",
-    backgroundColor: Colors.white,
+    backgroundColor: Colors.white
   },
   title: {
     fontSize: 36,
     color: Colors.darkGray,
     fontFamily: "andale-mono",
-    marginBottom: 10,
+    marginBottom: 10
   },
   titlePic: {
     width: 130,
     height: 130,
     top: "-5%",
-    marginTop: 20,
+    marginTop: 20
   },
   titleContainer: {
     alignItems: "center",
-    marginTop: 80,
+    marginTop: 80
   },
   buttonView: {
     marginTop: 35,
@@ -80,6 +81,6 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "space-evenly",
     paddingBottom: 15,
-    width: "100%",
-  },
+    width: "100%"
+  }
 });
