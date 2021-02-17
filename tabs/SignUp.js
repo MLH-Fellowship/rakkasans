@@ -149,7 +149,6 @@ const styles = StyleSheet.create({
     color: "white",
     fontSize: 20,
     fontWeight: "bold",
-    fontFamily: "fira-sans",
   },
   inputStyle: {
     width: "100%",
@@ -182,7 +181,6 @@ const styles = StyleSheet.create({
     borderColor: "rgba(0,0,0,0.2)",
   },
   logoText: {
-    fontFamily: "fira-sans",
     fontSize: 30,
     paddingLeft: 25,
   },

@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 36,
     color: Colors.darkGray,
-    fontFamily: "andale-mono",
+
     marginBottom: 10,
   },
   titlePic: {

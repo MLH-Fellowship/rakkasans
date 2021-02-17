@@ -1,6 +1,5 @@
 import React from "react";
-import { StyleSheet, View, Text } from "react-native";
-import { useNavigation } from "@react-navigation/native";
+import { StyleSheet, View, Text, Alert } from "react-native";
 
 import Colors from "../constants/Colors";
 import Dimensions from "../constants/Dimensions";
@@ -8,10 +7,35 @@ import ListItem from "../components/ListItem";
 import UserIcon from "../components/UserIcon";
 import Firebase from "../constants/FireBaseDb";
 
-export default function AccountTab() {
-  const navigation = useNavigation();
+export default function AccountTab({ navigation }) {
   const userName = Firebase.auth().currentUser.displayName;
   const userEmail = Firebase.auth().currentUser.email;
+
+  const signOutUser = () => {
+    Firebase.auth()
+      .signOut()
+      .then(() =>
+        navigation.reset({
+          index: 0,
+          routes: [{ name: "Login" }],
+        })
+      );
+  };
+
+  const signOutAlert = () =>
+    Alert.alert(
+      "Sign out",
+      "Are you sure you want to sign out of RAKapp?",
+      [
+        { text: "Cancel", style: "cancel" },
+        {
+          text: "Sign out",
+          style: "destructive",
+          onPress: signOutUser,
+        },
+      ],
+      { cancelable: true }
+    );
   return (
     <View style={styles.container}>
       <View style={styles.profileContainer}>
@@ -27,9 +51,10 @@ export default function AccountTab() {
       </View>
       <View style={styles.logoutContainer}>
         <ListItem
-          title="Logout"
+          danger
+          title="Sign out"
           leftIcon="close-box"
-          onPress={() => navigation.navigate("Log Out")}
+          onPress={signOutAlert}
         />
       </View>
     </View>

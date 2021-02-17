@@ -21,16 +21,6 @@ export default function NewsTab() {
   const navigation = useNavigation();
   return (
     <ScrollView style={styles.container}>
-      <View style={styles.view}>
-        <Image
-          source={require("../assets/images/Torri.png")}
-          style={{
-            width: 30,
-            height: 30,
-            marginTop: 13,
-          }}
-        />
-      </View>
       <NewsCard
         title="Demobilization of 3BCT"
         image={images[0]}

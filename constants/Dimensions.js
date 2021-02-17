@@ -20,7 +20,7 @@ export default {
     backgroundColor: Colors.white,
   },
   font: {
-    fontFamily: "andale-mono",
+    //
     // fontFamily: "System",
   },
 };

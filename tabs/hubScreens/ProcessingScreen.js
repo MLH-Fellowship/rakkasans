@@ -9,10 +9,6 @@ export default function BattScreen() {
   const navigation = useNavigation();
   return (
     <View style={styles.container}>
-      <Image
-        source={require("../../assets/images/Torri.png")}
-        style={{ width: 30, height: 30, top: "2%", paddingBottom: 20 }}
-      />
       <View style={[styles.buttonView, { paddingTop: 10 }]}>
         <SquareButton
           name="shield"

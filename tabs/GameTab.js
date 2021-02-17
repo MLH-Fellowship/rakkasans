@@ -24,11 +24,11 @@ export default function GameTab() {
         onFinish={() => alert("finished")}
         onPress={() => alert("coming soon...")}
         digitStyle={{ backgroundColor: "#FFF" }}
-        digitTxtStyle={{ color: Colors.primary, fontFamily: "fira-sans" }}
+        digitTxtStyle={{ color: Colors.primary }}
         //separatorStyle={{ color: Colors.primary }}
         timeToShow={["D", "H", "M", "S"]}
         timeLabels={{ d: "Days", h: "Hours", m: "Mins", s: "Secs" }}
-        timeLabelStyle={{ color: Colors.white, fontFamily: "fira-sans" }}
+        timeLabelStyle={{ color: Colors.white }}
         size={30}
       />
     </View>
@@ -38,7 +38,6 @@ export default function GameTab() {
 const styles = StyleSheet.create({
   text: {
     fontSize: 40,
-    fontFamily: "fira-sans",
     color: Colors.white,
     marginBottom: 30,
   },

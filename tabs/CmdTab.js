@@ -63,15 +63,6 @@ export default function CmdTab() {
         </View>
       </Modal>
 
-      <Image
-        source={require("../assets/images/Torri.png")}
-        style={{
-          width: 30,
-          height: 30,
-          top: "2%",
-          paddingBottom: 10,
-        }}
-      />
       <View style={styles.cmdTeamContainer}>
         <CommandCard
           title="COL Brandon Teague"
@@ -118,7 +109,7 @@ export default function CmdTab() {
             text="Off Limits" // Could change to "Off Limit Establishments", but it doesn't fit
             buttonSize={90}
             textSize={12}
-            onPress={() => navigation.navigate("Off Limits Establishments")}
+            onPress={() => navigation.navigate("Off Limits")}
           />
         </View>
       </View>
