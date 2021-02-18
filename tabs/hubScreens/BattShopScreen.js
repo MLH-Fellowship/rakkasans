@@ -16,7 +16,7 @@ export default function BattShopScreen ({ route }) {
     const getBatt = async () => {
       try {
         // TODO Change to localhost for non Mike development
-        const response = await fetch(`http://localhost:3000/battalion/HHC`);
+        const response = await fetch(`http://localhost:3000/battalion/${name}`);
         const json = await response.json();
         console.log('json', json[0])
         setBatt(json[0]);
