@@ -33,7 +33,6 @@ import InProcessing from "./tabs/hubScreens/InProcessing";
 import OutProcessing from "./tabs/hubScreens/OutProcessing";
 import RakFitScreen from "./tabs/hubScreens/RakFitScreen";
 import BattUnitScreen from "./tabs/hubScreens/BattUnitScreen";
-import BattHHCScreen from "./tabs/hubScreens/BattHHCScreen";
 import BattShopListScreen from "./tabs/hubScreens/BattShopListScreen";
 import BattShopScreen from "./tabs/hubScreens/BattShopScreen";
 import CallRosterScreen from "./tabs/hubScreens/CallRosterScreen";
@@ -103,11 +102,6 @@ function HubStackScreen() {
       <HubStack.Screen name="Army Resources" component={ResourcesScreen} />
       <HubStack.Screen name="RAKFIT" component={RakFitScreen} />
       <HubStack.Screen name="Battalion" component={BattUnitScreen} />
-      <HubStack.Screen
-        name="HHC"
-        component={BattHHCScreen}
-        options={{ title: "HHC" }}
-      />
       <HubStack.Screen name="Batt Shop List" component={BattShopListScreen} />
       <HubStack.Screen name="Batt Shop" component={BattShopScreen} />
       <HubStack.Screen name="Call Roster" component={CallRosterScreen} />
@@ -134,6 +128,7 @@ function HubStackScreen() {
     </HubStack.Navigator>
   );
 }
+
 const NewsStack = createStackNavigator();
 function NewsStackScreen() {
   return (

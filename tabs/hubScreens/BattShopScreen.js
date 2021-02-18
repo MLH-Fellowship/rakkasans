@@ -8,16 +8,18 @@ import RectButton from "../../components/RectButton";
 import Dimensions from "../../constants/Dimensions";
 
 export default function BattShopScreen ({ route }) {
-  const [batt, setBatt] = useState([]);
+  const [batt, setBatt] = useState({});
   const { name } = route.params;
-  const {shop_number, hours, location} = batt
+  console.log('params', route.params)
+  const {shop_number=false, hours=false, location=false} = batt
   useEffect(() => {
     const getBatt = async () => {
       try {
         // TODO Change to localhost for non Mike development
-        const response = await fetch(`http://192.168.1.208:3000/batallion/HHC`);
+        const response = await fetch(`http://localhost:3000/battalion/HHC`);
         const json = await response.json();
-        setBatt(json);
+        console.log('json', json[0])
+        setBatt(json[0]);
       } catch (error) {
         console.log(error);
       }
@@ -27,9 +29,9 @@ export default function BattShopScreen ({ route }) {
   }, []);
 
   const tableData = [
-    ["Shop #:", `${shop_number}`],
-    ["Location:", `${location}`],
-    ["Hours:", `${hours}`]
+    ["Shop #:", `${shop_number ? shop_number : '...loading'}`],
+    ["Location:", `${location ? location : '...loading'}`],
+    ["Hours:", `${hours ? hours: '...loading'}`]
   ];
   const titleWidth = Dimensions.window.width * 0.27;
   const contentWidth = Dimensions.window.width * 0.65;
@@ -38,6 +40,7 @@ export default function BattShopScreen ({ route }) {
   // const { name } = route.params;
   // const { image } = route.params;
   return (
+    <>
     <View style={styles.container}>
       <View style={styles.buttonContainer}>
         {/* <Text style={styles.title}> {name} </Text>
@@ -55,6 +58,7 @@ export default function BattShopScreen ({ route }) {
         <RectButton text="Function" />
       </View>
     </View>
+    </>
   );
 }
 

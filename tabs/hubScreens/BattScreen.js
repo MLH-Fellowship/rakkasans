@@ -12,7 +12,7 @@ export default function BattScreen() {
       <View style={styles.buttonPair}>
         <BattalionButton
           onPress={() =>
-            navigation.navigate("HHC", {
+            navigation.navigate("Battalion", {
               name: "HHC",
               image: require("../../assets/images/battalions/HHC.png"),
             })
