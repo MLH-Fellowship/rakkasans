@@ -83,7 +83,11 @@ const Login = ({ navigation }) => {
         >
           <Button title="Sign in" loading={loading} onPress={userLogin} />
           <View style={{ height: 10 }} />
-          <Button title="Forgot password" clear />
+          <Text
+            style={{ height: 60, paddingVertical: 20, color: Colors.primary }}
+          >
+            Forgot password
+          </Text>
         </View>
       </View>
     </>
