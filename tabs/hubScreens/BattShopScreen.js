@@ -10,7 +10,6 @@ import Dimensions from "../../constants/Dimensions";
 export default function BattShopScreen ({ route }) {
   const [batt, setBatt] = useState({});
   const { name } = route.params;
-  console.log('params', route.params)
   const {shop_number=false, hours=false, location=false} = batt
   useEffect(() => {
     const getBatt = async () => {
@@ -18,7 +17,6 @@ export default function BattShopScreen ({ route }) {
         // TODO Change to localhost for non Mike development
         const response = await fetch(`http://localhost:3000/battalion/${name}`);
         const json = await response.json();
-        console.log('json', json[0])
         setBatt(json[0]);
       } catch (error) {
         console.log(error);
