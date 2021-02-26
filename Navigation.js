@@ -55,6 +55,8 @@ import WelcomeLetterScreen from "./tabs/cmdScreens/WelcomeLetterScreen";
 
 //other screens
 import WelcomeScreen from "./tabs/otherScreens/WelcomeScreen";
+import WelcomeVideo from "./tabs/otherScreens/WelcomeVideo";
+import CheckList from './tabs/otherScreens/CheckList';
 import NewsScreen from "./tabs/otherScreens/NewsScreen";
 import Topics from "./tabs/otherScreens/Topics";
 import Posts from "./tabs/otherScreens/Posts";
@@ -370,6 +372,24 @@ export default function Navigation() {
         component={Login}
         options={
           ({ title: "Login" },
+          { headerLeft: null },
+          { headerBackTitleVisible: false })
+        }
+      />
+      <Stack.Screen
+        name="Welcome Video"
+        component={WelcomeVideo}
+        options={
+          ({ title: "WelcomeVideo" },
+          { headerLeft: null },
+          { headerBackTitleVisible: false })
+        }
+      />
+      <Stack.Screen
+        name="Check List"
+        component={CheckList}
+        options={
+          ({ title: "Check List" },
           { headerLeft: null },
           { headerBackTitleVisible: false })
         }

@@ -9,6 +9,7 @@ export default function BattUnitScreen({ route }) {
   const navigation = useNavigation();
   const { name } = route.params;
   const { image } = route.params;
+  
   const whereToNavigate = (name === 'HHC') ? 'Batt Shop' : "Batt Shop List"
 
   return (

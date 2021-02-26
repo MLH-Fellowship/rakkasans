@@ -76,6 +76,7 @@ export default class Login extends Component {
       email: "",
       password: "",
       isLoading: false,
+      isNewUser: null
     };
 
     this.buttonOpacity = new Value(1);
@@ -158,8 +159,12 @@ export default class Login extends Component {
                 isLoading: false,
                 email: "",
                 password: "",
+                isNewUser: true // replace with res.isNewUser from backend
               });
-              this.props.navigation.navigate("Tab Bar");
+          
+              (this.state.isNewUser)  ? this.props.navigation.navigate('Welcome Video') :
+               this.props.navigation.navigate('Tab Bar')
+
             })
             .catch((error) => this.setState({ errorMessage: error.message }));
         });
