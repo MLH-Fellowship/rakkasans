@@ -9,6 +9,9 @@ export default function BattUnitScreen({ route }) {
   const navigation = useNavigation();
   const { name } = route.params;
   const { image } = route.params;
+  
+  const whereToNavigate = (name === 'HHC') ? 'Batt Shop' : "Batt Shop List"
+
   return (
     <View style={styles.container}>
       <View style={styles.titleContainer}>
@@ -43,7 +46,7 @@ export default function BattUnitScreen({ route }) {
             text="S-Shop" // Could change to "Off Limit Establishments", but it doesn't fit
             buttonSize={90}
             textSize={14}
-            onPress={() => navigation.navigate("Batt Shop List", route.params)}
+            onPress={() => navigation.navigate(whereToNavigate, route.params)}
           />
         </View>
       </View>

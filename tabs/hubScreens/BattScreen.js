@@ -1,7 +1,6 @@
 import React from "react";
 import { StyleSheet, View } from "react-native";
 import { useNavigation } from "@react-navigation/native";
-
 import Colors from "../../constants/Colors";
 import BattalionButton from "../../components/BattalionButton";
 
@@ -12,7 +11,7 @@ export default function BattScreen() {
       <View style={styles.buttonPair}>
         <BattalionButton
           onPress={() =>
-            navigation.navigate("HHC", {
+            navigation.navigate("Battalion", {
               name: "HHC",
               image: require("../../assets/images/battalions/HHC.png"),
             })

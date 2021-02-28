@@ -7,7 +7,7 @@ export default function MoHDocument() {
   useEffect(() => {
     const getFallen = async () => {
       try {
-        const response = await fetch(`http://localhost:3000/fallen`);
+        const response = await fetch(`http://192.168.1.208:3000/fallen`);
         const json = await response.json();
 
         const pageJSON = [

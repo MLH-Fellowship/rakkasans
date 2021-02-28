@@ -17,27 +17,27 @@ export default function BattShopListScreen({ route }) {
         <Image source={image} style={styles.titlePic} /> */}
         <RectButton
           text="S1"
-          onPress={() => navigation.navigate("Batt Shop")}
+          onPress={() => navigation.navigate("Batt Shop", route.params)}
           icons={true}
         />
         <RectButton
           text="S2"
-          onPress={() => navigation.navigate("Batt Shop")}
+          onPress={() => navigation.navigate("Batt Shop", route.params)}
           icons={true}
         />
         <RectButton
           text="S3"
-          onPress={() => navigation.navigate("Batt Shop")}
+          onPress={() => navigation.navigate("Batt Shop", route.params)}
           icons={true}
         />
         <RectButton
           text="S4"
-          onPress={() => navigation.navigate("Batt Shop")}
+          onPress={() => navigation.navigate("Batt Shop", route.params)}
           icons={true}
         />
         <RectButton
           text="S6"
-          onPress={() => navigation.navigate("Batt Shop")}
+          onPress={() => navigation.navigate("Batt Shop", route.params)}
           icons={true}
         />
       </View>

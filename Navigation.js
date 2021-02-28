@@ -33,7 +33,6 @@ import InProcessing from "./tabs/hubScreens/InProcessing";
 import OutProcessing from "./tabs/hubScreens/OutProcessing";
 import RakFitScreen from "./tabs/hubScreens/RakFitScreen";
 import BattUnitScreen from "./tabs/hubScreens/BattUnitScreen";
-import BattHHCScreen from "./tabs/hubScreens/BattHHCScreen";
 import BattShopListScreen from "./tabs/hubScreens/BattShopListScreen";
 import BattShopScreen from "./tabs/hubScreens/BattShopScreen";
 import CallRosterScreen from "./tabs/hubScreens/CallRosterScreen";
@@ -56,6 +55,8 @@ import WelcomeLetterScreen from "./tabs/cmdScreens/WelcomeLetterScreen";
 
 //other screens
 import WelcomeScreen from "./tabs/otherScreens/WelcomeScreen";
+import WelcomeVideo from "./tabs/otherScreens/WelcomeVideo";
+import CheckList from './tabs/otherScreens/CheckList';
 import NewsScreen from "./tabs/otherScreens/NewsScreen";
 import Topics from "./tabs/otherScreens/Topics";
 import Posts from "./tabs/otherScreens/Posts";
@@ -104,11 +105,6 @@ function HubStackScreen() {
       <HubStack.Screen name="Army Resources" component={ResourcesScreen} />
       <HubStack.Screen name="RAKFIT" component={RakFitScreen} />
       <HubStack.Screen name="Battalion" component={BattUnitScreen} />
-      <HubStack.Screen
-        name="HHC"
-        component={BattHHCScreen}
-        options={{ title: "HHC" }}
-      />
       <HubStack.Screen name="Batt Shop List" component={BattShopListScreen} />
       <HubStack.Screen name="Batt Shop" component={BattShopScreen} />
       <HubStack.Screen name="Call Roster" component={CallRosterScreen} />
@@ -135,6 +131,7 @@ function HubStackScreen() {
     </HubStack.Navigator>
   );
 }
+
 const NewsStack = createStackNavigator();
 function NewsStackScreen() {
   return (
@@ -373,6 +370,24 @@ export default function Navigation() {
         component={Login}
         options={
           ({ title: "Login" },
+          { headerLeft: null },
+          { headerBackTitleVisible: false })
+        }
+      />
+      <Stack.Screen
+        name="Welcome Video"
+        component={WelcomeVideo}
+        options={
+          ({ title: "WelcomeVideo" },
+          { headerLeft: null },
+          { headerBackTitleVisible: false })
+        }
+      />
+      <Stack.Screen
+        name="Check List"
+        component={CheckList}
+        options={
+          ({ title: "Check List" },
           { headerLeft: null },
           { headerBackTitleVisible: false })
         }
