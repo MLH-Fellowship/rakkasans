@@ -11,6 +11,7 @@ export default function ListItem({
   onPress,
   rightIcon,
   leftIcon,
+  danger,
 }) {
   return (
     <TouchableHighlight underlayColor={Colors.lightGray} onPress={onPress}>
@@ -19,7 +20,10 @@ export default function ListItem({
           <Icon color={Colors.darkGray} name={rightIcon} size={25} />
         )}
         <View style={styles.detailsContainer}>
-          <Text style={[styles.title, Dimensions.font]} numberOfLines={1}>
+          <Text
+            style={[styles.title, danger && styles.danger, Dimensions.font]}
+            numberOfLines={1}
+          >
             {title}
           </Text>
           {subTitle && (
@@ -29,7 +33,13 @@ export default function ListItem({
           )}
         </View>
 
-        {leftIcon && <Icon color={Colors.darkGray} name={leftIcon} size={25} />}
+        {leftIcon && (
+          <Icon
+            color={danger ? Colors.accent : Colors.darkGray}
+            name={leftIcon}
+            size={25}
+          />
+        )}
       </View>
     </TouchableHighlight>
   );
@@ -54,5 +64,8 @@ const styles = StyleSheet.create({
   title: {
     color: Colors.darkGray,
     fontSize: 16,
+  },
+  danger: {
+    color: Colors.accent,
   },
 });

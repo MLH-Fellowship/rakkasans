@@ -83,7 +83,8 @@ function HubStackScreen() {
           backgroundColor: Colors.primary,
         },
         headerTintColor: Colors.white,
-        headerTitleStyle: { fontSize: 25, fontFamily: "fira-sans" },
+        headerTitleStyle: { fontSize: 20 },
+        headerBackTitleVisible: false,
       }}
     >
       <HubStack.Screen
@@ -97,7 +98,7 @@ function HubStackScreen() {
       <HubStack.Screen name="Bluebook" component={HandbookScreen} />
       <HubStack.Screen name="Training & Schools" component={SchoolsScreen} />
       <HubStack.Screen name="School" component={SchoolsPageScreen} />
-      <HubStack.Screen name="In/Out Processing" component={ProcessingScreen} />
+      <HubStack.Screen name="Processing" component={ProcessingScreen} />
       <HubStack.Screen name="In Processing" component={InProcessing} />
       <HubStack.Screen name="Out Processing" component={OutProcessing} />
       <HubStack.Screen name="Forum" component={ForumsScreen} />
@@ -141,7 +142,8 @@ function NewsStackScreen() {
           backgroundColor: Colors.primary,
         },
         headerTintColor: Colors.white,
-        headerTitleStyle: { fontSize: 25, fontFamily: "fira-sans" },
+        headerTitleStyle: { fontSize: 20 },
+        headerBackTitleVisible: false,
       }}
     >
       <NewsStack.Screen
@@ -149,7 +151,11 @@ function NewsStackScreen() {
         component={NewsTab}
         options={{ headerLeft: null }}
       />
-      <NewsStack.Screen name="News Article" component={NewsScreen} />
+      <NewsStack.Screen
+        name="News Article"
+        options={{ headerTitle: "News" }}
+        component={NewsScreen}
+      />
     </NewsStack.Navigator>
   );
 }
@@ -163,7 +169,8 @@ function CommandStackScreen() {
           backgroundColor: Colors.primary,
         },
         headerTintColor: Colors.white,
-        headerTitleStyle: { fontSize: 25, fontFamily: "fira-sans" },
+        headerTitleStyle: { fontSize: 20 },
+        headerBackTitleVisible: false,
       }}
     >
       <CommandStack.Screen
@@ -181,10 +188,7 @@ function CommandStackScreen() {
         name="Policy Letters"
         component={PolicyLettersScreen}
       />
-      <CommandStack.Screen
-        name="Off Limits Establishments"
-        component={OffLimitsScreen}
-      />
+      <CommandStack.Screen name="Off Limits" component={OffLimitsScreen} />
     </CommandStack.Navigator>
   );
 }
@@ -198,7 +202,7 @@ function GameStackScreen() {
           backgroundColor: Colors.primary,
         },
         headerTintColor: Colors.white,
-        headerTitleStyle: { fontSize: 25, fontFamily: "fira-sans" },
+        headerTitleStyle: { fontSize: 25 },
       }}
     >
       <GameStack.Screen
@@ -219,7 +223,7 @@ function AccountStackScreen() {
           backgroundColor: Colors.primary,
         },
         headerTintColor: Colors.white,
-        headerTitleStyle: { fontSize: 25, fontFamily: "fira-sans" },
+        headerTitleStyle: { fontSize: 25 },
       }}
     >
       <AccountStack.Screen
@@ -252,12 +256,6 @@ function TabBar() {
         style: {
           backgroundColor: Colors.primary,
           paddingTop: 7,
-        },
-        labelStyle: {
-          fontSize: 12,
-          fontFamily: "fira-sans",
-          textAlign: "center",
-          top: "5%",
         },
         activeTintColor: Colors.accent,
         inactiveTintColor: Colors.lightGray,

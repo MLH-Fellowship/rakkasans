@@ -43,6 +43,5 @@ const styles = StyleSheet.create({
   textStyle: {
     fontSize: 15,
     marginBottom: 20,
-    fontFamily: "fira-sans",
   },
 });

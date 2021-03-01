@@ -143,12 +143,11 @@ const styles = StyleSheet.create({
   challengetext: {
     fontSize: 25,
     color: Colors.primary,
-    fontFamily: "andale-mono",
   },
   fitnesstext: {
     fontSize: 22,
     color: Colors.primary,
-    fontFamily: "andale-mono",
+
     marginTop: 25,
     padding: 5,
   },
@@ -172,7 +171,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 20,
     color: Colors.white,
-    fontFamily: "andale-mono",
+
     top: "-12%",
     left: "5%",
   },

@@ -41,11 +41,15 @@ export default function Posts({ route, navigation }) {
 
   const _listEmptyComponent = () => {
     return (
-      <View style={{ flex: 1, flexDirection: 'column', justifyContent: 'center' }}>
-        <Text style={{textAlign: 'center' }}>There don't seem to be any posts on this topic. Why not be the first?</Text>
+      <View
+        style={{ flex: 1, flexDirection: "column", justifyContent: "center" }}
+      >
+        <Text style={{ textAlign: "center" }}>
+          There don't seem to be any posts on this topic. Why not be the first?
+        </Text>
       </View>
-    )   
-  }
+    );
+  };
 
   return (
     <View style={styles.container}>
@@ -57,7 +61,7 @@ export default function Posts({ route, navigation }) {
         keyExtractor={(item) => item.id.toString()}
         ListEmptyComponent={_listEmptyComponent}
         contentContainerStyle={{ flexGrow: 1 }}
-        style={{flex: 1}}
+        style={{ flex: 1 }}
         renderItem={({ item }) => (
           <TouchableHighlight
             style={styles.item}
@@ -90,7 +94,6 @@ export default function Posts({ route, navigation }) {
             color: "white",
             fontSize: 20,
             fontWeight: "bold",
-            fontFamily: "fira-sans",
           }}
           onPress={() =>
             navigation.navigate("New Post", {

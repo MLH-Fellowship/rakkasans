@@ -7,7 +7,7 @@ import {
   TextInput,
   Keyboard,
   TouchableOpacity,
-  Alert
+  Alert,
 } from "react-native";
 import Dimensions from "../../constants/Dimensions";
 import Colors from "../../constants/Colors";
@@ -24,40 +24,30 @@ export default function NewPost({ route }) {
   const handleSubmit = async () => {
     try {
       const response = await fetch(`http://localhost:3000/posts/`, {
-        method: 'POST',
+        method: "POST",
         headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json'
+          Accept: "application/json",
+          "Content-Type": "application/json",
         },
         body: JSON.stringify({
           title: title,
           body: post,
           user_id: 1,
-          topic_id: topic_id
-        })
+          topic_id: topic_id,
+        }),
       });
-      if(response.status === 200){
+      if (response.status === 200) {
         Alert.alert(
           "Your post has been successfully added!",
-          ""
-          [
-            { text: "OK" }
-          ]
+          ""[{ text: "OK" }]
         );
-        navigation.goBack()
-      }else{
-        Alert.alert(
-          "ERROR: Title & Post required",
-          ""
-          [
-            { text: "OK" }
-          ]
-        );
+        navigation.goBack();
+      } else {
+        Alert.alert("ERROR: Title & Post required", ""[{ text: "OK" }]);
       }
     } catch (error) {
       console.log(error);
     }
-
   };
   return (
     <View>
@@ -119,10 +109,8 @@ const styles = StyleSheet.create({
     color: "white",
     fontSize: 20,
     fontWeight: "bold",
-    fontFamily: "fira-sans",
   },
   titleInput: {
-    fontFamily: "fira-sans",
     height: 50,
     borderRadius: 15,
     borderWidth: 0.5,
@@ -132,7 +120,6 @@ const styles = StyleSheet.create({
     borderColor: "rgba(0,0,0,0.2)",
   },
   textInput: {
-    fontFamily: "fira-sans",
     height: 300,
     borderRadius: 25,
     borderWidth: 0.5,
@@ -142,8 +129,8 @@ const styles = StyleSheet.create({
     borderColor: "rgba(0,0,0,0.2)",
   },
   header: {
-    textAlign: 'center',
+    textAlign: "center",
     fontSize: 25,
-    paddingVertical: 20
-  }
+    paddingVertical: 20,
+  },
 });
