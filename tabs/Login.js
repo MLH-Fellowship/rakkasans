@@ -3,13 +3,10 @@ import React from "react";
 import {
   Text,
   View,
-  Image,
   StatusBar,
   TextInput,
   Alert,
-  TouchableOpacity,
   StyleSheet,
-  ActivityIndicator,
 } from "react-native";
 import Firebase from "../constants/FireBaseDb";
 import Colors from "../constants/Colors";
@@ -19,6 +16,7 @@ const Login = ({ navigation }) => {
   const [email, setEmail] = React.useState();
   const [password, setPassword] = React.useState();
   const [loading, setLoading] = React.useState(false);
+  const isNewUser = true;
 
   const userLogin = () => {
     if (email === "" && password === "") {
@@ -33,9 +31,10 @@ const Login = ({ navigation }) => {
             .then((res) => {
               console.log(res);
               console.log("User logged-in successfully!");
+
               navigation.reset({
                 index: 0,
-                routes: [{ name: "Tab Bar" }],
+                routes: [{ name: isNewUser ? "Welcome Video" : "Tab Bar" }],
               });
             })
             .catch((error) => alert(error.message));
@@ -44,16 +43,29 @@ const Login = ({ navigation }) => {
   };
 
   return (
-    <>
-      <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-        <StatusBar barStyle="dark-content" />
+    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+      <StatusBar barStyle="dark-content" />
+      <View
+        style={{ flex: 1, justifyContent: "flex-end", alignItems: "center" }}
+      >
         <Text style={{ fontSize: 18, fontFamily: "reggae-one" }}>
           101st Airborne
         </Text>
         <Text style={{ fontSize: 50, fontFamily: "reggae-one" }}>
           RAKKASANS
         </Text>
+      </View>
+
+      <View
+        style={{
+          flex: 2,
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
         <Text style={{ fontSize: 250 }}>⛩️</Text>
+      </View>
+      <View style={{ flex: 1 }}>
         <TextInput
           placeholder="Email"
           style={styles.textInput}
@@ -74,23 +86,18 @@ const Login = ({ navigation }) => {
           onChangeText={setPassword}
           maxLength={30}
         />
-        <View
-          style={{
-            flex: 0.6,
-            alignItems: "center",
-            justifyContent: "flex-end",
-          }}
-        >
-          <Button title="Sign in" loading={loading} onPress={userLogin} />
-          <View style={{ height: 10 }} />
-          <Text
-            style={{ height: 60, paddingVertical: 20, color: Colors.primary }}
-          >
-            Forgot password
-          </Text>
-        </View>
       </View>
-    </>
+
+      <View style={{ flex: 1, alignItems: "center" }}>
+        <Button title="Sign in" loading={loading} onPress={userLogin} />
+        <View style={{ height: 10 }} />
+        <Text
+          style={{ height: 60, paddingVertical: 20, color: Colors.primary }}
+        >
+          Forgot password
+        </Text>
+      </View>
+    </View>
   );
 };
 

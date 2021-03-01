@@ -8,8 +8,8 @@ const Button = ({ title, clear, loading, onPress }) => {
     button: {
       backgroundColor: clear ? "transparent" : Colors.primary,
       padding: 15,
-      width: 275,
-      height: 55,
+      width: 320,
+      height: 62,
       borderRadius: 8,
       alignItems: "center",
       justifyContent: "center",
@@ -18,7 +18,7 @@ const Button = ({ title, clear, loading, onPress }) => {
       shadowOpacity: clear ? 0 : 0.3,
     },
     title: {
-      fontSize: 18,
+      fontSize: 20,
       color: clear ? Colors.primary : "#FFF",
       fontWeight: "600",
     },
