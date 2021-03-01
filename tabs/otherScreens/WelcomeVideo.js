@@ -1,36 +1,30 @@
 import * as React from "react";
-import { View, StyleSheet, Button, Text } from "react-native";
+import { View, StyleSheet, Text } from "react-native";
 import { Video } from "expo-av";
+import Button from "../../components/Button";
 
 export default function WelcomeVideo({ navigation }) {
-  const video = React.useRef(null);
-  const [status, setStatus] = React.useState({});
-  const [didWatch, setDidWatch] = React.useState(false);
-  React.useEffect(() => {
-    if (status.didJustFinish) {
-      setDidWatch(true);
-    }
-  }, [status]);
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>Welcome!</Text>
-      <Video
-        ref={video}
-        style={styles.video}
-        source={{
-          uri: "http://d23dyxeqlo5psv.cloudfront.net/big_buck_bunny.mp4",
-        }}
-        resizeMode="cover"
-        useNativeControls
-        onPlaybackStatusUpdate={(status) => setStatus(status)}
-      />
+      <View style={{ flex: 1, justifyContent: "center" }}>
+        <Text style={styles.text}>Welcome to RAKapp!</Text>
+      </View>
+      <View style={{ flex: 3, justifyContent: "center" }}>
+        <Video
+          style={styles.video}
+          source={{
+            uri: "http://d23dyxeqlo5psv.cloudfront.net/big_buck_bunny.mp4",
+          }}
+          resizeMode="cover"
+          useNativeControls
+        />
+      </View>
+
       <View style={styles.buttons}>
-        {didWatch && (
-          <Button
-            onPress={() => navigation.navigate("Check List")}
-            title={"Continue ->"}
-          />
-        )}
+        <Button
+          title="Continue"
+          onPress={() => navigation.navigate("Check List")}
+        />
       </View>
     </View>
   );
@@ -40,10 +34,12 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: "center",
+    alignItems: "center",
     backgroundColor: "#ecf0f1",
   },
   text: {
-    textAlign: "center",
+    fontSize: 30,
+    fontWeight: "bold",
   },
   video: {
     alignSelf: "center",
@@ -51,8 +47,7 @@ const styles = StyleSheet.create({
     height: 250,
   },
   buttons: {
-    flexDirection: "row",
+    flex: 1,
     justifyContent: "center",
-    alignItems: "center",
   },
 });
