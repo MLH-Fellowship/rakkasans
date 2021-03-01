@@ -1,41 +1,30 @@
-import * as React from 'react';
-import { View, StyleSheet, Button, Text } from 'react-native';
-import { Video } from 'expo-av';
+import * as React from "react";
+import { View, StyleSheet, Text } from "react-native";
+import { Video } from "expo-av";
+import Button from "../../components/Button";
 
-export default function WelcomeVideo({navigation}) {
-  const video = React.useRef(null);
-  const [status, setStatus] = React.useState({});
-    const [didWatch, setDidWatch] = React.useState(false)
-  React.useEffect(() => {
-    if(status.didJustFinish) {
-        setDidWatch(true)
-    }
-
-  }, [status])
+export default function WelcomeVideo({ navigation }) {
   return (
     <View style={styles.container}>
-        <Text style={styles.text}>Welcome!</Text>
-      <Video
-        ref={video}
-        style={styles.video}
-        source={{
-          uri: 'http://d23dyxeqlo5psv.cloudfront.net/big_buck_bunny.mp4',
-        }}
-        resizeMode='stretch'
-        isLooping
-        onPlaybackStatusUpdate={status => setStatus(() => status)}
-      />
+      <View style={{ flex: 1, justifyContent: "center" }}>
+        <Text style={styles.text}>Welcome to RAKapp!</Text>
+      </View>
+      <View style={{ flex: 3, justifyContent: "center" }}>
+        <Video
+          style={styles.video}
+          source={{
+            uri: "http://d23dyxeqlo5psv.cloudfront.net/big_buck_bunny.mp4",
+          }}
+          resizeMode="cover"
+          useNativeControls
+        />
+      </View>
+
       <View style={styles.buttons}>
         <Button
-          title={status.isPlaying ? 'Pause' : 'Play'}
-          onPress={() =>
-            status.isPlaying ? video.current.pauseAsync() : video.current.playAsync()
-          }
+          title="Continue"
+          onPress={() => navigation.navigate("Check List")}
         />
-        <Button title="Go full screen" onPress={() => {
-            video.current.presentFullscreenPlayer()
-        }}/>
-        {didWatch && <Button onPress={() => navigation.navigate('Check List')}title={'Continue ->'}></Button>}
       </View>
     </View>
   );
@@ -44,20 +33,21 @@ export default function WelcomeVideo({navigation}) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    backgroundColor: '#ecf0f1',
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "#ecf0f1",
   },
   text: {
-      textAlign: 'center'
+    fontSize: 30,
+    fontWeight: "bold",
   },
   video: {
-    alignSelf: 'center',
+    alignSelf: "center",
     width: 400,
     height: 250,
   },
   buttons: {
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
+    flex: 1,
+    justifyContent: "center",
   },
 });

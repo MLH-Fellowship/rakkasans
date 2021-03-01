@@ -1,152 +1,28 @@
 // components/login.js
-import React, { Component } from "react";
+import React from "react";
 import {
-  StyleSheet,
   Text,
   View,
   StatusBar,
   TextInput,
-  Keyboard,
-  KeyboardAvoidingView,
-  TouchableWithoutFeedback,
   Alert,
-  ActivityIndicator,
-  TouchableOpacity,
+  StyleSheet,
 } from "react-native";
 import Firebase from "../constants/FireBaseDb";
-import Animated, { Easing } from "react-native-reanimated";
-import { TapGestureHandler, State } from "react-native-gesture-handler";
-import Svg, { Image, Circle, ClipPath } from "react-native-svg";
-
-import Dimensions from "../constants/Dimensions";
 import Colors from "../constants/Colors";
+import Button from "../components/Button";
 
-const { width, height } = Dimensions.window;
-const {
-  Value,
-  event,
-  block,
-  cond,
-  eq,
-  set,
-  Clock,
-  startClock,
-  stopClock,
-  debug,
-  timing,
-  clockRunning,
-  interpolate,
-  Extrapolate,
-  concat,
-} = Animated;
+const Login = ({ navigation }) => {
+  const [email, setEmail] = React.useState();
+  const [password, setPassword] = React.useState();
+  const [loading, setLoading] = React.useState(false);
+  const isNewUser = true;
 
-function runTiming(clock, value, dest) {
-  const state = {
-    finished: new Value(0),
-    position: new Value(0),
-    time: new Value(0),
-    frameTime: new Value(0),
-  };
-
-  const config = {
-    duration: 1000,
-    toValue: new Value(0),
-    easing: Easing.inOut(Easing.ease),
-  };
-
-  return block([
-    cond(clockRunning(clock), 0, [
-      set(state.finished, 0),
-      set(state.time, 0),
-      set(state.position, value),
-      set(state.frameTime, 0),
-      set(config.toValue, dest),
-      startClock(clock),
-    ]),
-    timing(clock, state, config),
-    cond(state.finished, debug("stop clock", stopClock(clock))),
-    state.position,
-  ]);
-}
-
-export default class Login extends Component {
-  constructor() {
-    super();
-    this.state = {
-      email: "",
-      password: "",
-      isLoading: false,
-      isNewUser: null
-    };
-
-    this.buttonOpacity = new Value(1);
-    this.onStateChange = event([
-      {
-        nativeEvent: ({ state }) =>
-          block([
-            cond(
-              eq(state, State.END),
-              set(this.buttonOpacity, runTiming(new Clock(), 1, 0))
-            ),
-          ]),
-      },
-    ]);
-    this.onCloseState = event([
-      {
-        nativeEvent: ({ state }) =>
-          block([
-            cond(
-              eq(state, State.END),
-              set(this.buttonOpacity, runTiming(new Clock(), 0, 1))
-            ),
-          ]),
-      },
-    ]);
-    this.buttonY = interpolate(this.buttonOpacity, {
-      inputRange: [0, 1],
-      outputRange: [100, 0],
-      extrapolate: Extrapolate.CLAMP,
-    });
-    this.bgY = interpolate(this.buttonOpacity, {
-      inputRange: [0, 1],
-      outputRange: [-height / 3 - 50, 0],
-      extrapolate: Extrapolate.CLAMP,
-    });
-    this.textInputZindex = interpolate(this.buttonOpacity, {
-      inputRange: [0, 1],
-      outputRange: [1, -1],
-      extrapolate: Extrapolate.CLAMP,
-    });
-    this.textInputY = interpolate(this.buttonOpacity, {
-      inputRange: [0, 1],
-      outputRange: [0, 100],
-      extrapolate: Extrapolate.CLAMP,
-    });
-    this.textInputOpacity = interpolate(this.buttonOpacity, {
-      inputRange: [0, 1],
-      outputRange: [1, 0],
-      extrapolate: Extrapolate.CLAMP,
-    });
-    this.rotateCross = interpolate(this.buttonOpacity, {
-      inputRange: [0, 1],
-      outputRange: [180, 360],
-      extrapolate: Extrapolate.CLAMP,
-    });
-  }
-
-  updateInputVal = (val, prop) => {
-    const state = this.state;
-    state[prop] = val;
-    this.setState(state);
-  };
-
-  userLogin = () => {
-    if (this.state.email === "" && this.state.password === "") {
+  const userLogin = () => {
+    if (email === "" && password === "") {
       Alert.alert("Enter details to signin!");
     } else {
-      this.setState({
-        isLoading: true,
-      });
+      setLoading(true);
       Firebase.auth()
         .setPersistence(Firebase.auth.Auth.Persistence.LOCAL)
         .then(() => {
@@ -155,225 +31,113 @@ export default class Login extends Component {
             .then((res) => {
               console.log(res);
               console.log("User logged-in successfully!");
-              this.setState({
-                isLoading: false,
-                email: "",
-                password: "",
-                isNewUser: true // replace with res.isNewUser from backend
-              });
-          
-              (this.state.isNewUser)  ? this.props.navigation.navigate('Welcome Video') :
-               this.props.navigation.navigate('Tab Bar')
 
+              navigation.reset({
+                index: 0,
+                routes: [{ name: isNewUser ? "Welcome Video" : "Tab Bar" }],
+              });
             })
-            .catch((error) => this.setState({ errorMessage: error.message }));
+            .catch((error) => alert(error.message));
         });
     }
   };
 
-  render() {
-    if (this.state.isLoading) {
-      return (
-        <View style={styles.preloader}>
-          <ActivityIndicator size="large" color={Colors.primary} />
-        </View>
-      );
-    }
-    return (
-      <TouchableWithoutFeedback
-        onPress={() => {
-          Keyboard.dismiss();
+  return (
+    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+      <StatusBar barStyle="dark-content" />
+      <View
+        style={{ flex: 1, justifyContent: "flex-end", alignItems: "center" }}
+      >
+        <Text style={{ fontSize: 18, fontFamily: "reggae-one" }}>
+          101st Airborne
+        </Text>
+        <Text style={{ fontSize: 50, fontFamily: "reggae-one" }}>
+          RAKKASANS
+        </Text>
+      </View>
+
+      <View
+        style={{
+          flex: 2,
+          justifyContent: "center",
+          alignItems: "center",
         }}
       >
-        <View
-          style={{
-            flex: 1,
-            backgroundColor: Colors.white,
-          }}
+        <Text style={{ fontSize: 250 }}>⛩️</Text>
+      </View>
+      <View style={{ flex: 1 }}>
+        <TextInput
+          placeholder="Email"
+          style={styles.textInput}
+          placeholderTextColor={Colors.gray}
+          autoCorrect={false}
+          autoCapitalize="none"
+          value={email}
+          onChangeText={setEmail}
+        />
+        <TextInput
+          placeholder="Password"
+          style={styles.textInput}
+          placeholderTextColor={Colors.gray}
+          secureTextEntry={true}
+          autoCorrect={false}
+          autoCapitalize="none"
+          value={password}
+          onChangeText={setPassword}
+          maxLength={30}
+        />
+      </View>
+
+      <View style={{ flex: 1, alignItems: "center" }}>
+        <Button title="Sign in" loading={loading} onPress={userLogin} />
+        <View style={{ height: 10 }} />
+        <Text
+          style={{ height: 60, paddingVertical: 20, color: Colors.primary }}
         >
-          {/*<StatusBar barStyle={"dark-content"} />*/}
-          <KeyboardAvoidingView
-            behavior="padding"
-            style={{
-              flex: 1,
-              backgroundColor: Colors.white,
-              justifyContent: "flex-end",
-              marginTop: 260,
-              marginBottom: 10,
-            }}
-          >
-            <Animated.View
-              style={{
-                ...StyleSheet.absoluteFill,
-                transform: [{ translateY: this.bgY }],
-              }}
-            >
-              <View
-                style={{
-                  justifyContent: "center",
-                  alignItems: "center",
-                  left: "7%",
-                }}
-              >
-                <Svg height={height + 50} width={width}>
-                  <ClipPath id="clip">
-                    <Circle r={height + 50} cx={width / 2} />
-                  </ClipPath>
-
-                  <Image
-                    href={require("../assets/images/Torri.png")}
-                    height={350}
-                    width={350}
-                    preserveAspectRatio="xMidYMid slice"
-                    clipPath="url(#clip)"
-                  />
-                  <Text style={styles.logoText}>RAKKASANS</Text>
-                </Svg>
-              </View>
-            </Animated.View>
-            <View style={{ height: height / 3, justifyContent: "center" }}>
-              <TapGestureHandler onHandlerStateChange={this.onStateChange}>
-                <Animated.View
-                  style={{
-                    ...styles.button,
-                    backgroundColor: Colors.primary,
-                    opacity: this.buttonOpacity,
-                    transform: [{ translateY: this.buttonY }],
-                  }}
-                >
-                  <Text style={styles.buttonText}>SIGN IN</Text>
-                </Animated.View>
-              </TapGestureHandler>
-
-              <Animated.View
-                style={{
-                  zIndex: this.textInputZindex,
-                  opacity: this.textInputOpacity,
-                  transform: [{ translateY: this.textInputY }],
-                  height: height / 3,
-                  ...StyleSheet.absoluteFill,
-                  top: null,
-                  justifyContent: "center",
-                }}
-              >
-                <TapGestureHandler
-                  onGestureEvent={() => {
-                    Keyboard.dismiss();
-                  }}
-                  onHandlerStateChange={this.onCloseState}
-                >
-                  <Animated.View
-                    style={styles.closeButton}
-                    onPress={() => {
-                      Keyboard.dismiss();
-                    }}
-                  >
-                    <Animated.Text
-                      style={{
-                        fontSize: 15,
-                        transform: [
-                          { rotate: concat(this.rotateCross, "deg") },
-                        ],
-                      }}
-                    >
-                      X
-                    </Animated.Text>
-                  </Animated.View>
-                </TapGestureHandler>
-                <TextInput
-                  placeholder="Enter Email"
-                  style={styles.textInput}
-                  placeholderTextColor={Colors.gray}
-                  autoCorrect={false}
-                  autoCapitalize="none"
-                  value={this.state.email}
-                  onChangeText={(val) => this.updateInputVal(val, "email")}
-                />
-                <TextInput
-                  placeholder="Enter Password"
-                  style={styles.textInput}
-                  placeholderTextColor={Colors.gray}
-                  secureTextEntry={true}
-                  autoCorrect={false}
-                  autoCapitalize="none"
-                  value={this.state.password}
-                  onChangeText={(val) => this.updateInputVal(val, "password")}
-                  maxLength={15}
-                />
-
-                <TouchableOpacity
-                  style={styles.button}
-                  onPress={() => {
-                    Keyboard.dismiss();
-                    this.userLogin();
-                  }}
-                >
-                  <Text style={styles.buttonText}>SIGN IN</Text>
-                </TouchableOpacity>
-              </Animated.View>
-            </View>
-          </KeyboardAvoidingView>
-        </View>
-      </TouchableWithoutFeedback>
-    );
-  }
-}
+          Forgot password
+        </Text>
+      </View>
+    </View>
+  );
+};
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: Colors.blue5,
-    alignItems: "center",
-    justifyContent: "center",
-  },
   button: {
     backgroundColor: Colors.primary,
-    height: 65,
     marginHorizontal: 30,
-    borderRadius: 35,
+    padding: 15,
+    width: 275,
+    height: 55,
+    borderRadius: 8,
     alignItems: "center",
     justifyContent: "center",
-    marginVertical: 5,
     shadowOffset: { width: 2, height: 2 },
     shadowColor: "black",
-    shadowOpacity: 0.2,
-    marginTop: 10,
+    shadowOpacity: 0.3,
+    marginTop: 32,
   },
   buttonText: {
     color: "white",
     fontSize: 20,
     fontWeight: "bold",
-    fontFamily: "fira-sans",
   },
-  closeButton: {
-    height: 40,
-    width: 40,
-    backgroundColor: "white",
-    borderRadius: 20,
-    backgroundColor: "white",
-    alignItems: "center",
-    justifyContent: "center",
-    position: "absolute",
-    top: -10,
-    left: width / 2 - 20,
-    shadowOpacity: 0.2,
-    shadowOffset: { width: 2, height: 2 },
-    shadowColor: "black",
-  },
+
   textInput: {
-    fontFamily: "fira-sans",
-    height: 50,
-    borderRadius: 25,
-    borderWidth: 0.5,
+    width: 300,
+    height: 45,
+    borderRadius: 9,
+    borderBottomWidth: 1,
+    borderColor: Colors.primary,
     marginHorizontal: 20,
     paddingLeft: 15,
     marginVertical: 5,
-    borderColor: "rgba(0,0,0,0.2)",
+    fontSize: 16,
   },
   logoText: {
-    fontFamily: "fira-sans",
     fontSize: 60,
     paddingTop: "84%",
     paddingLeft: 25,
   },
 });
+
+export default Login;

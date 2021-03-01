@@ -2,12 +2,9 @@ import React, { useState } from "react";
 import * as Font from "expo-font";
 import { StatusBar } from "react-native";
 import Navigation from "./Navigation";
-import { useNavigation } from "@react-navigation/native";
 import { NavigationContainer } from "@react-navigation/native";
-import { createStackNavigator } from "@react-navigation/stack";
 import { AppLoading } from "expo";
 import { Asset } from "expo-asset";
-console.disableYellowBox = true;
 
 const _loadResourcesAsync = () => {
   return Promise.all([
@@ -33,9 +30,7 @@ const _loadResourcesAsync = () => {
       require("./assets/images/fitness/fitness5.jpg"),
     ]),
     Font.loadAsync({
-      "andale-mono": require("./assets/fonts/AndaleMono.ttf"),
-      //"crimson-text": require("./assets/fonts/CrimsonText-Regular.ttf"),
-      "fira-sans": require("./assets/fonts/FiraSans-Regular.ttf"),
+      "reggae-one": require("./assets/fonts/ReggaeOne-Regular.ttf"),
       "torri-custom": require("./assets/icomoon/icomoon.ttf"),
       "navbar-icons": require("./assets/icomoon/navbar-icons/icomoon.ttf"),
       "hub-icons": require("./assets/icomoon/hub-icons/icomoon.ttf"),

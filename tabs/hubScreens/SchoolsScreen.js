@@ -10,10 +10,6 @@ export default function SchoolsScreen() {
   const navigation = useNavigation();
   return (
     <View style={styles.container}>
-      <Image
-        source={require("../../assets/images/Torri.png")}
-        style={{ width: 30, height: 30, top: "-8%" }}
-      />
       <View style={[styles.buttonPair, { paddingTop: 10 }]}>
         <SquareButton
           name="school"

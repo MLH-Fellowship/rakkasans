@@ -24,24 +24,26 @@ export default function NewComment({ route }) {
 
   const handleSubmit = async () => {
     try {
-      const response = await fetch(`http://localhost:3000/posts/${post_id}/comments`, {
-        method: 'POST',
-        headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          content: comment,
-          user_id: 1,
-          parent_id
-        })
-      });
+      const response = await fetch(
+        `http://localhost:3000/posts/${post_id}/comments`,
+        {
+          method: "POST",
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            content: comment,
+            user_id: 1,
+            parent_id,
+          }),
+        }
+      );
 
-      navigation.goBack()
+      navigation.goBack();
     } catch (error) {
       console.log(error);
     }
-
   };
   return (
     <View>
@@ -92,10 +94,8 @@ const styles = StyleSheet.create({
     color: "white",
     fontSize: 20,
     fontWeight: "bold",
-    fontFamily: "fira-sans",
   },
   textInput: {
-    fontFamily: "fira-sans",
     height: 300,
     borderRadius: 25,
     borderWidth: 0.5,

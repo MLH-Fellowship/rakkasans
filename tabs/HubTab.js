@@ -1,5 +1,11 @@
 import React from "react";
-import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  StatusBar,
+  TouchableOpacity,
+} from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
 import Colors from "../constants/Colors";
@@ -9,16 +15,10 @@ import AppleMap from "../components/AppleMap";
 
 export default function HubTab() {
   const navigation = useNavigation();
-  // navigation.reset({
-  //   index: 0,
-  //   routes: [{ name: "Hub" }],
-  // });
+
   return (
     <View style={styles.container}>
-      <Image
-        source={require("../assets/images/Torri.png")}
-        style={{ width: 30, height: 30, top: "2%", paddingBottom: 5 }}
-      />
+      <StatusBar barStyle="light-content" />
       <Text style={[styles.maptext, Dimensions.font]}>3rd BDE AO</Text>
       <TouchableOpacity
         onPressIn={() => navigation.navigate("KMZ Map")}
@@ -70,7 +70,7 @@ export default function HubTab() {
           text="In/Out Processing"
           buttonSize={75}
           textSize={10}
-          onPress={() => navigation.navigate("In/Out Processing")}
+          onPress={() => navigation.navigate("Processing")}
           hubIcon={true}
         />
         <SquareButton
@@ -126,7 +126,6 @@ const styles = StyleSheet.create({
     shadowRadius: 4,
     shadowOffset: { width: 0, height: 1 },
     shadowOpacity: 0.26,
-    top: 8,
     height: "75%",
     width: "90%",
     alignItems: "flex-end",
@@ -135,6 +134,6 @@ const styles = StyleSheet.create({
   maptext: {
     fontSize: 20,
     color: Colors.blue3,
-    paddingTop: 32,
+    paddingVertical: 16,
   },
 });

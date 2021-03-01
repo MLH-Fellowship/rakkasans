@@ -80,10 +80,8 @@ const styles = StyleSheet.create({
     color: "white",
     fontSize: 20,
     fontWeight: "bold",
-    fontFamily: "fira-sans",
   },
   textInput: {
-    fontFamily: "fira-sans",
     height: 300,
     width: 300,
     borderRadius: 25,
