@@ -150,7 +150,8 @@ export default class Login extends Component {
         .setPersistence(Firebase.auth.Auth.Persistence.LOCAL)
         .then(() => {
           Firebase.auth()
-            .signInWithEmailAndPassword("mattdillabough@gmail.com", "password")
+            //.signInWithEmailAndPassword("mattdillabough@gmail.com", "password")
+            .signInWithEmailAndPassword(this.state.email, this.state.password)
             .then((res) => {
               console.log(res);
               console.log("User logged-in successfully!");

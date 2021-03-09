@@ -5,6 +5,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { createSwitchNavigator, createAppContainer } from "react-navigation";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { IconButton } from "react-native-paper";
 
 // custom icons
 import IcomoonConfig from "./assets/icomoon/selection.json";
@@ -20,6 +21,11 @@ import CmdTab from "./tabs/CmdTab";
 import GameTab from "./tabs/GameTab";
 import AccountTab from "./tabs/AccountTab";
 import ChatTab from "./tabs/ChatTab";
+
+//chat screens
+import HomeScreen from "./tabs/chatScreens/HomeScreen";
+import AddChatScreen from "./tabs/chatScreens/AddChatScreen";
+import ChatScreen from "./tabs/chatScreens/ChatScreen";
 
 // hub screens
 import BattScreen from "./tabs/hubScreens/BattScreen";
@@ -266,7 +272,7 @@ function AccountStackScreen() {
   );
 }
 const ChatStack = createStackNavigator();
-function ChatStackScreen() {
+function ChatStackScreen({ navigation }) {
   return (
     <ChatStack.Navigator
       headerMode="float"
@@ -275,8 +281,9 @@ function ChatStackScreen() {
           backgroundColor: Colors.primary,
         },
         headerRight: () => (
-          <Button
-            onPress={() => alert("This will be the account button")}
+          <IconButton
+            icon="account"
+            onPress={() => navigation.navigate("Account")}
             title="Account"
             color="#fff"
           />
@@ -285,9 +292,34 @@ function ChatStackScreen() {
         headerTitleStyle: { fontSize: 25, fontFamily: "fira-sans" },
       }}
     >
-      <ChatStack.Screen
+      {/*       <ChatStack.Screen
         name="Chat"
-        component={ChatTab}
+        component={LoginScreen}
+        options={{ headerLeft: null }}
+      />
+      <ChatStack.Screen
+        name="Register"
+        component={RegisterScreen}
+        options={{ headerLeft: null }}
+      /> */}
+      <ChatStack.Screen
+        name="Chat" //Home
+        component={HomeScreen}
+        options={{ headerLeft: null }}
+      />
+      <ChatStack.Screen
+        name="AddChat"
+        component={AddChatScreen}
+        options={{ headerLeft: null }}
+      />
+      <ChatStack.Screen
+        name="ChatScreen"
+        component={ChatScreen}
+        options={{ headerLeft: null }}
+      />
+      <ChatStack.Screen
+        name="Account"
+        component={AccountTab}
         options={{ headerLeft: null }}
       />
     </ChatStack.Navigator>
