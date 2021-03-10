@@ -1,5 +1,6 @@
 import React from "react";
 import { View, StyleSheet } from "react-native";
+import Colors from "../constants/Colors";
 import MapView, { PROVIDER_GOOGLE, Marker } from "react-native-maps"; // remove PROVIDER_GOOGLE import if not using Google Maps
 
 export default ({ height }) => (
@@ -35,5 +36,7 @@ const styles = StyleSheet.create({
   },
   map: {
     ...StyleSheet.absoluteFillObject,
+    borderWidth: .6,
+    borderColor: "#bebebe",
   },
 });
