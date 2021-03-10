@@ -4,7 +4,7 @@ import {  Card, CardItem, Body } from 'native-base';
 
 import notableEventsData from "../../assets/word_documents/notable_events"
 
-export default function NotableEventsScreen({  }) {
+export default function NotableEventsScreen() {
   return (
     <SafeAreaView>
       <View style={styles.main}>
