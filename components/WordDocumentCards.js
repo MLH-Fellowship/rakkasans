@@ -28,7 +28,7 @@ export default function WordDocumentCards({ page }) {
     page.map((section) => {
         if (title == "") {
             title = section.content;
-            return;
+            return
         }
 
         if (section.type === "Title" && _attrs != { page: [] }) {
@@ -66,7 +66,7 @@ export default function WordDocumentCards({ page }) {
                 activeOpacity={0.3}
             >
                 <View>
-                    <Text style={styles.cardTitle}>
+                    <Text style={styles.text}>
                         {attrs["item"]["Title"]}
                     </Text>
                     {attrs["item"]["Subtitle"] &&
@@ -79,38 +79,43 @@ export default function WordDocumentCards({ page }) {
     };
 
     return (
-        <View style={styles.container}>
-            <Title content={title} />
-            <FlatList
-                data={cards}
-                renderItem={Card}
-                keyExtractor={(item) => cards.indexOf(item)}
-            />
-        </View>
+      <View style={styles.container}>
+        <Title content={title} />
+        <FlatList
+          style={styles.container}
+          data={cards}
+          renderItem={Card}
+          keyExtractor={(item) => cards.indexOf(item)}
+          
+        />
+      </View>
     );
 }
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        width: "100%",
-        height: "100%",
-        flexDirection: "column",
-    },
-    cardContainer: {
-        flexDirection: "column",
-        alignItems: "center",
-        justifyContent: "center",
-        margin: 16,
-        borderStyle: "solid",
-        borderWidth: .4,
-        padding: 10,
-        backgroundColor: '#E5E5E5'
-    },
-    cardTitle: {
-        fontSize: 24,
-        textAlign: "center",
-    },
+
+  container: {
+    flex: 1,
+    width: "100%",
+    height: "100%",
+    flexDirection: "column",
+    paddingHorizontal: 15,
+    paddingVertical: 10,
+  },
+
+  cardContainer: {
+    flexDirection: "column",
+    marginTop: 20,
+    marginBottom: 20,
+    borderStyle: "solid",
+    borderWidth: 0.4,
+    padding: 10,
+  },
+
+  text: {
+    fontSize: 15,
+    fontWeight: "500",
+  }
 });
 
 WordDocumentCards.propTypes = {

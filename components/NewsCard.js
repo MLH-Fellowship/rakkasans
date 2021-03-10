@@ -28,6 +28,8 @@ const styles = StyleSheet.create({
     width: "100%",
     height: 175,
     alignItems: "center",
+    borderWidth: 1,
+    borderColor: Colors.primary,
   },
   titleText: {
     backgroundColor: Colors.primary,
@@ -40,5 +42,8 @@ const styles = StyleSheet.create({
     position: "absolute",
     bottom: 15,
     left: 15,
+    shadowOffset: { width: 5, height: 5 },
+    shadowColor: "black",
+    shadowOpacity: 1.0,
   },
 });

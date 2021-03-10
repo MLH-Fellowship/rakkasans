@@ -2,6 +2,7 @@ import * as React from "react";
 import { View, StyleSheet, Text } from "react-native";
 import { Video } from "expo-av";
 import Button from "../../components/Button";
+import Colors from "../../constants/Colors";
 
 export default function WelcomeVideo({ navigation }) {
   return (
@@ -42,6 +43,8 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
   },
   video: {
+    borderWidth: 1,
+    borderColor: Colors.primary,
     alignSelf: "center",
     width: 400,
     height: 250,
