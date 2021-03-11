@@ -42,6 +42,8 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   video: {
+    borderWidth: 1,
+    borderColor: Colors.primary,
     alignSelf: 'center',
     width: 400,
     height: 250,
