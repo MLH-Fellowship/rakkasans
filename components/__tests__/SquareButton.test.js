@@ -3,10 +3,9 @@ import renderer from 'react-test-renderer';
 
 import SquareButton from '../SquareButton';
 
-jest.useFakeTimers()
+jest.useFakeTimers();
 
 it('renders correctly', () => {
   const tree = renderer.create(<SquareButton />).toJSON();
   expect(tree).toMatchSnapshot();
 });
-

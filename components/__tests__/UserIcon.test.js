@@ -4,7 +4,7 @@ import renderer from 'react-test-renderer';
 
 import UserIcon from '../UserIcon';
 
-jest.useFakeTimers()
+jest.useFakeTimers();
 
 it('renders correctly', () => {
   const tree = renderer.create(<UserIcon />).toJSON();

@@ -3,7 +3,7 @@ import renderer from 'react-test-renderer';
 
 import InProcessing from '../InProcessing';
 
-jest.useFakeTimers()
+jest.useFakeTimers();
 jest.mock('../InProcessing', () => (props) => <mock-InProcessing {...props} />);
 
 it('renders correctly', () => {

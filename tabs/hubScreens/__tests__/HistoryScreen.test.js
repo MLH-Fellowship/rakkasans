@@ -3,7 +3,7 @@ import renderer from 'react-test-renderer';
 
 import HistoryScreen from '../HistoryScreen';
 
-jest.useFakeTimers()
+jest.useFakeTimers();
 jest.mock('@react-navigation/native');
 
 it('renders correctly', () => {

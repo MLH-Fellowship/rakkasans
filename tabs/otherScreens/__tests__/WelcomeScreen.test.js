@@ -3,7 +3,7 @@ import renderer from 'react-test-renderer';
 
 import WelcomeScreen from '../WelcomeScreen';
 
-jest.useFakeTimers()
+jest.useFakeTimers();
 
 it('renders correctly', () => {
   const tree = renderer.create(<WelcomeScreen />).toJSON();

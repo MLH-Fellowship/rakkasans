@@ -3,7 +3,7 @@ import renderer from 'react-test-renderer';
 
 import BattScreen from '../BattScreen';
 
-jest.useFakeTimers()
+jest.useFakeTimers();
 jest.mock('@react-navigation/native');
 
 it('renders correctly', () => {

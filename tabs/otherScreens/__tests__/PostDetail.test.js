@@ -3,7 +3,7 @@ import renderer from 'react-test-renderer';
 
 import PostDetail from '../PostDetail';
 
-jest.useFakeTimers()
+jest.useFakeTimers();
 jest.mock('@react-navigation/native');
 jest.mock('../PostDetail', () => (props) => <mock-PostDetail {...props} />);
 

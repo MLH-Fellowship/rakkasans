@@ -4,7 +4,7 @@ import { parseCommandLine } from 'typescript';
 
 import SchoolsPageScreen from '../SchoolsPageScreen';
 
-jest.useFakeTimers()
+jest.useFakeTimers();
 jest.mock('../SchoolsPageScreen', () => (props) => <mock-SchoolsPageScreen {...props} />);
 
 it('renders correctly', () => {

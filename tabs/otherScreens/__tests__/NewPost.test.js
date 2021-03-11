@@ -3,7 +3,7 @@ import renderer from 'react-test-renderer';
 
 import NewPost from '../NewPost';
 
-jest.useFakeTimers()
+jest.useFakeTimers();
 jest.mock('../NewPost', () => (props) => <mock-NewPost {...props} />);
 
 it('renders correctly', () => {

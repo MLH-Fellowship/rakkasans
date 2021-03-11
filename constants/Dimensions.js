@@ -1,8 +1,8 @@
-import { Dimensions } from "react-native";
-import Colors from "./Colors";
+import { Dimensions } from 'react-native';
+import Colors from './Colors';
 
-const width = Math.round(Dimensions.get("window").width);
-const height = Math.round(Dimensions.get("window").height);
+const width = Math.round(Dimensions.get('window').width);
+const height = Math.round(Dimensions.get('window').height);
 
 export default {
   window: {

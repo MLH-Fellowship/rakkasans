@@ -3,7 +3,7 @@ import renderer from 'react-test-renderer';
 
 import BattShopListScreen from '../BattShopListScreen';
 
-jest.useFakeTimers()
+jest.useFakeTimers();
 jest.mock('@react-navigation/native');
 jest.mock('../BattShopListScreen', () => (props) => <mock-BattShopListScreen {...props} />);
 

@@ -3,7 +3,7 @@ import renderer from 'react-test-renderer';
 
 import CallRosterScreen from '../CallRosterScreen';
 
-jest.useFakeTimers()
+jest.useFakeTimers();
 jest.mock('../CallRosterScreen', () => (props) => <mock-CallRosterScreen {...props} />);
 
 it('renders correctly', () => {

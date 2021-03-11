@@ -3,7 +3,7 @@ import renderer from 'react-test-renderer';
 
 import ResourcePageScreen from '../ResourcePageScreen';
 
-jest.useFakeTimers()
+jest.useFakeTimers();
 jest.mock('../ResourcePageScreen', () => (props) => <mock-ResourcePageScreen {...props} />);
 
 it('renders correctly', () => {

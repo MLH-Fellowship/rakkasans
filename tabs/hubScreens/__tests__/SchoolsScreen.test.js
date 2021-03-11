@@ -3,7 +3,7 @@ import renderer from 'react-test-renderer';
 
 import SchoolsScreen from '../SchoolsScreen';
 
-jest.useFakeTimers()
+jest.useFakeTimers();
 jest.mock('@react-navigation/native');
 
 it('renders correctly', () => {

@@ -3,11 +3,11 @@ import renderer from 'react-test-renderer';
 
 import Icon from '../Icon';
 
-jest.useFakeTimers()
+jest.useFakeTimers();
 
-describe( 'Icon', () => {
+describe('Icon', () => {
   it('renders correctly', () => {
     const tree = renderer.create(<Icon />).toJSON();
     expect(tree).toMatchSnapshot();
   });
-})
+});

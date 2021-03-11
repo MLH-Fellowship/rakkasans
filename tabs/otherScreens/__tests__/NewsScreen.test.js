@@ -3,7 +3,7 @@ import renderer from 'react-test-renderer';
 
 import NewsScreen from '../NewsScreen';
 
-jest.useFakeTimers()
+jest.useFakeTimers();
 jest.mock('../NewsScreen', () => (props) => <mock-NewsScreen {...props} />);
 
 it('renders correctly', () => {

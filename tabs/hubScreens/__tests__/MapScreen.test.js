@@ -3,7 +3,7 @@ import renderer from 'react-test-renderer';
 
 import MapScreen from '../MapScreen';
 
-jest.useFakeTimers()
+jest.useFakeTimers();
 jest.mock('../MapScreen', () => (props) => <mock-MapScreen {...props} />);
 
 it('renders correctly', () => {

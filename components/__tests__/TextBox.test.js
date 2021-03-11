@@ -3,7 +3,7 @@ import renderer from 'react-test-renderer';
 
 import TextBox from '../TextBox';
 
-jest.useFakeTimers()
+jest.useFakeTimers();
 
 it('renders correctly', () => {
   const tree = renderer.create(<TextBox />).toJSON();

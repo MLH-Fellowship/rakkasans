@@ -3,7 +3,7 @@ import renderer from 'react-test-renderer';
 
 import OffLimitsScreen from '../OffLimitsScreen';
 
-jest.useFakeTimers()
+jest.useFakeTimers();
 
 it('renders correctly', () => {
   const tree = renderer.create(<OffLimitsScreen />).toJSON();

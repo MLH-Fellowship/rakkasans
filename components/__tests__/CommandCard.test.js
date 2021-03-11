@@ -1,15 +1,15 @@
 import { shallow, configure } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import React from 'react';
-import { Image, Text } from "react-native";
+import { Image, Text } from 'react-native';
 import renderer from 'react-test-renderer';
 
 import CommandCard from '../CommandCard';
 
-jest.useFakeTimers()
-configure({adapter: new Adapter()});
+jest.useFakeTimers();
+configure({ adapter: new Adapter() });
 
-describe( 'CommandCard', () => {
+describe('CommandCard', () => {
   it('renders correctly', () => {
     const tree = renderer.create(<CommandCard />).toJSON();
     expect(tree).toMatchSnapshot();
@@ -20,11 +20,11 @@ describe( 'CommandCard', () => {
       <CommandCard>
         <Image src={require('../../assets/images/COPIC.jpeg')} />
         <Text>COL Brandon Teague</Text>
-      </CommandCard>
+      </CommandCard>,
     );
 
     expect(wrapper).toMatchSnapshot();
-  })
+  });
 
   it('handles onPress', () => {
     const onPress = jest.fn();
@@ -33,7 +33,7 @@ describe( 'CommandCard', () => {
       <CommandCard onPress={onPress}>
         <Image src={require('../../assets/images/COPIC.jpeg')} />
         <Text>COL Brandon Teague</Text>
-      </ CommandCard>
+      </CommandCard>,
     );
 
     wrapper
@@ -44,5 +44,4 @@ describe( 'CommandCard', () => {
 
     expect(onPress).toHaveBeenCalledTimes(1);
   });
-
-})
+});

@@ -3,7 +3,7 @@ import renderer from 'react-test-renderer';
 
 import BattShopScreen from '../BattShopScreen';
 
-jest.useFakeTimers()
+jest.useFakeTimers();
 
 it('renders correctly', () => {
   const tree = renderer.create(<BattShopScreen />).toJSON();

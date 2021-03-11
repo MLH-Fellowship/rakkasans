@@ -3,7 +3,7 @@ import renderer from 'react-test-renderer';
 
 import AppleMap from '../AppleMap';
 
-jest.useFakeTimers()
+jest.useFakeTimers();
 jest.mock('react-native-maps', () => {
   const React = require.requireActual('react');
   const MapView = require.requireActual('react-native-maps');

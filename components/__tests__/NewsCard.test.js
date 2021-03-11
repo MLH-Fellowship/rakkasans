@@ -3,7 +3,7 @@ import renderer from 'react-test-renderer';
 
 import NewsCard from '../NewsCard';
 
-jest.useFakeTimers()
+jest.useFakeTimers();
 
 it('renders correctly', () => {
   const tree = renderer.create(<NewsCard />).toJSON();
