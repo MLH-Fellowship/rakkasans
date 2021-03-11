@@ -8,7 +8,7 @@ import RectButton from "../../components/RectButton";
 import { replyThread } from "../otherScreens/PostClasses/ReplyThread";
 import { useIsFocused } from "@react-navigation/native";
 
-var thisThread = replyThread;
+const thisThread = replyThread;
 export default function PostDetail({ navigation, route }) {
   const isFocused = useIsFocused(); //this auto re renders this component
   const [, updateState] = React.useState();
