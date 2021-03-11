@@ -6,6 +6,8 @@ import renderer from 'react-test-renderer';
 
 import CommandCard from '../CommandCard';
 
+import Copic from '../../assets/images/COPIC.jpeg';
+
 jest.useFakeTimers();
 configure({ adapter: new Adapter() });
 
@@ -18,7 +20,7 @@ describe('CommandCard', () => {
   it('renders correctly with an image', () => {
     const wrapper = shallow(
       <CommandCard>
-        <Image src={require('../../assets/images/COPIC.jpeg')} />
+        <Image src={Copic} />
         <Text>COL Brandon Teague</Text>
       </CommandCard>,
     );
@@ -31,7 +33,7 @@ describe('CommandCard', () => {
 
     const wrapper = shallow(
       <CommandCard onPress={onPress}>
-        <Image src={require('../../assets/images/COPIC.jpeg')} />
+        <Image src={Copic} />
         <Text>COL Brandon Teague</Text>
       </CommandCard>,
     );

@@ -1,5 +1,5 @@
 // exports a list of data to use for the example feed
-export var homeFeed = [
+const homeFeed = [
   {
     id: 1,
     parent_id: null,
@@ -73,3 +73,5 @@ export var homeFeed = [
     date: 'Wed Oct 18 2017 12:41:34 GMT',
   },
 ];
+
+export default homeFeed;

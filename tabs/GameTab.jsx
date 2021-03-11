@@ -6,6 +6,13 @@ import { LinearGradient } from 'expo-linear-gradient';
 import Colors from '../constants/Colors';
 
 export default function GameTab() {
+  const styles = StyleSheet.create({
+    text: {
+      fontSize: 40,
+      color: Colors.white,
+      marginBottom: 30,
+    },
+  });
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
       <LinearGradient
@@ -36,11 +43,3 @@ export default function GameTab() {
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  text: {
-    fontSize: 40,
-    color: Colors.white,
-    marginBottom: 30,
-  },
-});

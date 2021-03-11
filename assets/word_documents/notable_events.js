@@ -88,8 +88,8 @@ export default [
     ['2-506th'], ['6'], ['July'], ['1948'],
   ],
   [
-    ['Aloteed to the Regular Army			'],
-    ['187th	'], ['15'], ['November'], ['1948'],
+    ['Alotted to the Regular Army'],
+    ['187th'], ['15'], ['November'], ['1948'],
   ],
   [
     ['Reorganized and redesignated as the 187th Airborne Infantry Regiment'],
@@ -144,7 +144,7 @@ export default [
     ['3BCT'], ['22'], ['October'], ['1963'],
   ],
   [
-    ['Redesignated as Headquarters and Headquarters Company, 3d Brigade, 101st Airborne Division			 	'],
+    ['Redesignated as Headquarters and Headquarters Company, 3d Brigade, 101st Airborne Division'],
     ['3BCT'], ['21'], ['January'], ['1964'],
   ],
   [

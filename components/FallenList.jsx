@@ -5,6 +5,22 @@ import {
 import { Card, CardItem, Body } from 'native-base';
 
 export default function FallenList({ content }) {
+  const styles = StyleSheet.create({
+    container: {
+      paddingHorizontal: 30,
+    },
+    textContainer: {
+      flex: 1,
+      flexDirection: 'row',
+    },
+    title: {
+      fontSize: 15,
+      fontWeight: '500',
+      textAlign: 'center',
+      marginBottom: 10,
+      alignContent: 'center',
+    },
+  });
   const renderItem = ({ item }) => (
     <View style={styles.container}>
       <Card key={item.id}>
@@ -58,20 +74,3 @@ export default function FallenList({ content }) {
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    paddingHorizontal: 30,
-  },
-  textContainer: {
-    flex: 1,
-    flexDirection: 'row',
-  },
-  title: {
-    fontSize: 15,
-    fontWeight: '500',
-    textAlign: 'center',
-    marginBottom: 10,
-    alignContent: 'center',
-  },
-});

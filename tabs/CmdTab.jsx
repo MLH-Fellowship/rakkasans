@@ -1,12 +1,10 @@
-import React, { Component, useState } from 'react';
+import React, { useState } from 'react';
 import {
   View,
   StyleSheet,
   SafeAreaView,
-  Image,
   Modal,
   Text,
-  TouchableHighlight,
 } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
@@ -16,11 +14,83 @@ import SquareButton from '../components/SquareButton';
 import RectButton from '../components/RectButton';
 import Dimensions from '../constants/Dimensions';
 
+import Copic from '../assets/images/COPIC.jpeg';
+import SgmPic from '../assets/images/SGMPIC.jpeg';
+
 export default function CmdTab() {
   const navigation = useNavigation();
   const [modal1Visible, setModal1Visible] = useState(false);
   const [modal2Visible, setModal2Visible] = useState(false);
 
+  const styles = StyleSheet.create({
+    container: {
+      flex: 1,
+      backgroundColor: Colors.white,
+      width: '100%',
+      alignItems: 'center',
+      justifyContent: 'center',
+    },
+    cmdTeamContainer: {
+      justifyContent: 'center',
+      width: '100%',
+      marginTop: 30,
+    },
+    buttonTopPair: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      justifyContent: 'space-evenly',
+      width: '100%',
+    },
+    buttonBottomPair: {
+      marginTop: 35,
+      flexDirection: 'row',
+      alignItems: 'center',
+      justifyContent: 'space-evenly',
+      width: '100%',
+    },
+    buttonsView: {
+      alignItems: 'center',
+      justifyContent: 'center',
+      flex: 1,
+    },
+    modalView: {
+      margin: 20,
+      width: '90%',
+      height: '90%',
+      backgroundColor: 'white',
+      borderRadius: 20,
+      padding: 35,
+      alignItems: 'center',
+      justifyContent: 'space-between',
+      shadowColor: '#000',
+      shadowOffset: {
+        width: 0,
+        height: 2,
+      },
+      shadowOpacity: 0.6,
+      shadowRadius: 3.84,
+      elevation: 8,
+    },
+    modalTitle: {
+      fontSize: 20,
+      color: Colors.darkGray,
+      marginBottom: 10,
+    },
+    modalBody: {
+      fontSize: 16,
+      color: Colors.darkGray,
+    },
+    modalBio: {
+      alignItems: 'center',
+    },
+    centeredView: {
+      flex: 1,
+      justifyContent: 'center',
+      alignItems: 'center',
+
+      // marginTop: 22,
+    },
+  });
   return (
     <SafeAreaView style={styles.container}>
       <Modal animationType="slide" transparent visible={modal1Visible}>
@@ -66,14 +136,14 @@ export default function CmdTab() {
       <View style={styles.cmdTeamContainer}>
         <CommandCard
           title="COL Brandon Teague"
-          source={require('../assets/images/COPIC.jpeg')}
+          source={Copic}
           onPress={() => {
             setModal1Visible(true);
           }}
         />
         <CommandCard
           title="CSM Eddie Brewer"
-          source={require('../assets/images/SGMPIC.jpeg')}
+          source={SgmPic}
           onPress={() => {
             setModal2Visible(true);
           }}
@@ -116,73 +186,3 @@ export default function CmdTab() {
     </SafeAreaView>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: Colors.white,
-    width: '100%',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  cmdTeamContainer: {
-    justifyContent: 'center',
-    width: '100%',
-    marginTop: 30,
-  },
-  buttonTopPair: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-evenly',
-    width: '100%',
-  },
-  buttonBottomPair: {
-    marginTop: 35,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-evenly',
-    width: '100%',
-  },
-  buttonsView: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    flex: 1,
-  },
-  modalView: {
-    margin: 20,
-    width: '90%',
-    height: '90%',
-    backgroundColor: 'white',
-    borderRadius: 20,
-    padding: 35,
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    shadowColor: '#000',
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.6,
-    shadowRadius: 3.84,
-    elevation: 8,
-  },
-  modalTitle: {
-    fontSize: 20,
-    color: Colors.darkGray,
-    marginBottom: 10,
-  },
-  modalBody: {
-    fontSize: 16,
-    color: Colors.darkGray,
-  },
-  modalBio: {
-    alignItems: 'center',
-  },
-  centeredView: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-
-    // marginTop: 22,
-  },
-});

@@ -11,6 +11,19 @@ export default function PolicyLettersScreen() {
   // let absolute_path = Asset.fromModule(
   //   require("../../assets/pdfs/POLICY_1.pdf")
   // ).uri;
+  const styles = StyleSheet.create({
+    container: {
+      flex: 1,
+      alignItems: 'center',
+      justifyContent: 'center',
+      paddingHorizontal: 20,
+    },
+    // pdf: {
+    //   width: "100%",
+    //   height: "100%",
+    // },
+  });
+
   return (
     <View style={styles.container}>
       <RectButton text="Policy Letter 1" />
@@ -31,16 +44,3 @@ export default function PolicyLettersScreen() {
     // </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    paddingHorizontal: 20,
-  },
-  // pdf: {
-  //   width: "100%",
-  //   height: "100%",
-  // },
-});

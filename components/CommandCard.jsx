@@ -6,17 +6,6 @@ import {
 import Colors from '../constants/Colors';
 import Dimensions from '../constants/Dimensions';
 
-export default function CommandCard({ source, title, onPress }) {
-  return (
-    <TouchableOpacity style={styles.container} onPress={onPress}>
-      <Image style={styles.image} resizeMode="cover" source={source} />
-      <View style={styles.titleContainer}>
-        <Text style={[styles.text, Dimensions.font]}>{title}</Text>
-      </View>
-    </TouchableOpacity>
-  );
-}
-
 const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
@@ -43,3 +32,14 @@ const styles = StyleSheet.create({
     fontSize: 20,
   },
 });
+
+export default function CommandCard({ source, title, onPress }) {
+  return (
+    <TouchableOpacity style={styles.container} onPress={onPress}>
+      <Image style={styles.image} resizeMode="cover" source={source} />
+      <View style={styles.titleContainer}>
+        <Text style={[styles.text, Dimensions.font]}>{title}</Text>
+      </View>
+    </TouchableOpacity>
+  );
+}

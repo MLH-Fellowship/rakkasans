@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import PropTypes from 'prop-types';
 import WordDocument from '../../components/WordDocument';
 
 export default function MoHDocument() {
@@ -25,7 +24,3 @@ export default function MoHDocument() {
 
   return <WordDocument page={fallen} />;
 }
-
-MoHDocument.propTypes = {
-  children: PropTypes.object,
-};

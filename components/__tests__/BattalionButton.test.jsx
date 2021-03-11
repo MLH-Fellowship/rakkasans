@@ -6,6 +6,8 @@ import renderer from 'react-test-renderer';
 
 import BattalionButton from '../BattalionButton';
 
+import Batt133Pic from '../../assets/images/battalions/1-33.png';
+
 jest.useFakeTimers();
 configure({ adapter: new Adapter() });
 
@@ -18,7 +20,7 @@ describe('BattalionButton', () => {
   it('renders correctly with an image', () => {
     const wrapper = shallow(
       <BattalionButton>
-        <Image src={require('../../assets/images/battalions/1-33.png')} />
+        <Image source={Batt133Pic} />
       </BattalionButton>,
     );
 
@@ -30,7 +32,7 @@ describe('BattalionButton', () => {
 
     const wrapper = shallow(
       <BattalionButton onPress={onPress}>
-        <Image src={require('../../assets/images/battalions/1-33.png')} />
+        <Image source={Batt133Pic} />
       </BattalionButton>,
     );
 

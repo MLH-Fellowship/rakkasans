@@ -1,4 +1,4 @@
-export default buttonArr = [
+const buttonArr = [
   {
     id: 1,
     name: 'shield',
@@ -56,3 +56,5 @@ export default buttonArr = [
     textSize: 10,
   },
 ];
+
+export default buttonArr;

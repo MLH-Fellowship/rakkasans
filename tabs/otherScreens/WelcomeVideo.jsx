@@ -1,9 +1,33 @@
 import * as React from 'react';
 import { View, StyleSheet, Text } from 'react-native';
 import { Video } from 'expo-av';
+import Colors from '../../constants/Colors';
 import Button from '../../components/Button';
 
 export default function WelcomeVideo({ navigation }) {
+  const styles = StyleSheet.create({
+    container: {
+      flex: 1,
+      justifyContent: 'center',
+      alignItems: 'center',
+      backgroundColor: '#ecf0f1',
+    },
+    text: {
+      fontSize: 30,
+      fontWeight: 'bold',
+    },
+    video: {
+      borderWidth: 1,
+      borderColor: Colors.primary,
+      alignSelf: 'center',
+      width: 400,
+      height: 250,
+    },
+    buttons: {
+      flex: 1,
+      justifyContent: 'center',
+    },
+  });
   return (
     <View style={styles.container}>
       <View style={{ flex: 1, justifyContent: 'center' }}>
@@ -29,27 +53,3 @@ export default function WelcomeVideo({ navigation }) {
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#ecf0f1',
-  },
-  text: {
-    fontSize: 30,
-    fontWeight: 'bold',
-  },
-  video: {
-    borderWidth: 1,
-    borderColor: Colors.primary,
-    alignSelf: 'center',
-    width: 400,
-    height: 250,
-  },
-  buttons: {
-    flex: 1,
-    justifyContent: 'center',
-  },
-});

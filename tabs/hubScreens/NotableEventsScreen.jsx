@@ -6,7 +6,32 @@ import { Card, CardItem, Body } from 'native-base';
 
 import notableEventsData from '../../assets/word_documents/notable_events';
 
-export default function NotableEventsScreen({ }) {
+export default function NotableEventsScreen() {
+  const styles = StyleSheet.create({
+    main: {
+      marginBottom: 200,
+    },
+    container: {
+      flex: 1,
+      width: '100%',
+      height: '100%',
+      flexDirection: 'column',
+      paddingHorizontal: 15,
+      paddingVertical: 10,
+    },
+    title: {
+      fontSize: 15,
+      fontWeight: '500',
+    },
+    header: {
+      fontSize: 20,
+      fontWeight: '700',
+      marginTop: 20,
+      marginBottom: 20,
+      textAlign: 'center',
+    },
+  });
+
   return (
     <SafeAreaView>
       <View style={styles.main}>
@@ -47,28 +72,3 @@ export default function NotableEventsScreen({ }) {
     </SafeAreaView>
   );
 }
-
-const styles = StyleSheet.create({
-  main: {
-    marginBottom: 200,
-  },
-  container: {
-    flex: 1,
-    width: '100%',
-    height: '100%',
-    flexDirection: 'column',
-    paddingHorizontal: 15,
-    paddingVertical: 10,
-  },
-  title: {
-    fontSize: 15,
-    fontWeight: '500',
-  },
-  header: {
-    fontSize: 20,
-    fontWeight: '700',
-    marginTop: 20,
-    marginBottom: 20,
-    textAlign: 'center',
-  },
-});

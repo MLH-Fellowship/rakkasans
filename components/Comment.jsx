@@ -9,6 +9,40 @@ import Thread from './Thread';
 
 export default function Comment({ comment, post, children = null }) {
   const navigation = useNavigation();
+  const styles = StyleSheet.create({
+    container: {
+      borderColor: '#D1D1D1',
+      borderWidth: 1,
+      marginVertical: 10,
+    },
+    box: {
+      marginLeft: 10,
+    },
+    nameContainer: {
+      flex: 1,
+      flexDirection: 'row',
+      alignItems: 'center',
+    },
+    repliesContainer: {
+      flex: 1,
+      flexDirection: 'row',
+      alignItems: 'center',
+      marginBottom: 5,
+    },
+    name: {
+      fontSize: 16,
+      marginRight: 5,
+    },
+    date: {
+      fontWeight: '200',
+      fontSize: 16,
+    },
+    content: {
+      fontSize: 16,
+      paddingBottom: 10,
+    },
+  });
+
   const {
     first_name, last_name, content, created_at, id,
   } = comment;
@@ -90,37 +124,3 @@ export default function Comment({ comment, post, children = null }) {
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    borderColor: '#D1D1D1',
-    borderWidth: 1,
-    marginVertical: 10,
-  },
-  box: {
-    marginLeft: 10,
-  },
-  nameContainer: {
-    flex: 1,
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
-  repliesContainer: {
-    flex: 1,
-    flexDirection: 'row',
-    alignItems: 'center',
-    marginBottom: 5,
-  },
-  name: {
-    fontSize: 16,
-    marginRight: 5,
-  },
-  date: {
-    fontWeight: '200',
-    fontSize: 16,
-  },
-  content: {
-    fontSize: 16,
-    paddingBottom: 10,
-  },
-});

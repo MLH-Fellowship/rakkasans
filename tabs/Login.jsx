@@ -41,7 +41,44 @@ const Login = ({ navigation }) => {
         });
     }
   };
+  const styles = StyleSheet.create({
+    button: {
+      backgroundColor: Colors.primary,
+      marginHorizontal: 30,
+      padding: 15,
+      width: 275,
+      height: 55,
+      borderRadius: 8,
+      alignItems: 'center',
+      justifyContent: 'center',
+      shadowOffset: { width: 2, height: 2 },
+      shadowColor: 'black',
+      shadowOpacity: 0.3,
+      marginTop: 32,
+    },
+    buttonText: {
+      color: 'white',
+      fontSize: 20,
+      fontWeight: 'bold',
+    },
 
+    textInput: {
+      width: 300,
+      height: 45,
+      borderRadius: 9,
+      borderBottomWidth: 1,
+      borderColor: Colors.primary,
+      marginHorizontal: 20,
+      paddingLeft: 15,
+      marginVertical: 5,
+      fontSize: 16,
+    },
+    logoText: {
+      fontSize: 60,
+      paddingTop: '84%',
+      paddingLeft: 25,
+    },
+  });
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
       <StatusBar barStyle="dark-content" />
@@ -100,44 +137,5 @@ const Login = ({ navigation }) => {
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  button: {
-    backgroundColor: Colors.primary,
-    marginHorizontal: 30,
-    padding: 15,
-    width: 275,
-    height: 55,
-    borderRadius: 8,
-    alignItems: 'center',
-    justifyContent: 'center',
-    shadowOffset: { width: 2, height: 2 },
-    shadowColor: 'black',
-    shadowOpacity: 0.3,
-    marginTop: 32,
-  },
-  buttonText: {
-    color: 'white',
-    fontSize: 20,
-    fontWeight: 'bold',
-  },
-
-  textInput: {
-    width: 300,
-    height: 45,
-    borderRadius: 9,
-    borderBottomWidth: 1,
-    borderColor: Colors.primary,
-    marginHorizontal: 20,
-    paddingLeft: 15,
-    marginVertical: 5,
-    fontSize: 16,
-  },
-  logoText: {
-    fontSize: 60,
-    paddingTop: '84%',
-    paddingLeft: 25,
-  },
-});
 
 export default Login;

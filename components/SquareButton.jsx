@@ -17,6 +17,21 @@ export default function SquareButton({
   iconSize = 50,
   hubIcon = false,
 }) {
+  const styles = StyleSheet.create({
+    button: {
+      backgroundColor: Colors.white,
+      padding: 10,
+    },
+    container: {
+      alignItems: 'center',
+      justifyContent: 'center',
+    },
+    text: {
+      textAlign: 'center',
+      color: Colors.darkGray,
+      paddingBottom: 6,
+    },
+  });
   return (
     <TouchableOpacity
       style={[styles.button, Dimensions.button]}
@@ -33,19 +48,3 @@ export default function SquareButton({
     </TouchableOpacity>
   );
 }
-
-const styles = StyleSheet.create({
-  button: {
-    backgroundColor: Colors.white,
-    padding: 10,
-  },
-  container: {
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  text: {
-    textAlign: 'center',
-    color: Colors.darkGray,
-    paddingBottom: 6,
-  },
-});

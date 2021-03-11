@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  View, Text, StyleSheet, Image, TouchableOpacity,
+  View, StyleSheet, Image,
 } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
@@ -9,6 +9,22 @@ import Colors from '../../constants/Colors';
 
 export default function ProgramsScreen() {
   const navigation = useNavigation();
+  const styles = StyleSheet.create({
+    container: {
+      flex: 1,
+      backgroundColor: Colors.white,
+      width: '100%',
+      alignItems: 'center',
+      justifyContent: 'center',
+    },
+    buttonView: {
+      width: '90%',
+      flexDirection: 'row',
+      alignItems: 'center',
+      justifyContent: 'space-evenly',
+      paddingBottom: 20,
+    },
+  });
   return (
     <View style={styles.container}>
       <Image
@@ -151,19 +167,3 @@ export default function ProgramsScreen() {
     </View>
   );
 }
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: Colors.white,
-    width: '100%',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  buttonView: {
-    width: '90%',
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-evenly',
-    paddingBottom: 20,
-  },
-});

@@ -3,6 +3,13 @@ import { View, StyleSheet } from 'react-native';
 import Comment from './Comment';
 
 const Thread = ({ comments, post }) => {
+  const styles = StyleSheet.create({
+    container: {
+      flex: 1,
+      justifyContent: 'center',
+      marginHorizontal: 20,
+    },
+  });
   const renderParents = (entries) => {
     const parents = [];
     for (const postId in entries) {
@@ -10,9 +17,10 @@ const Thread = ({ comments, post }) => {
         <Comment
           key={postId}
           comment={entries[postId].content}
-          children={entries[postId].children}
           post={post}
-        />,
+        >
+          entries[postId].children
+        </Comment>,
       );
     }
 
@@ -27,11 +35,3 @@ const Thread = ({ comments, post }) => {
 };
 
 export default Thread;
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    marginHorizontal: 20,
-  },
-});

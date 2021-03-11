@@ -47,7 +47,62 @@ export default function RakFitScreen() {
   useEffect(() => {
     setEntries(ENTRIES1);
   }, []);
+  const styles = StyleSheet.create({
+    container: {
+      flex: 1,
+      backgroundColor: Colors.white,
+      width: '100%',
+    },
+    container2: {
+      flex: 1,
+      backgroundColor: Colors.white,
+      justifyContent: 'center',
+      alignItems: 'center',
+      marginTop: 40,
+    },
+    buttonView: {
+      width: '85%',
+      flexDirection: 'row',
+      alignItems: 'center',
+      justifyContent: 'space-evenly',
+      paddingBottom: 55,
+    },
+    challengetext: {
+      fontSize: 25,
+      color: Colors.primary,
+    },
+    fitnesstext: {
+      fontSize: 22,
+      color: Colors.primary,
 
+      marginTop: 25,
+      padding: 5,
+    },
+    item: {
+      width: screenWidth - 60,
+      height: screenHeight / 5.5,
+    },
+    scrollContainer: {
+      flex: 1,
+    },
+    imageContainer: {
+      flex: 1,
+      marginBottom: Platform.select({ ios: 0, android: 1 }),
+      backgroundColor: Colors.white,
+      borderRadius: 30,
+    },
+    image: {
+      ...StyleSheet.absoluteFillObject,
+      resizeMode: 'cover',
+    },
+    title: {
+      fontSize: 20,
+      color: Colors.white,
+
+      top: '-12%',
+      left: '5%',
+    },
+  });
   const renderItem = ({ item, index }, parallaxProps) => (
     <View style={styles.item}>
       <ParallaxImage
@@ -117,60 +172,3 @@ export default function RakFitScreen() {
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: Colors.white,
-    width: '100%',
-  },
-  container2: {
-    flex: 1,
-    backgroundColor: Colors.white,
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginTop: 40,
-  },
-  buttonView: {
-    width: '85%',
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-evenly',
-    paddingBottom: 55,
-  },
-  challengetext: {
-    fontSize: 25,
-    color: Colors.primary,
-  },
-  fitnesstext: {
-    fontSize: 22,
-    color: Colors.primary,
-
-    marginTop: 25,
-    padding: 5,
-  },
-  item: {
-    width: screenWidth - 60,
-    height: screenHeight / 5.5,
-  },
-  scrollContainer: {
-    flex: 1,
-  },
-  imageContainer: {
-    flex: 1,
-    marginBottom: Platform.select({ ios: 0, android: 1 }), // Prevent a random Android rendering issue
-    backgroundColor: Colors.white,
-    borderRadius: 30,
-  },
-  image: {
-    ...StyleSheet.absoluteFillObject,
-    resizeMode: 'cover',
-  },
-  title: {
-    fontSize: 20,
-    color: Colors.white,
-
-    top: '-12%',
-    left: '5%',
-  },
-});

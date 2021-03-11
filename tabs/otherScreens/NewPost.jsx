@@ -9,11 +9,7 @@ import {
   Alert,
 } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import Firebase from '../../constants/FireBaseDb';
-import Dimensions from '../../constants/Dimensions';
 import Colors from '../../constants/Colors';
-
-const { width, height } = Dimensions.window;
 
 export default function NewPost({ route }) {
   const navigation = useNavigation();

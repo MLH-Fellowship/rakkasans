@@ -17,7 +17,21 @@ export default function Posts({ route, navigation }) {
   const { topic_title } = route.params;
 
   const isFocused = useIsFocused();
-
+  const styles = StyleSheet.create({
+    container: {
+      flex: 1,
+      backgroundColor: '#fff',
+      alignItems: 'center',
+      justifyContent: 'center',
+    },
+    topicTitle: {
+      fontSize: 30,
+      fontWeight: '700',
+      marginTop: 20,
+      marginBottom: 20,
+      textAlign: 'center',
+    },
+  });
   const [posts, setPosts] = useState([]);
   useEffect(() => {
     const getTopics = async () => {
@@ -44,7 +58,7 @@ export default function Posts({ route, navigation }) {
       style={{ flex: 1, flexDirection: 'column', justifyContent: 'center' }}
     >
       <Text style={{ textAlign: 'center' }}>
-        There don't seem to be any posts on this topic. Why not be the first?
+        There don&apos;t seem to be any posts on this topic. Why not be the first?
       </Text>
     </View>
   );
@@ -104,19 +118,3 @@ export default function Posts({ route, navigation }) {
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  topicTitle: {
-    fontSize: 30,
-    fontWeight: '700',
-    marginTop: 20,
-    marginBottom: 20,
-    textAlign: 'center',
-  },
-});

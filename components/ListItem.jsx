@@ -15,6 +15,30 @@ export default function ListItem({
   leftIcon,
   danger,
 }) {
+  const styles = StyleSheet.create({
+    container: {
+      alignItems: 'center',
+      flexDirection: 'row',
+      padding: 20,
+      backgroundColor: Colors.lightGray,
+      borderTopColor: Colors.darkGray,
+      borderTopWidth: 1,
+    },
+    detailsContainer: {
+      flex: 1,
+      marginLeft: 20,
+    },
+    subTitle: {
+      color: Colors.gray,
+    },
+    title: {
+      color: Colors.darkGray,
+      fontSize: 16,
+    },
+    danger: {
+      color: Colors.accent,
+    },
+  });
   return (
     <TouchableHighlight underlayColor={Colors.lightGray} onPress={onPress}>
       <View style={styles.container}>
@@ -46,28 +70,3 @@ export default function ListItem({
     </TouchableHighlight>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    alignItems: 'center',
-    flexDirection: 'row',
-    padding: 20,
-    backgroundColor: Colors.lightGray,
-    borderTopColor: Colors.darkGray,
-    borderTopWidth: 1,
-  },
-  detailsContainer: {
-    flex: 1,
-    marginLeft: 20,
-  },
-  subTitle: {
-    color: Colors.gray,
-  },
-  title: {
-    color: Colors.darkGray,
-    fontSize: 16,
-  },
-  danger: {
-    color: Colors.accent,
-  },
-});

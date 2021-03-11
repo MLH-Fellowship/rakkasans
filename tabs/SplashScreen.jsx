@@ -49,7 +49,7 @@ export default class SplashScreen extends Component {
     const { opacityA } = this.state;
 
     const whiteLayer = !this.state.animationDone && (
-      <View style={[StyleSheet.absoluteFill, { backgroundColor: "#D60000" }]} />
+      <View style={[StyleSheet.absoluteFill, { backgroundColor: "#d60000" }]} />
     );
     const imageScale = {
       transform: [
@@ -61,7 +61,20 @@ export default class SplashScreen extends Component {
         },
       ],
     };
-
+    const styles = StyleSheet.create({
+      container: {
+        flex: 1,
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center",
+        backgroundColor: "white",
+      },
+      centered: {
+        flex: 1,
+        alignItems: "center",
+        justifyContent: "center",
+      },
+    });
     return (
       <View style={{ flex: 1 }}>
         <MaskedViewIOS
@@ -91,17 +104,3 @@ export default class SplashScreen extends Component {
     );
   }
 }
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    flexDirection: "column",
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "white",
-  },
-  centered: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});

@@ -7,31 +7,32 @@
   },
   "rules": {
     "no-underscore-dangle": [
-        "warn",
+      "warn",
       {
         "allow": [
-            "_id"
+          "_id"
         ]
       }
     ],
     "jsx-a11y/anchor-is-valid": [
-        "warn",
+      "warn",
       {
         "components": [
-            "Link"
+          "Link"
         ],
         "specialLink": [
-            "hrefLeft",
-            "hrefRight"
+          "hrefLeft",
+          "hrefRight"
         ],
         "aspects": [
-            "invalidHref",
-            "preferButton"
+          "invalidHref",
+          "preferButton"
         ]
       }
     ],
     "jsx-a11y/click-events-have-key-events": "off",
     "react/prop-types": "off",
-    "react/jsx-props-no-spreading": "off"
+    "react/jsx-props-no-spreading": "off",
+    "camelcase": "warn"
   }
 }

@@ -3,7 +3,6 @@ import {
   View, Text, Image, StyleSheet,
 } from 'react-native';
 import { Table, Rows } from 'react-native-table-component';
-import { useNavigation } from '@react-navigation/native';
 
 import Colors from '../../constants/Colors';
 import Dimensions from '../../constants/Dimensions';
@@ -11,8 +10,6 @@ import RectButton from '../../components/RectButton';
 
 export default function ProgramPageScreen({ route }) {
   const { name } = route.params;
-
-  const navigation = useNavigation();
 
   const tableData = [
     ['Phone:', '(270) 798 - 4410'],
@@ -24,7 +21,34 @@ export default function ProgramPageScreen({ route }) {
   const url = { uri: 'https://picsum.photos/300/300' };
   const titleWidth = Dimensions.window.width * 0.27;
   const contentWidth = Dimensions.window.width * 0.65;
-
+  const styles = StyleSheet.create({
+    container: {
+      flex: 1,
+      width: '100%',
+      alignItems: 'center',
+      backgroundColor: Colors.white,
+    },
+    buttonContainer: {
+      marginTop: 20,
+    },
+    table: {
+      paddingHorizontal: 10,
+    },
+    tableText: {
+      fontSize: 16,
+      margin: 6,
+    },
+    image: {
+      width: '100%',
+      height: '30%',
+    },
+    title: {
+      fontSize: 26,
+      alignItems: 'center',
+      marginTop: 20,
+      marginBottom: 10,
+    },
+  });
   return (
     <View style={styles.container}>
       <Image style={styles.image} source={url} />
@@ -46,32 +70,3 @@ export default function ProgramPageScreen({ route }) {
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    width: '100%',
-    alignItems: 'center',
-    backgroundColor: Colors.white,
-  },
-  buttonContainer: {
-    marginTop: 20,
-  },
-  table: {
-    paddingHorizontal: 10,
-  },
-  tableText: {
-    fontSize: 16,
-    margin: 6,
-  },
-  image: {
-    width: '100%',
-    height: '30%',
-  },
-  title: {
-    fontSize: 26,
-    alignItems: 'center',
-    marginTop: 20,
-    marginBottom: 10,
-  },
-});

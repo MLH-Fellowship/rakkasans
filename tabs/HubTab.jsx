@@ -15,7 +15,40 @@ import AppleMap from '../components/AppleMap';
 
 export default function HubTab() {
   const navigation = useNavigation();
+  const styles = StyleSheet.create({
+    container: {
+      flex: 1,
+      backgroundColor: Colors.white,
+      width: '100%',
+      alignItems: 'center',
+      justifyContent: 'center',
+    },
+    buttonView: {
+      width: '100%',
+      flexDirection: 'row',
+      alignItems: 'center',
+      justifyContent: 'space-evenly',
+      paddingBottom: 15,
+    },
 
+    map: {
+      flex: 1,
+      elevation: 2, // android
+      shadowColor: 'black', // shadow - ios
+      shadowRadius: 4,
+      shadowOffset: { width: 0, height: 1 },
+      shadowOpacity: 0.26,
+      height: '75%',
+      width: '90%',
+      alignItems: 'flex-end',
+      justifyContent: 'flex-end',
+    },
+    maptext: {
+      fontSize: 20,
+      color: Colors.blue3,
+      paddingVertical: 16,
+    },
+  });
   return (
     <View style={styles.container}>
       <StatusBar barStyle="light-content" />
@@ -103,37 +136,3 @@ export default function HubTab() {
     </View>
   );
 }
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: Colors.white,
-    width: '100%',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  buttonView: {
-    width: '100%',
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-evenly',
-    paddingBottom: 15,
-  },
-
-  map: {
-    flex: 1,
-    elevation: 2, // android
-    shadowColor: 'black', // shadow - ios
-    shadowRadius: 4,
-    shadowOffset: { width: 0, height: 1 },
-    shadowOpacity: 0.26,
-    height: '75%',
-    width: '90%',
-    alignItems: 'flex-end',
-    justifyContent: 'flex-end',
-  },
-  maptext: {
-    fontSize: 20,
-    color: Colors.blue3,
-    paddingVertical: 16,
-  },
-});

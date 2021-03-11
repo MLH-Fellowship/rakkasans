@@ -1,7 +1,9 @@
 // Import Button Data
 import React, { Component } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 import buttonArr from "./HubTabButtonData"
+
+import SquareButton from "../../components/SquareButton";
 
 class ButtonList extends Component {
     state = {

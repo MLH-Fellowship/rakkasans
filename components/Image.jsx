@@ -1,6 +1,5 @@
 import React from 'react';
 import { View, Image } from 'react-native';
-import PropTypes from 'prop-types';
 
 export default function DocumentImage({ uri }) {
   return (
@@ -9,7 +8,3 @@ export default function DocumentImage({ uri }) {
     </View>
   );
 }
-
-DocumentImage.propTypes = {
-  uri: PropTypes.string,
-};

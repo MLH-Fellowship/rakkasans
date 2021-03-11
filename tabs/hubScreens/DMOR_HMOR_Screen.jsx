@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import PropTypes from 'prop-types';
 import WordDocument from '../../components/WordDocument';
 
 export default function DMOR_HMOR_Screen() {
@@ -7,7 +6,6 @@ export default function DMOR_HMOR_Screen() {
   useEffect(() => {
     const getDmorHmor = async () => {
       try {
-        // TODO Change to localhost for non Mike development
         const response = await fetch('http://192.168.1.208:3000/dmorHmor');
         const json = response.json();
         const pageJSON = [
@@ -26,7 +24,3 @@ export default function DMOR_HMOR_Screen() {
 
   return <WordDocument page={dmorHmor} />;
 }
-
-DMOR_HMOR_Screen.propTypes = {
-  children: PropTypes.object,
-};

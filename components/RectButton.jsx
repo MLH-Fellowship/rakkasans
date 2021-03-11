@@ -6,6 +6,8 @@ import {
 import Colors from '../constants/Colors';
 import Dimensions from '../constants/Dimensions';
 
+import Torri from '../assets/images/Torri.png';
+
 export default function RectButton({
   text,
   onPress,
@@ -48,14 +50,14 @@ export default function RectButton({
     >
       {icons === true && (
         <Image
-          source={require('../assets/images/Torri.png')}
+          source={Torri}
           style={styles.leftIcon}
         />
       )}
       <Text style={[styles.text, Dimensions.font]}>{text}</Text>
       {icons === true && (
         <Image
-          source={require('../assets/images/Torri.png')}
+          source={Torri}
           style={styles.rightIcon}
         />
       )}

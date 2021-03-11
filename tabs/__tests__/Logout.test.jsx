@@ -1,7 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 
-import Logout from '../Logout';
+import Logout from '../LogOut';
 
 jest.useFakeTimers();
 jest.mock('../Logout', () => (props) => <mock-Logout {...props} />);

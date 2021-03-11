@@ -6,6 +6,8 @@ import renderer from 'react-test-renderer';
 
 import RectButton from '../RectButton';
 
+import Torri from '../../assets/images/Torri.png';
+
 jest.useFakeTimers();
 configure({ adapter: new Adapter() });
 
@@ -18,9 +20,9 @@ describe('RectButton', () => {
   it('renders correctly with an image', () => {
     const wrapper = shallow(
       <RectButton>
-        <Image src={require('../../assets/images/Torri.png')} />
+        <Image src={Torri} />
         <Text>This is a test</Text>
-        <Image src={require('../../assets/images/Torri.png')} />
+        <Image src={Torri} />
       </RectButton>,
     );
 
@@ -32,9 +34,9 @@ describe('RectButton', () => {
 
     const wrapper = shallow(
       <RectButton onPress={onPress}>
-        <Image src={require('../../assets/images/Torri.png')} />
+        <Image src={Torri} />
         <Text>This is a test</Text>
-        <Image src={require('../../assets/images/Torri.png')} />
+        <Image src={Torri} />
       </RectButton>,
     );
 

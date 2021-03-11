@@ -2,7 +2,7 @@
   "hostType": "tunnel",
   "lanType": "ip",
   "dev": true,
-  "minify": false,
+  "minify": true,
   "urlRandomness": "di-wwm",
   "https": false,
   "scheme": null,

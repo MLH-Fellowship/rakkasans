@@ -1,23 +1,47 @@
 import React from 'react';
 import {
-  View, StyleSheet, Image, TouchableOpacity,
+  View, StyleSheet, Image,
 } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
 import Colors from '../../constants/Colors';
 import RectButton from '../../components/RectButton';
 
+import HistoryPic from '../../assets/images/history2.png';
+import Flag from '../../assets/images/Flag.jpg';
+
 export default function HistoryScreen() {
+  const styles = StyleSheet.create({
+    container: {
+      flex: 1,
+      backgroundColor: Colors.white,
+      width: '100%',
+      alignItems: 'center',
+      justifyContent: 'space-evenly',
+    },
+    titleText: {
+      color: Colors.primary,
+
+      fontSize: 25,
+    },
+    buttonView: {
+      width: '90%',
+    },
+    image: {
+      flexDirection: 'row',
+      justifyContent: 'space-evenly',
+    },
+  });
   const navigation = useNavigation();
   return (
     <View style={styles.container}>
       <View style={styles.image}>
         <Image
-          source={require('../../assets/images/history2.png')}
+          source={HistoryPic}
           style={{ width: 120, height: 120 }}
         />
         <Image
-          source={require('../../assets/images/Flag.jpg')}
+          source={Flag}
           style={{ width: 170, height: 120, marginLeft: 20 }}
         />
       </View>
@@ -76,25 +100,3 @@ export default function HistoryScreen() {
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: Colors.white,
-    width: '100%',
-    alignItems: 'center',
-    justifyContent: 'space-evenly',
-  },
-  titleText: {
-    color: Colors.primary,
-
-    fontSize: 25,
-  },
-  buttonView: {
-    width: '90%',
-  },
-  image: {
-    flexDirection: 'row',
-    justifyContent: 'space-evenly',
-  },
-});

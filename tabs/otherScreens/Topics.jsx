@@ -12,7 +12,16 @@ export default function Topics({ navigation }) {
       .then((res) => res.json().then((json) => setTopics(json)))
       .catch((e) => alert(e.message));
   }, []);
-
+  const styles = StyleSheet.create({
+    container: {
+      flex: 1,
+      justifyContent: 'center',
+      marginHorizontal: 25,
+    },
+    buttonView: {
+      width: '100%',
+    },
+  });
   return (
     <View style={styles.container}>
       {topics ? (
@@ -37,14 +46,3 @@ export default function Topics({ navigation }) {
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    marginHorizontal: 25,
-  },
-  buttonView: {
-    width: '100%',
-  },
-});

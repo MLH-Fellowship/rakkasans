@@ -1,9 +1,7 @@
-import React, { useState, useContext, useEffect } from 'react';
+import React, { useState } from 'react';
 import {
   GiftedChat,
   Bubble,
-  Send,
-  SystemMessage,
 } from 'react-native-gifted-chat';
 import { ActivityIndicator, View, StyleSheet } from 'react-native';
 import { IconButton } from 'react-native-paper';
@@ -44,7 +42,20 @@ export default function chatScreen() {
       },
     },
   ]);
+  const styles = StyleSheet.create({
+    // scrolling
+    bottomComponentContainer: {
+      justifyContent: 'center',
+      alignItems: 'center',
+    },
 
+    // this is for the loading anim
+    loadingContainer: {
+      flex: 1,
+      alignItems: 'center',
+      justifyContent: 'center',
+    },
+  });
   // helper method that is sends a message
   function handleSend(newMessage = []) {
     setMessages(GiftedChat.append(messages, newMessage));
@@ -98,18 +109,3 @@ export default function chatScreen() {
     />
   );
 }
-
-const styles = StyleSheet.create({
-  // scrolling
-  bottomComponentContainer: {
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-
-  // this is for the loading anim
-  loadingContainer: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});

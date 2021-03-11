@@ -9,7 +9,7 @@ import { ScrollView } from 'react-native-gesture-handler';
 import Colors from '../../constants/Colors';
 import Dimensions from '../../constants/Dimensions';
 
-export default function CallRosterScreen({ route }) {
+export default function CallRosterScreen() {
   const tableData = [
     ['Person #1'],
     ['Person #2'],

@@ -1,10 +1,6 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
 
-const Card = (props) => (
-  <View style={{ ...styles.card, ...props.style }}>{props.children}</View>
-);
-
 const styles = StyleSheet.create({
   card: {
     elevation: 5, // android
@@ -17,5 +13,12 @@ const styles = StyleSheet.create({
     borderRadius: 15,
   },
 });
+
+const Card = (props) => {
+  const { style, children } = props;
+  return (
+    <View style={{ ...styles.card, ...style }}>{children}</View>
+  );
+};
 
 export default Card;

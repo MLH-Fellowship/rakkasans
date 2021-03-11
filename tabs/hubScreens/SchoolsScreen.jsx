@@ -1,13 +1,28 @@
 import React from 'react';
-import { View, StyleSheet, Image } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
 import SquareButton from '../../components/SquareButton';
 import Colors from '../../constants/Colors';
-import RectButton from '../../components/RectButton';
 
 export default function SchoolsScreen() {
   const navigation = useNavigation();
+  const styles = StyleSheet.create({
+    container: {
+      flex: 1,
+      backgroundColor: Colors.white,
+      width: '100%',
+      alignItems: 'center',
+      justifyContent: 'center',
+    },
+    buttonPair: {
+      width: '85%',
+      flexDirection: 'row',
+      alignItems: 'center',
+      justifyContent: 'space-evenly',
+      paddingBottom: 30,
+    },
+  });
   return (
     <View style={styles.container}>
       <View style={[styles.buttonPair, { paddingTop: 10 }]}>
@@ -109,19 +124,3 @@ export default function SchoolsScreen() {
     </View>
   );
 }
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: Colors.white,
-    width: '100%',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  buttonPair: {
-    width: '85%',
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-evenly',
-    paddingBottom: 30,
-  },
-});
