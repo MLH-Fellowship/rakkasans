@@ -27,8 +27,8 @@ const Login = ({ navigation }) => {
       // Request API.
       axios
         .post('http://192.168.1.208:3001/auth/local', {
-          identifier: 'dev@dev.com',
-          password: 'twuh0plad8ceey*SQAG',
+          identifier: email,
+          password,
         })
         .then((response) => {
         // Handle success.
