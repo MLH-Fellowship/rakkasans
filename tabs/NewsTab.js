@@ -8,45 +8,45 @@ import { ScrollView } from "react-native-gesture-handler";
 
 export default function NewsTab() {
   let [news, setNews] = useState([]);
+  
 
-  const images = [
+  const images = [ // would { article1: require("../assets/article-data/article1.jpg") } work? would be better than index logic, will try later
     require("../assets/article-data/article1.jpg"),
     require("../assets/article-data/article2.jpg"),
     require("../assets/article-data/article3.jpg"),
   ];
   useEffect(() => {
     const getNews = async () => {
-      let news = await axios.get("http://localhost:1337/news-articles");
+      let news = await axios.get("http://localhost:1337/news-articles")
       news = news.data.map((news, index) => {
-        let image = images[index];
-        return { ...news, image_location: image };
-      });
-      setNews(news);
-    };
-    getNews();
+         let image = images[index]
+         return {...news, image_location: image} 
+       })
+       setNews(news)
+    } 
+    getNews()
   }, []);
+
 
   const navigation = useNavigation();
   return (
     <>
       <ScrollView style={styles.container}>
-        {news.map(({ id, title, image_location, content }) => {
-          //console.log( image )
-          return (
-            <NewsCard
-              key={id}
-              title={title}
-              image={image_location}
-              onPress={() =>
-                navigation.navigate("News Article", {
-                  title: title,
-                  text: content,
-                  image: image_location,
-                })
-              }
+      { 
+      news.map(({ id, title, image_location, content }) => {
+        //console.log( image )
+        return <NewsCard 
+          key={id}
+          title={title}
+          image={image_location}
+          onPress={() => 
+            navigation.navigate('News Article', {
+              title: title,
+              text: content,
+              image: image_location
+            }) }
             />
-          );
-        })}
+          })}
       </ScrollView>
     </>
   );
