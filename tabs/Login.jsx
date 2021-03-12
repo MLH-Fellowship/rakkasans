@@ -8,7 +8,7 @@ import {
   Alert,
   StyleSheet,
 } from 'react-native';
-import Firebase from '../constants/FireBaseDb';
+import axios from 'axios';
 import Colors from '../constants/Colors';
 import Button from '../components/Button';
 
@@ -23,21 +23,28 @@ const Login = ({ navigation }) => {
       Alert.alert('Enter details to signin!');
     } else {
       setLoading(true);
-      Firebase.auth()
-        .setPersistence(Firebase.auth.Auth.Persistence.LOCAL)
-        .then(() => {
-          Firebase.auth()
-            .signInWithEmailAndPassword('mattdillabough@gmail.com', 'password')
-            .then((res) => {
-              console.log(res);
-              console.log('User logged-in successfully!');
 
-              navigation.reset({
-                index: 0,
-                routes: [{ name: isNewUser ? 'Welcome Video' : 'Tab Bar' }],
-              });
-            })
-            .catch((error) => alert(error.message));
+      // Request API.
+      axios
+        .post('http://192.168.1.208:3001/auth/local', {
+          identifier: 'dev@dev.com',
+          password: 'twuh0plad8ceey*SQAG',
+        })
+        .then((response) => {
+        // Handle success.
+          console.log('Well done!');
+          console.log('User profile', response.data.user);
+          console.log('User token', response.data.jwt);
+          navigation.reset({
+            index: 0,
+            routes: [{ name: isNewUser ? 'Welcome Video' : 'Tab Bar' }],
+          });
+        })
+        .catch((error) => {
+        // Handle error.
+          console.log('An error occurred:', error.response);
+          setLoading(false);
+          Alert.alert('Incorrect Credentials!');
         });
     }
   };
