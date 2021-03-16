@@ -10,8 +10,8 @@ import UserIcon from '../components/UserIcon';
 import Firebase from '../constants/FireBaseDb';
 
 export default function AccountTab({ navigation }) {
-  const userName = Firebase.auth().currentUser.displayName;
-  const userEmail = Firebase.auth().currentUser.email;
+  // const userName = Firebase.auth().currentUser.displayName;
+  // const userEmail = Firebase.auth().currentUser.email;
   const styles = StyleSheet.create({
     container: {
       flex: 1,
@@ -74,8 +74,8 @@ export default function AccountTab({ navigation }) {
       <View style={styles.profileContainer}>
         <UserIcon />
         <View style={styles.profileInfo}>
-          <Text style={[styles.name, Dimensions.font]}>{userName}</Text>
-          <Text style={[styles.email, Dimensions.font]}>{userEmail}</Text>
+          <Text style={[styles.name, Dimensions.font]}>Username</Text>
+          <Text style={[styles.email, Dimensions.font]}>Email</Text>
         </View>
       </View>
       <View style={styles.listContainer}>

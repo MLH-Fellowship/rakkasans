@@ -10,59 +10,51 @@ import Colors from '../constants/Colors';
 
 export default function NewsTab() {
   const [news, setNews] = useState([]);
-
-  const images = [
-    // would { article1: require("../assets/article-data/article1.jpg") } work? would be better than index logic, will try later
-    require('../assets/article-data/article1.jpg'),
-    require('../assets/article-data/article2.jpg'),
-    require('../assets/article-data/article3.jpg'),
-  ];
   useEffect(() => {
     const getNews = async () => {
-      const request = await axios.get('http://localhost:1337/news-articles');
-      const articles = request.data.map((article, index) => {
-        const image = images[index];
-        return { ...article, image_location: image };
-      });
+      const request = await axios.get(
+        'http://192.168.1.230:3001/news-articles',
+      );
+      const articles = request.data;
       setNews(articles);
     };
     getNews();
   }, []);
 
   const navigation = useNavigation();
+  const styles = StyleSheet.create({
+    container: {
+      flex: 1,
+      backgroundColor: Colors.white,
+      width: '100%',
+    },
+    view: {
+      alignItems: 'center',
+      justifyContent: 'center',
+      flex: 1,
+    },
+  });
   return (
     <>
       <ScrollView style={styles.container}>
         {news.map(({
-          id, title, image_location, content,
-        }) =>
-          // console.log( image )
-          (
+          Content, Image, Title, id,
+        }) => {
+          const image_source = (Image.url);
+          return (
             <NewsCard
               key={id}
-              title={title}
-              image={image_location}
+              title={Title}
+              image={image_source}
               onPress={() => navigation.navigate('News Article', {
-                title,
-                text: content,
-                image: image_location,
+                Title,
+                text: Content,
+                image: image_source,
               })}
             />
-          ))}
+          );
+        })}
       </ScrollView>
     </>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: Colors.white,
-    width: '100%',
-  },
-  view: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    flex: 1,
-  },
-});

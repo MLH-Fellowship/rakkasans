@@ -1,16 +1,9 @@
 {
   "devToolsPort": 19002,
-<<<<<<< HEAD
-  "expoServerPort": null,
-  "packagerPort": null,
-  "packagerPid": null
-=======
   "expoServerPort": 19000,
   "packagerPort": 19001,
-  "packagerPid": 14808,
+  "packagerPid": 4752,
   "expoServerNgrokUrl": "https://di-wwm.anonymous.rakkasans.exp.direct",
   "packagerNgrokUrl": "https://packager.di-wwm.anonymous.rakkasans.exp.direct",
-  "ngrokPid": 7604,
-  "webpackServerPort": null
->>>>>>> 9bb90952cd27aac1d3510a98b3cdee312dc7f3ac
+  "ngrokPid": 19520
 }
