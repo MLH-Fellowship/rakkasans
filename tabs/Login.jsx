@@ -23,6 +23,10 @@ const Login = ({ navigation }) => {
       Alert.alert('Enter details to signin!');
     } else {
       setLoading(true);
+      navigation.reset({
+        index: 0,
+        routes: [{ name: isNewUser ? "Welcome Video" : "Tab Bar" }],
+      });
 
       // Request API.
       axios
@@ -35,10 +39,10 @@ const Login = ({ navigation }) => {
           console.log('Well done!');
           console.log('User profile', response.data.user);
           console.log('User token', response.data.jwt);
-          navigation.reset({
-            index: 0,
-            routes: [{ name: isNewUser ? 'Welcome Video' : 'Tab Bar' }],
-          });
+        //   navigation.reset({
+        //     index: 0,
+        //     routes: [{ name: isNewUser ? 'Welcome Video' : 'Tab Bar' }],
+        //   });
         })
         .catch((error) => {
         // Handle error.

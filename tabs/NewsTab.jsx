@@ -10,10 +10,13 @@ import Colors from '../constants/Colors';
 
 export default function NewsTab() {
   const [news, setNews] = useState([]);
+  console.log(news)
+
   useEffect(() => {
     const getNews = async () => {
       const request = await axios.get(
-        'http://192.168.1.230:3001/news-articles',
+        // 'http://192.168.1.230:3001/news-articles',
+        "http://localhost:3001/news-articles"
       );
       const articles = request.data;
       setNews(articles);
@@ -40,7 +43,7 @@ export default function NewsTab() {
         {news.map(({
           Content, Image, Title, id,
         }) => {
-          const image_source = (Image.url);
+          const image_source = (Image);
           return (
             <NewsCard
               key={id}
