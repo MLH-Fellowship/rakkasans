@@ -1,34 +1,47 @@
-import React from 'react';
-import {
-  StyleSheet, SafeAreaView, View, FlatList, Text,
-} from 'react-native';
-import { Card, CardItem, Body } from 'native-base';
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import { StyleSheet, SafeAreaView, View, FlatList, Text } from "react-native";
+import { Card, CardItem, Body } from "native-base";
 
-import MOHData from '../../assets/word_documents/MoH';
+import MOHData from "../../assets/word_documents/MoH";
 
 export default function MoHDocument() {
+  const [moh, setMoh] = useState([]);
+
+  useEffect(() => {
+    const getMoh = async () => {
+      const request = await axios.get(
+        // 'http://192.168.1.230:3001/news-articles',
+        "http://localhost:3001/medal-of-honors"
+      );
+      const moh = request.data;
+      setMoh(moh);
+    };
+    getMoh();
+  }, []);
+
   const styles = StyleSheet.create({
     main: {
       marginBottom: 200,
     },
     container: {
       flex: 1,
-      width: '100%',
-      height: '100%',
-      flexDirection: 'column',
+      width: "100%",
+      height: "100%",
+      flexDirection: "column",
       paddingHorizontal: 15,
       paddingVertical: 10,
     },
     title: {
       fontSize: 15,
-      fontWeight: '500',
+      fontWeight: "500",
     },
     header: {
       fontSize: 20,
-      fontWeight: '700',
+      fontWeight: "700",
       marginTop: 20,
       marginBottom: 20,
-      textAlign: 'center',
+      textAlign: "center",
     },
   });
   return (
@@ -36,22 +49,20 @@ export default function MoHDocument() {
       <View style={styles.main}>
         <Text style={styles.header}>Medal of Honor Recipients</Text>
         <FlatList
-          data={MOHData}
+          data={moh}
           keyExtractor={(item) => item.id}
           renderItem={({ item }) => (
             <View style={styles.container}>
               <Card key={item.id}>
-
                 <CardItem>
-                  <Text style={styles.title}>{item.name}</Text>
+                  <Text style={styles.title}>{item.title}</Text>
                 </CardItem>
-
                 <CardItem>
                   <Body>
-                    <Text>{item.regiment}</Text>
+                    <Text>{item.unit}</Text>
                     <Text>{item.conflict}</Text>
                     <Text>{item.year}</Text>
-                    <Text>{item.medal}</Text>
+                    <Text>Medal of Honor Citation</Text>
                   </Body>
                 </CardItem>
                 <CardItem>
