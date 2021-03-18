@@ -8,16 +8,14 @@ import Colors from "../constants/Colors";
 
 export default function NewsTab() {
   const [news, setNews] = useState([]);
-  console.log(news);
 
   useEffect(() => {
     const getNews = async () => {
       const request = await axios.get(
         // 'http://192.168.1.230:3001/news-articles',
-        "http://localhost:3001/news-articles"
+        "http://localhost:3001/articles"
       );
       const articles = request.data;
-      console.log(articles);
       setNews(articles);
     };
     getNews();
