@@ -1,31 +1,36 @@
-import React from 'react';
-import {
-  View, Text, Image, StyleSheet,
-} from 'react-native';
-import { Table, Rows } from 'react-native-table-component';
+import React from "react";
+import { View, Text, Image, StyleSheet } from "react-native";
+import { Table, Rows } from "react-native-table-component";
 
-import Colors from '../../constants/Colors';
-import Dimensions from '../../constants/Dimensions';
-import RectButton from '../../components/RectButton';
+import Colors from "../../constants/Colors";
+import Dimensions from "../../constants/Dimensions";
+import RectButton from "../../components/RectButton";
 
-export default function ProgramPageScreen({ route }) {
-  const { name } = route.params;
+export default function ResourcePageScreen({ route }) {
+  const {
+    name,
+    email,
+    location,
+    phone,
+    grad_times,
+    report_times,
+  } = route.params;
 
   const tableData = [
-    ['Phone:', '(270) 798 - 4410'],
-    ['Email:', 'usarmy.campbell.101-abn-div.mbx.air-assault-school@email.mil'],
-    ['Location:', '6883 Air Assault St. Fort Cambell, KY 42223'],
-    ['Report Times:', '5:00 AM'],
-    ['Grad Times:', '10:00 AM'],
+    ["Phone:", `${phone}`],
+    ["Email:", `${email}`],
+    ["Location:", `${location}`],
+    ["Report Times:", `${report_times}`],
+    ["Grad Times:", `${grad_times}`],
   ];
-  const url = { uri: 'https://picsum.photos/300/300' };
+  const url = { uri: "https://picsum.photos/300/300" };
   const titleWidth = Dimensions.window.width * 0.27;
   const contentWidth = Dimensions.window.width * 0.65;
   const styles = StyleSheet.create({
     container: {
       flex: 1,
-      width: '100%',
-      alignItems: 'center',
+      width: "100%",
+      alignItems: "center",
       backgroundColor: Colors.white,
     },
     buttonContainer: {
@@ -39,12 +44,12 @@ export default function ProgramPageScreen({ route }) {
       margin: 6,
     },
     image: {
-      width: '100%',
-      height: '30%',
+      width: "100%",
+      height: "30%",
     },
     title: {
       fontSize: 26,
-      alignItems: 'center',
+      alignItems: "center",
       marginTop: 20,
       marginBottom: 10,
     },
@@ -65,7 +70,7 @@ export default function ProgramPageScreen({ route }) {
         </Table>
       </View>
       <View style={styles.buttonContainer}>
-        <RectButton text="Documents" onPress={() => console.log('Pressed')} />
+        <RectButton text="Documents" onPress={() => console.log("Pressed")} />
       </View>
     </View>
   );
