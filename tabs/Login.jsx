@@ -7,6 +7,7 @@ import {
   TextInput,
   Alert,
   StyleSheet,
+  Image
 } from "react-native";
 import axios from "axios";
 import Colors from "../constants/Colors";
@@ -86,11 +87,11 @@ const Login = ({ navigation }) => {
       marginVertical: 5,
       fontSize: 16,
     },
-    logoText: {
-      fontSize: 60,
-      paddingTop: "84%",
-      paddingLeft: 25,
-    },
+    // logoText: {
+    //   fontSize: 60,
+    //   paddingTop: "84%",
+    //   paddingLeft: 25,
+    // },
   });
   return (
     <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
@@ -98,13 +99,19 @@ const Login = ({ navigation }) => {
       <View
         style={{ flex: 1, justifyContent: "flex-end", alignItems: "center" }}
       >
-        <Text style={{ fontSize: 18, fontFamily: "reggae-one" }}>
-          101st Airborne
-        </Text>
-        <Text style={{ fontSize: 50, fontFamily: "reggae-one" }}>
+        {/* <Text style={{ fontSize: 50, fontFamily: "reggae-one" }}>
           RAKKASANS
-        </Text>
+        </Text> */}
+
+        <Image
+          source={require("../assets/images/rakklogo.png")}
+          style={{ width: 320, height: 45, top: "30%" }}
+        />
       </View>
+
+      <Text style={{ fontSize: 18, fontFamily: "reggae-one", top: "8%" }}>
+        101st Airborne
+      </Text>
 
       <View
         style={{
@@ -113,7 +120,11 @@ const Login = ({ navigation }) => {
           alignItems: "center",
         }}
       >
-        <Text style={{ fontSize: 250 }}>⛩️</Text>
+        {/* <Text style={{ fontSize: 250 }}>⛩️</Text> */}
+        <Image
+          source={require("../assets/images/Torri.png")}
+          style={{ width: 200, height: 200, top: "10%" }}
+        />
       </View>
       <View style={{ flex: 1 }}>
         <TextInput
