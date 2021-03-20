@@ -23,6 +23,10 @@ const Login = ({ navigation }) => {
       Alert.alert("Enter details to signin!");
     } else {
       setLoading(true);
+        navigation.reset({
+          index: 0,
+          routes: [{ name: isNewUser ? 'Welcome Video' : 'Tab Bar' }],
+        });
       axios
         .post("http://localhost:3001/auth/local", {
           identifier: email,

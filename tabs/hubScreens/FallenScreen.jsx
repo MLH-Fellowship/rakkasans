@@ -1,26 +1,98 @@
-import React, { useState, useEffect } from 'react';
-import WordDocument from '../../components/WordDocument';
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import { StyleSheet, SafeAreaView, Text, Image, View, Linking } from "react-native";
+import { Card, CardItem, Body } from "native-base";
+import { ScrollView } from "react-native-gesture-handler";
+import { Table, Rows } from "react-native-table-component";
+import Colors from "../../constants/Colors";
+import Dimensions from "../../constants/Dimensions";
+import RectButton from "../../components/RectButton";
 
-export default function MoHDocument() {
+export default function FallenScreen() {
   const [fallen, setFallen] = useState([]);
+
   useEffect(() => {
-    const getFallen = async () => {
-      try {
-        const response = await fetch('http://192.168.1.208:3000/fallen');
-        const json = await response.json();
-
-        const pageJSON = [
-          { content: json, type: 'FallenList' },
-        ];
-
-        setFallen(pageJSON);
-      } catch (error) {
-        console.log(error);
-      }
+    const getHonors = async () => {
+      const request = await axios.get("http://localhost:3001/fallens");
+      const response = request.data;
+      setFallen(response);
     };
-
-    getFallen();
+    getHonors();
   }, []);
 
-  return <WordDocument page={fallen} />;
+    const url = { uri: "https://picsum.photos/300/300" };
+    const titleWidth = Dimensions.window.width * 0.27;
+    const contentWidth = Dimensions.window.width * 0.65;
+
+  const styles = StyleSheet.create({
+    container: {
+      width: "100%",
+      height: "100%",
+      flexDirection: "column",
+      paddingHorizontal: 15,
+      paddingVertical: 10,
+    },
+    containerTable: {
+      width: "100%",
+      alignItems: "center",
+    },
+    title: {
+      fontSize: 18,
+      fontWeight: "500",
+    },
+    header: {
+      fontSize: 20,
+      fontWeight: "700",
+      textAlign: "center",
+    },
+    description: {
+      fontSize: 12,
+    },
+    image: {
+      width: "100%",
+      height: "30%",
+    },
+  });
+
+  return (
+    <SafeAreaView style={styles.container}>
+      <ScrollView>
+        <Text style={styles.header}></Text>
+        {fallen.map((type, id) => {
+          return (
+            <View>
+              <Card key={id}>
+                <Image style={styles.image} source={url} />
+                <CardItem>
+                  <Text style={styles.title}>{type.title}</Text>
+                </CardItem>
+                <CardItem>
+                  <Body>
+                    <Text style={styles.description}>{type.description}</Text>
+                  </Body>
+                </CardItem>
+                <CardItem>
+                  <View>
+                    <Text>Document Links:</Text>
+                    <Text
+                      style={{ color: "blue" }}
+                      onPress={() => Linking.openURL("{type.documents[1].url}")}
+                    >
+                    - {type.documents[1].name}
+                    </Text>
+                    <Text
+                      style={{ color: "blue" }}
+                      onPress={() => Linking.openURL("{type.documents[0].url}")}
+                    >
+                     - {type.documents[0].name}
+                    </Text>
+                  </View>
+                </CardItem>
+              </Card>
+            </View>
+          );
+        })}
+      </ScrollView>
+    </SafeAreaView>
+  );
 }
