@@ -10,6 +10,7 @@ import {
   Image,
 } from 'react-native';
 import axios from 'axios';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import Colors from '../constants/Colors';
 import Button from '../components/Button';
 
@@ -19,33 +20,31 @@ const Login = ({ navigation }) => {
   const [loading, setLoading] = React.useState(false);
   const isNewUser = true;
 
+  const storeData = async (value) => {
+    await AsyncStorage.setItem('@user_Data', JSON.stringify(value)).catch(console.log);
+  };
+
   const userLogin = () => {
     if (email === '' && password === '') {
       Alert.alert('Enter details to signin!');
     } else {
       setLoading(true);
-      navigation.reset({
-        index: 0,
-        routes: [{ name: isNewUser ? 'Welcome Video' : 'Tab Bar' }],
-      });
       axios
-        .post('http://localhost:3001/auth/local', {
+        .post('http://192.168.1.230:3001/auth/local', {
           identifier: email,
           password,
         })
         .then((response) => {
           // Handle success.
           console.log('Well done!');
-          console.log('User profile', response.data.user);
-          console.log('User token', response.data.jwt);
+          // console.log('User profile', response.data.user);
+          // console.log('User token', response.data.jwt);
+          storeData(response.data);
+          console.log(response.data);
           navigation.reset({
             index: 0,
             routes: [{ name: isNewUser ? 'Welcome Video' : 'Tab Bar' }],
           });
-          //   navigation.reset({
-          //     index: 0,
-          //     routes: [{ name: isNewUser ? 'Welcome Video' : 'Tab Bar' }],
-          //   });
         })
         .catch((error) => {
           // Handle error.
