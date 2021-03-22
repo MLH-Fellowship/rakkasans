@@ -6,7 +6,8 @@
     "ios": "expo start --ios",
     "web": "expo start --web",
     "eject": "expo eject",
-    "test": "jest"
+    "test": "jest",
+    "lint": "eslint . --ext .js,.jsx --fix"
   },
   "jest": {
     "preset": "jest-expo",
@@ -28,6 +29,7 @@
   "dependencies": {
     "@expo-google-fonts/inter": "^0.1.0",
     "@expo/vector-icons": "^10.2.1",
+    "@react-native-async-storage/async-storage": "^1.14.1",
     "@react-native-community/masked-view": "^0.1.10",
     "@react-native-community/segmented-control": "^2.0.1",
     "@react-navigation/bottom-tabs": "^5.6.1",

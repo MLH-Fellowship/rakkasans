@@ -3,7 +3,7 @@ import { View, StyleSheet } from 'react-native';
 import MapView, { PROVIDER_GOOGLE, Marker } from 'react-native-maps'; // remove PROVIDER_GOOGLE import if not using Google Maps
 
 export default ({ height }) => (
-  <View style={[styles.container, { height: height }]}>
+  <View style={[styles.container, { height }]}>
     <MapView
       provider={PROVIDER_GOOGLE} // remove if not using Google Maps
       style={styles.map}
@@ -20,7 +20,7 @@ export default ({ height }) => (
           latitude: 36.6637,
           longitude: -87.4774,
         }}
-        title={"Base"}
+        title="Base"
         pinColor="blue"
       />
     </MapView>
@@ -30,12 +30,12 @@ export default ({ height }) => (
 const styles = StyleSheet.create({
   container: {
     ...StyleSheet.absoluteFillObject,
-    justifyContent: "flex-start",
-    alignItems: "center",
+    justifyContent: 'flex-start',
+    alignItems: 'center',
   },
   map: {
     ...StyleSheet.absoluteFillObject,
     borderWidth: 0.6,
-    borderColor: "#bebebe",
+    borderColor: '#bebebe',
   },
 });
