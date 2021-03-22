@@ -1,17 +1,30 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import {
-  StyleSheet, View, Text, Alert,
+  Alert, StyleSheet, Text, View,
 } from 'react-native';
 
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import Colors from '../constants/Colors';
 import Dimensions from '../constants/Dimensions';
 import ListItem from '../components/ListItem';
 import UserIcon from '../components/UserIcon';
-import Firebase from '../constants/FireBaseDb';
 
 export default function AccountTab({ navigation }) {
-  // const userName = Firebase.auth().currentUser.displayName;
-  // const userEmail = Firebase.auth().currentUser.email;
+  const [email, setEmail] = useState('Dummy Email');
+  const [username, setUsername] = useState('Dummy Username');
+
+  useEffect(() => {
+    const getData = async () => {
+      const val = await AsyncStorage.getItem('@user_Data').catch(console.log);
+      const json = JSON.parse(val);
+
+      setEmail(json.user.email);
+      setUsername(json.user.username);
+    };
+
+    getData();
+  }, []);
+
   const styles = StyleSheet.create({
     container: {
       flex: 1,
@@ -50,10 +63,10 @@ export default function AccountTab({ navigation }) {
     },
   });
   const signOutUser = () => {
-    Firebase.auth().signOut().then(() => navigation.reset({
+    AsyncStorage.removeItem('@user_Data').then(() => navigation.reset({
       index: 0,
       routes: [{ name: 'Login' }],
-    }));
+    })).catch(console.log);
   };
 
   const signOutAlert = () => Alert.alert(
@@ -74,8 +87,8 @@ export default function AccountTab({ navigation }) {
       <View style={styles.profileContainer}>
         <UserIcon />
         <View style={styles.profileInfo}>
-          <Text style={[styles.name, Dimensions.font]}>Username</Text>
-          <Text style={[styles.email, Dimensions.font]}>Email</Text>
+          <Text style={[styles.name, Dimensions.font]}>{username}</Text>
+          <Text style={[styles.email, Dimensions.font]}>{email}</Text>
         </View>
       </View>
       <View style={styles.listContainer}>

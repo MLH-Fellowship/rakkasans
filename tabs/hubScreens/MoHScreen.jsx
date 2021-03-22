@@ -1,9 +1,11 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
-import { StyleSheet, SafeAreaView, View, FlatList, Text } from "react-native";
-import { Card, CardItem, Body } from "native-base";
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
+import {
+  StyleSheet, SafeAreaView, View, FlatList, Text,
+} from 'react-native';
+import { Card, CardItem, Body } from 'native-base';
 
-import MOHData from "../../assets/word_documents/MoH";
+import MOHData from '../../assets/word_documents/MoH';
 
 export default function MoHDocument() {
   const [moh, setMoh] = useState([]);
@@ -12,7 +14,7 @@ export default function MoHDocument() {
     const getMoh = async () => {
       const request = await axios.get(
         // 'http://192.168.1.230:3001/news-articles',
-        "http://localhost:3001/medal-of-honors"
+        'http://localhost:3001/medal-of-honors',
       );
       const moh = request.data;
       setMoh(moh);
@@ -26,22 +28,22 @@ export default function MoHDocument() {
     },
     container: {
       flex: 1,
-      width: "100%",
-      height: "100%",
-      flexDirection: "column",
+      width: '100%',
+      height: '100%',
+      flexDirection: 'column',
       paddingHorizontal: 15,
       paddingVertical: 10,
     },
     title: {
       fontSize: 15,
-      fontWeight: "500",
+      fontWeight: '500',
     },
     header: {
       fontSize: 20,
-      fontWeight: "700",
+      fontWeight: '700',
       marginTop: 20,
       marginBottom: 20,
-      textAlign: "center",
+      textAlign: 'center',
     },
   });
   return (
