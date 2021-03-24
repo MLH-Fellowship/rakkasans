@@ -5,54 +5,47 @@ import {
 } from 'react-native';
 import { Card, CardItem, Body } from 'native-base';
 import { ScrollView } from 'react-native-gesture-handler';
-import { Table, Rows } from 'react-native-table-component';
-import Colors from '../../constants/Colors';
 import Dimensions from '../../constants/Dimensions';
-import RectButton from '../../components/RectButton';
 
 export default function FallenScreen() {
-  const [fallen, setFallen] = useState([]);
+const [fallen, setFallen] = useState([]);
 
   useEffect(() => {
     const getHonors = async () => {
-      const request = await axios.get('http://localhost:3001/fallens');
+      const request = await axios.get("http://localhost:3001/fallens");
       const response = request.data;
       setFallen(response);
     };
     getHonors();
   }, []);
 
-  const url = { uri: 'https://picsum.photos/300/300' };
+  const url = { uri: "https://picsum.photos/300/300" };
   const titleWidth = Dimensions.window.width * 0.27;
   const contentWidth = Dimensions.window.width * 0.65;
 
   const styles = StyleSheet.create({
     container: {
-      width: '100%',
-      height: '100%',
-      flexDirection: 'column',
+      width: "100%",
+      height: "100%",
+      flexDirection: "column",
       paddingHorizontal: 15,
       paddingVertical: 10,
     },
-    containerTable: {
-      width: '100%',
-      alignItems: 'center',
-    },
     title: {
       fontSize: 18,
-      fontWeight: '500',
+      fontWeight: "500",
     },
     header: {
       fontSize: 20,
-      fontWeight: '700',
-      textAlign: 'center',
+      fontWeight: "700",
+      textAlign: "center",
     },
     description: {
-      fontSize: 12,
+      fontSize: 13,
     },
     image: {
-      width: '100%',
-      height: '30%',
+      width: "100%",
+      height: "30%",
     },
   });
 
@@ -76,20 +69,16 @@ export default function FallenScreen() {
                 <View>
                   <Text>Document Links:</Text>
                   <Text
-                    style={{ color: 'blue' }}
-                    onPress={() => Linking.openURL('{type.documents[1].url}')}
+                    style={{ color: "blue", fontSize: 13 }}
+                    onPress={() => Linking.openURL(`${type.documents[1].url}`)}
                   >
-                    -
-                    {' '}
-                    {type.documents[1].name}
+                    - {type.documents[1].name}
                   </Text>
                   <Text
-                    style={{ color: 'blue' }}
-                    onPress={() => Linking.openURL('{type.documents[0].url}')}
+                    style={{ color: "blue", fontSize: 13 }}
+                    onPress={() => Linking.openURL(`${type.documents[0].url}`)}
                   >
-                    -
-                    {' '}
-                    {type.documents[0].name}
+                    - {type.documents[0].name}
                   </Text>
                 </View>
               </CardItem>

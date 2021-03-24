@@ -18,10 +18,10 @@ export default function PolicyLettersScreen() {
       justifyContent: 'center',
       paddingHorizontal: 20,
     },
-    // pdf: {
-    //   width: "100%",
-    //   height: "100%",
-    // },
+    pdf: {
+      width: "100%",
+      height: "100%",
+    },
   });
 
   return (
@@ -38,7 +38,7 @@ export default function PolicyLettersScreen() {
     //   <PDFReader
     //     style={styles.pdf}
     //     source={{
-    //       uri: "http://gahp.net/wp-content/uploads/2017/09/sample.pdf",
+    //       uri: "https://rakapp.blob.core.windows.net/strapi/strapi/assets/Consolidated_Casualty_Database_May_2017_ed975d78b7.pdf",
     //     }}
     //   />
     // </View>
