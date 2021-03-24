@@ -1,126 +1,94 @@
-import React from 'react';
-import { View, StyleSheet } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
-
-import SquareButton from '../../components/SquareButton';
-import Colors from '../../constants/Colors';
+import React, { useState, useEffect } from "react";
+import { View, StyleSheet, Image } from "react-native";
+import { useNavigation } from "@react-navigation/native";
+import axios from "axios";
+import SquareButton from "../../components/SquareButton";
+import Colors from "../../constants/Colors";
 
 export default function SchoolsScreen() {
   const navigation = useNavigation();
+  let [resources, setResources] = useState([]);
+
+  useEffect(() => {
+    const getSchoolResources = async () => {
+      let request = await axios.get("http://localhost:3001/resources");
+      console.log(request.data);
+      let schoolResources = request.data.filter(
+        (data) => data.resource_type === "school"
+      );
+
+      setResources(schoolResources);
+    };
+
+    getSchoolResources();
+  }, []);
   const styles = StyleSheet.create({
     container: {
-      flex: 1,
+      flexWrap: "wrap",
+      alignItems: "center",
+      flexDirection: "row",
+      justifyContent: "center",
       backgroundColor: Colors.white,
-      width: '100%',
-      alignItems: 'center',
-      justifyContent: 'center',
+      width: "100%",
+      height: "100%",
     },
-    buttonPair: {
-      width: '85%',
-      flexDirection: 'row',
-      alignItems: 'center',
-      justifyContent: 'space-evenly',
+    buttonView: {
+      width: "45%",
+      alignItems: "center",
+      justifyContent: "space-evenly",
       paddingBottom: 30,
+    },
+    image: {
+      marginTop: "5%",
+      marginBottom: "15%",
+      width: "100%",
     },
   });
   return (
     <View style={styles.container}>
-      <View style={[styles.buttonPair, { paddingTop: 10 }]}>
-        <SquareButton
-          name="school"
-          text="AASLT"
-          buttonSize={80}
-          textSize={13}
-          iconSize={50}
-          onPress={() => navigation.navigate('School', {
-            name: 'AASLT',
-            // image: require("../../assets/images/HHC.png"),
-          })}
-        />
-        <SquareButton
-          name="school"
-          text="PRC"
-          buttonSize={80}
-          textSize={13}
-          iconSize={50}
-          onPress={() => navigation.navigate('School', {
-            name: 'PRC',
-            // image: require("../../assets/images/HHC.png"),
-          })}
+      <View style={styles.image}>
+        <Image
+          source={require("../../assets/images/Torri.png")}
+          style={{
+            width: 50,
+            height: 50,
+            paddingTop: "10%",
+            alignSelf: "center",
+          }}
         />
       </View>
-      <View style={styles.buttonPair}>
-        <SquareButton
-          name="school"
-          text="School 3"
-          buttonSize={80}
-          textSize={13}
-          iconSize={50}
-          onPress={() => navigation.navigate('School', {
-            name: 'AASLT',
-            // image: require("../../assets/images/HHC.png"),
-          })}
-        />
-        <SquareButton
-          name="school"
-          text="School 4"
-          buttonSize={80}
-          textSize={13}
-          iconSize={50}
-          onPress={() => navigation.navigate('School', {
-            name: 'AASLT',
-            // image: require("../../assets/images/HHC.png"),
-          })}
-        />
-      </View>
-      <View style={styles.buttonPair}>
-        <SquareButton
-          name="school"
-          text="School 5"
-          buttonSize={80}
-          textSize={12}
-          iconSize={50}
-          onPress={() => navigation.navigate('School', {
-            name: 'AASLT',
-            // image: require("../../assets/images/HHC.png"),
-          })}
-        />
-        <SquareButton
-          name="school"
-          text="School 6"
-          buttonSize={80}
-          textSize={13}
-          iconSize={50}
-          onPress={() => navigation.navigate('School', {
-            name: 'AASLT',
-            // image: require("../../assets/images/HHC.png"),
-          })}
-        />
-      </View>
-      <View style={[styles.buttonPair, { paddingBottom: 25 }]}>
-        <SquareButton
-          name="school"
-          text="School 7"
-          buttonSize={80}
-          textSize={13}
-          iconSize={50}
-          onPress={() => navigation.navigate('School', {
-            name: 'AASLT',
-            // image: require("../../assets/images/HHC.png"),
-          })}
-        />
-        <SquareButton
-          name="school"
-          text="School 8"
-          buttonSize={80}
-          textSize={13}
-          iconSize={50}
-          onPress={() => navigation.navigate('School', {
-            name: 'AASLT',
-            // image: require("../../assets/images/HHC.png"),
-          })}
-        />
-      </View>
+      {resources.map(
+        ({
+          icon_name,
+          resource_title,
+          phone_number,
+          email,
+          grad_times,
+          location,
+          report_times,
+        }) => (
+          <View style={[styles.buttonView]}>
+            <SquareButton
+              name={icon_name}
+              text={resource_title}
+              buttonSize={65}
+              textSize={13}
+              iconSize={38}
+              onPress={() =>
+                navigation.navigate("Resource", {
+                  name: resource_title,
+                  email: email,
+                  location: location,
+                  phone: phone_number,
+                  grad_times: grad_times,
+                  report_times: report_times,
+                  // image: require("../../assets/images/HHC.png"),
+                })
+              }
+            />
+          </View>
+        )
+      )}
     </View>
   );
 }

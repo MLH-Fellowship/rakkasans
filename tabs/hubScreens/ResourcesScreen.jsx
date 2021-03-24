@@ -25,26 +25,37 @@ export default function ResourcesScreen() {
 
   const styles = StyleSheet.create({
     container: {
-      flex: 1,
+      flexWrap: "wrap",
+      alignItems: "center",
+      flexDirection: "row",
+      justifyContent: "center",
       backgroundColor: Colors.white,
       width: "100%",
-      alignItems: "center",
-      justifyContent: "center",
     },
     buttonView: {
-      width: "90%",
-      flexDirection: "row",
+      width: "45%",
       alignItems: "center",
       justifyContent: "space-evenly",
-      paddingBottom: 20,
+      paddingBottom: 30,
+    },
+    image: {
+      marginTop: "5%",
+      width: "100%",
     },
   });
   return (
     <View style={styles.container}>
-      <Image
-        source={require("../../assets/images/Torri.png")}
-        style={{ width: 30, height: 30, top: "-8%" }}
-      />
+      <View style={styles.image}>
+        <Image
+          source={require("../../assets/images/Torri.png")}
+          style={{
+            width: 50,
+            height: 50,
+            paddingTop: "10%",
+            alignSelf: "center",
+          }}
+        />
+      </View>
       {resources.map(
         ({
           icon_name,
@@ -60,7 +71,7 @@ export default function ResourcesScreen() {
               name={icon_name}
               text={resource_title}
               buttonSize={65}
-              textSize={12}
+              textSize={13}
               iconSize={38}
               onPress={() =>
                 navigation.navigate("Resource", {
