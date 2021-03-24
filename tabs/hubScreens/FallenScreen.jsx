@@ -69,13 +69,13 @@ const [fallen, setFallen] = useState([]);
                 <View>
                   <Text>Document Links:</Text>
                   <Text
-                    style={{ color: "blue" }}
+                    style={{ color: "blue", fontSize: 13 }}
                     onPress={() => Linking.openURL(`${type.documents[1].url}`)}
                   >
                     - {type.documents[1].name}
                   </Text>
                   <Text
-                    style={{ color: "blue" }}
+                    style={{ color: "blue", fontSize: 13 }}
                     onPress={() => Linking.openURL(`${type.documents[0].url}`)}
                   >
                     - {type.documents[0].name}
