@@ -66,6 +66,7 @@ import Comments from './tabs/otherScreens/Comments';
 import NewComment from './tabs/otherScreens/NewComment';
 import PostDetail from './tabs/otherScreens/PostDetail';
 import PostReply from './tabs/otherScreens/PostReply';
+
 // authentication screens
 import Login from './tabs/Login';
 import LogOut from './tabs/LogOut';
@@ -192,6 +193,8 @@ function CommandStackScreen() {
     </CommandStack.Navigator>
   );
 }
+
+
 const GameStack = createStackNavigator();
 function GameStackScreen() {
   return (
@@ -245,6 +248,7 @@ function AuthStackScreen() {
       <Stack.Screen name="Account" component={AccountTab} />
       <Stack.Screen name="Log Out" component={LogOut} />
 */
+
 
 const Tab = createBottomTabNavigator();
 function TabBar() {
@@ -341,9 +345,11 @@ function TabBar() {
           ),
         }}
       />
+      
     </Tab.Navigator>
   );
 }
+
 
 const Stack = createStackNavigator();
 export default function Navigation() {
@@ -360,7 +366,7 @@ export default function Navigation() {
         name="SplashScreen"
         component={SplashScreen}
         options={
-          ({ title: 'SplashScreen' },
+          ({ title: "SplashScreen" },
           { headerLeft: null },
           { headerBackTitleVisible: false })
         }
@@ -369,7 +375,7 @@ export default function Navigation() {
         name="Login"
         component={Login}
         options={
-          ({ title: 'Login' },
+          ({ title: "Login" },
           { headerLeft: null },
           { headerBackTitleVisible: false })
         }
@@ -378,7 +384,7 @@ export default function Navigation() {
         name="Welcome Video"
         component={WelcomeVideo}
         options={
-          ({ title: 'WelcomeVideo' },
+          ({ title: "WelcomeVideo" },
           { headerLeft: null },
           { headerBackTitleVisible: false })
         }
@@ -387,7 +393,7 @@ export default function Navigation() {
         name="Check List"
         component={CheckList}
         options={
-          ({ title: 'Check List' },
+          ({ title: "Check List" },
           { headerLeft: null },
           { headerBackTitleVisible: false })
         }
@@ -396,7 +402,7 @@ export default function Navigation() {
         name="Tab Bar"
         component={TabBar}
         options={
-          ({ title: 'Tab Bar' },
+          ({ title: "Tab Bar" },
           { headerLeft: null },
           { headerBackTitleVisible: false })
         }

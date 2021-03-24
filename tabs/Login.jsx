@@ -30,7 +30,7 @@ const Login = ({ navigation }) => {
     } else {
       setLoading(true);
       axios
-        .post('http://192.168.1.230:3001/auth/local', {
+        .post('http://localhost:3001/auth/local', {
           identifier: email,
           password,
         })
