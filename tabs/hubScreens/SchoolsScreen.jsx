@@ -59,6 +59,8 @@ export default function SchoolsScreen() {
       </View>
       {resources.map(
         ({
+          id,
+          image,
           icon_name,
           resource_title,
           phone_number,
@@ -69,6 +71,7 @@ export default function SchoolsScreen() {
         }) => (
           <View style={[styles.buttonView]}>
             <SquareButton
+              id={id}
               name={icon_name}
               text={resource_title}
               buttonSize={65}
@@ -76,6 +79,7 @@ export default function SchoolsScreen() {
               iconSize={38}
               onPress={() =>
                 navigation.navigate("Resource", {
+                  image: image,
                   name: resource_title,
                   email: email,
                   location: location,

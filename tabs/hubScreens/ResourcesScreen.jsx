@@ -45,6 +45,7 @@ export default function ResourcesScreen() {
   });
   return (
     <View style={styles.container}>
+      {console.log(resources)}
       <View style={styles.image}>
         <Image
           source={require("../../assets/images/Torri.png")}
@@ -58,6 +59,8 @@ export default function ResourcesScreen() {
       </View>
       {resources.map(
         ({
+          id,
+          image,
           icon_name,
           resource_title,
           phone_number,
@@ -68,6 +71,7 @@ export default function ResourcesScreen() {
         }) => (
           <View style={[styles.buttonView]}>
             <SquareButton
+              id={id}
               name={icon_name}
               text={resource_title}
               buttonSize={65}
@@ -76,6 +80,7 @@ export default function ResourcesScreen() {
               onPress={() =>
                 navigation.navigate("Resource", {
                   name: resource_title,
+                  image: image,
                   email: email,
                   location: location,
                   phone: phone_number,

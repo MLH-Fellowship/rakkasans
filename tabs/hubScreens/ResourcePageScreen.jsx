@@ -10,6 +10,7 @@ export default function ResourcePageScreen({ route }) {
   const {
     name,
     email,
+    image,
     location,
     phone,
     grad_times,
@@ -23,7 +24,7 @@ export default function ResourcePageScreen({ route }) {
     ["Report Times:", `${report_times}`],
     ["Grad Times:", `${grad_times}`],
   ];
-  const url = { uri: "https://picsum.photos/300/300" };
+
   const titleWidth = Dimensions.window.width * 0.27;
   const contentWidth = Dimensions.window.width * 0.65;
   const styles = StyleSheet.create({
@@ -56,7 +57,7 @@ export default function ResourcePageScreen({ route }) {
   });
   return (
     <View style={styles.container}>
-      <Image style={styles.image} source={url} />
+      <Image style={styles.image} source={image} />
 
       <Text style={[styles.title, Dimensions.font]}>{name}</Text>
 
