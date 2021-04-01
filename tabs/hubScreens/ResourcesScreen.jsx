@@ -1,169 +1,98 @@
-import React from 'react';
-import {
-  View, StyleSheet, Image,
-} from 'react-native';
-import { useNavigation } from '@react-navigation/native';
+import React, { useEffect, useState } from "react";
+import { View, StyleSheet, Image } from "react-native";
+import { useNavigation } from "@react-navigation/native";
+import axios from "axios";
+import SquareButton from "../../components/SquareButton";
+import Colors from "../../constants/Colors";
 
-import SquareButton from '../../components/SquareButton';
-import Colors from '../../constants/Colors';
-
-export default function ProgramsScreen() {
+export default function ResourcesScreen() {
   const navigation = useNavigation();
+  let [resources, setResources] = useState([]);
+
+  useEffect(() => {
+    const getArmyResources = async () => {
+      let request = await axios.get("http://localhost:3001/resources");
+      console.log(request.data);
+      let armyResources = request.data.filter(
+        (data) => data.resource_type === "army"
+      );
+
+      setResources(armyResources);
+    };
+
+    getArmyResources();
+  }, []);
+
   const styles = StyleSheet.create({
     container: {
-      flex: 1,
+      flexWrap: "wrap",
+      alignItems: "center",
+      flexDirection: "row",
+      justifyContent: "center",
       backgroundColor: Colors.white,
-      width: '100%',
-      alignItems: 'center',
-      justifyContent: 'center',
+      width: "100%",
     },
     buttonView: {
-      width: '90%',
-      flexDirection: 'row',
-      alignItems: 'center',
-      justifyContent: 'space-evenly',
-      paddingBottom: 20,
+      width: "45%",
+      alignItems: "center",
+      justifyContent: "space-evenly",
+      paddingBottom: 30,
+    },
+    image: {
+      marginTop: "5%",
+      width: "100%",
     },
   });
   return (
     <View style={styles.container}>
-      <Image
-        source={require('../../assets/images/Torri.png')}
-        style={{ width: 30, height: 30, top: '-8%' }}
-      />
-      <View style={[styles.buttonView, { paddingTop: 10 }]}>
-        <SquareButton
-          name="ribbon"
-          text="SHARP"
-          buttonSize={65}
-          textSize={12}
-          iconSize={38}
-          onPress={() => navigation.navigate('Resource', {
-            name: 'SHARP',
-            // image: require("../../assets/images/HHC.png"),
-          })}
-        />
-        <SquareButton
-          name="bank"
-          text="EO"
-          buttonSize={65}
-          textSize={12}
-          iconSize={38}
-          onPress={() => navigation.navigate('Resource', {
-            name: 'EO',
-            // image: require("../../assets/images/HHC.png"),
-          })}
+      {console.log(resources)}
+      <View style={styles.image}>
+        <Image
+          source={require("../../assets/images/Torri.png")}
+          style={{
+            width: 50,
+            height: 50,
+            paddingTop: "10%",
+            alignSelf: "center",
+          }}
         />
       </View>
-      <View style={styles.buttonView}>
-        <SquareButton
-          name="home-group"
-          text="FRG"
-          buttonSize={65}
-          textSize={12}
-          iconSize={38}
-          onPress={() => navigation.navigate('Resource', {
-            name: 'FRG',
-            // image: require("../../assets/images/HHC.png"),
-          })}
-        />
-        <SquareButton
-          name="basketball"
-          text="MWR"
-          buttonSize={65}
-          textSize={12}
-          iconSize={38}
-          onPress={() => navigation.navigate('Resource', {
-            name: 'MWR',
-            // image: require("../../assets/images/HHC.png"),
-          })}
-        />
-      </View>
-      <View style={styles.buttonView}>
-        <SquareButton
-          name="human-handsup"
-          text="BOSS"
-          buttonSize={65}
-          textSize={12}
-          iconSize={38}
-          onPress={() => navigation.navigate('Resource', {
-            name: 'BOSS',
-            // image: require("../../assets/images/HHC.png"),
-          })}
-        />
-        <SquareButton
-          name="school"
-          text="Education"
-          buttonSize={65}
-          textSize={11}
-          iconSize={38}
-          onPress={() => navigation.navigate('Resource', {
-            name: 'Education',
-            // image: require("../../assets/images/HHC.png"),
-          })}
-        />
-      </View>
-      <View style={[styles.buttonView, { paddingBottom: 25 }]}>
-        <SquareButton
-          name="flower"
-          text="ACS"
-          buttonSize={65}
-          textSize={12}
-          iconSize={38}
-          onPress={() => navigation.navigate('Resource', {
-            name: 'ACS',
-            // image: require("../../assets/images/HHC.png"),
-          })}
-        />
-        <SquareButton
-          name="account-group"
-          text="PMO"
-          buttonSize={65}
-          textSize={13}
-          iconSize={38}
-          onPress={() => navigation.navigate('Resource', {
-            name: 'PMO',
-            // image: require("../../assets/images/HHC.png"),
-          })}
-        />
-      </View>
-      <View style={[styles.buttonView, { paddingBottom: 25 }]}>
-        <SquareButton
-          name="calendar-clock"
-          text="Retention"
-          buttonSize={65}
-          textSize={11}
-          iconSize={38}
-          onPress={() => navigation.navigate('Resource', {
-            name: 'Retention',
-            // image: require("../../assets/images/HHC.png"),
-          })}
-        />
-        <SquareButton
-          name="christianity-outline"
-          text="Religious"
-          buttonSize={65}
-          textSize={11}
-          iconSize={38}
-          onPress={() => navigation.navigate('Resource', {
-            name: 'Religious Services',
-            // image: require("../../assets/images/HHC.png"),
-          })}
-        />
-      </View>
-      <View style={[styles.buttonView, { paddingBottom: 25 }]}>
-        <SquareButton
-          name="select-group"
-          text="ADAM BAE"
-          buttonSize={65}
-          textSize={11}
-          iconSize={38}
-          onPress={() => navigation.navigate('Resource', {
-            name: 'ADAM BAE',
-            // image: require("../../assets/images/HHC.png"),
-          })}
-        />
-      </View>
+      {resources.map(
+        ({
+          id,
+          image,
+          icon_name,
+          resource_title,
+          phone_number,
+          email,
+          grad_times,
+          location,
+          report_times,
+        }) => (
+          <View style={[styles.buttonView]}>
+            <SquareButton
+              id={id}
+              name={icon_name}
+              text={resource_title}
+              buttonSize={65}
+              textSize={13}
+              iconSize={38}
+              onPress={() =>
+                navigation.navigate("Resource", {
+                  name: resource_title,
+                  image: image,
+                  email: email,
+                  location: location,
+                  phone: phone_number,
+                  grad_times: grad_times,
+                  report_times: report_times,
+                  // image: require("../../assets/images/HHC.png"),
+                })
+              }
+            />
+          </View>
+        )
+      )}
     </View>
   );
 }
