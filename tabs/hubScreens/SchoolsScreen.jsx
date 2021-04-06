@@ -10,17 +10,21 @@ export default function SchoolsScreen() {
   let [resources, setResources] = useState([]);
 
   useEffect(() => {
-    const getSchoolResources = async () => {
-      let request = await axios.get("http://localhost:3001/resources");
-      console.log(request.data);
-      let schoolResources = request.data.filter(
-        (data) => data.resource_type === "school"
-      );
+    try {
+      const getSchoolResources = async () => {
+        let request = await axios.get("http://localhost:3001/resources");
+        console.log(request.data);
+        let schoolResources = request.data.filter(
+          (data) => data.resource_type === "school"
+        );
 
-      setResources(schoolResources);
-    };
+        setResources(schoolResources);
+      };
 
-    getSchoolResources();
+      getSchoolResources();
+    } catch (error) {
+      console.log(error);
+    }
   }, []);
   const styles = StyleSheet.create({
     container: {

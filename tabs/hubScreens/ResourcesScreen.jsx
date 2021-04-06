@@ -11,13 +11,16 @@ export default function ResourcesScreen() {
 
   useEffect(() => {
     const getArmyResources = async () => {
-      let request = await axios.get("http://localhost:3001/resources");
-      console.log(request.data);
-      let armyResources = request.data.filter(
-        (data) => data.resource_type === "army"
-      );
-
-      setResources(armyResources);
+      try {
+        let request = await axios.get("http://localhost:3001/resources");
+        console.log(request.data);
+        let armyResources = request.data.filter(
+          (data) => data.resource_type === "army"
+        );
+        setResources(armyResources);
+      } catch (error) {
+        console.error(error);
+      }
     };
 
     getArmyResources();
