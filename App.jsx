@@ -17,7 +17,6 @@ import Bat626 from './assets/images/battalions/626BSB.png';
 import Background from './assets/images/Background.png';
 import Copic from './assets/images/COPIC.jpeg';
 import BatHHC from './assets/images/battalions/HHC.png';
-import Sgm from './assets/images/SGMPIC.jpeg';
 import Torri from './assets/images/Torri.png';
 import TorriRak from './assets/images/TORRIRAK.png';
 import Fit1 from './assets/images/fitness/fitness1.jpg';
