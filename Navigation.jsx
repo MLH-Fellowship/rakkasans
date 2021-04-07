@@ -36,6 +36,9 @@ import BattUnitScreen from './tabs/hubScreens/BattUnitScreen';
 import BattShopListScreen from './tabs/hubScreens/BattShopListScreen';
 import BattShopScreen from './tabs/hubScreens/BattShopScreen';
 import CallRosterScreen from './tabs/hubScreens/CallRosterScreen';
+
+import BattPolicyScreen from './tabs/hubScreens/BattPolicyScreen';
+
 import ResourcePageScreen from './tabs/hubScreens/ResourcePageScreen';
 import SchoolsPageScreen from './tabs/hubScreens/SchoolsPageScreen';
 import MoH from './tabs/hubScreens/MoHScreen';
@@ -109,6 +112,9 @@ function HubStackScreen() {
       <HubStack.Screen name="Batt Shop List" component={BattShopListScreen} />
       <HubStack.Screen name="Batt Shop" component={BattShopScreen} />
       <HubStack.Screen name="Call Roster" component={CallRosterScreen} />
+
+      <HubStack.Screen name="Batt Policies" component={BattPolicyScreen} />
+
       <HubStack.Screen name="Resource" component={ResourcePageScreen} />
       <HubStack.Screen name="Chat Room" component={ChatRoom} />
       <HubStack.Screen name="Topics" component={Topics} />

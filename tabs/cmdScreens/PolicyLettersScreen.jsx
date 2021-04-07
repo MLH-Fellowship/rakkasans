@@ -25,22 +25,22 @@ export default function PolicyLettersScreen() {
   });
 
   return (
-    <View style={styles.container}>
-      <RectButton text="Policy Letter 1" />
-      <RectButton text="Policy Letter 2" />
-      <RectButton text="Policy Letter 3" />
-      <RectButton text="Policy Letter 4" />
-      <RectButton text="Policy Letter 5" />
-      <RectButton text="Policy Letter 6" />
-      <RectButton text="Policy Letter 7" />
-    </View>
-    // <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-    //   <PDFReader
-    //     style={styles.pdf}
-    //     source={{
-    //       uri: "https://rakapp.blob.core.windows.net/strapi/strapi/assets/Consolidated_Casualty_Database_May_2017_ed975d78b7.pdf",
-    //     }}
-    //   />
+    // <View style={styles.container}>
+    //   <RectButton text="Policy Letter 1" />
+    //   <RectButton text="Policy Letter 2" />
+    //   <RectButton text="Policy Letter 3" />
+    //   <RectButton text="Policy Letter 4" />
+    //   <RectButton text="Policy Letter 5" />
+    //   <RectButton text="Policy Letter 6" />
+    //   <RectButton text="Policy Letter 7" />
     // </View>
+    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+      <PDFReader
+        style={styles.pdf}
+        source={{
+          uri: "https://rakapp.blob.core.windows.net/strapi/strapi/assets/Consolidated_Casualty_Database_May_2017_ed975d78b7.pdf",
+        }}
+      />
+    </View>
   );
 }

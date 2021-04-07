@@ -49,11 +49,7 @@ export default function BattUnitScreen({ route }) {
   return (
     <View style={styles.container}>
       <View style={styles.titleContainer}>
-        <Text style={styles.title}>
-          {' '}
-          {name}
-          {' '}
-        </Text>
+        <Text style={styles.title}> {name} </Text>
         <Image source={image} style={styles.titlePic} />
         <View style={styles.buttonView}>
           <SquareButton
@@ -63,12 +59,13 @@ export default function BattUnitScreen({ route }) {
             textSize={14}
             // onPress={() => navigation.navigate("Welcome Letter")}
           />
+
           <SquareButton
             name="book-open"
             text="Policies" // Could change to "Commanders' Vision", but it doesn't fit
             buttonSize={90}
             textSize={14}
-            // onPress={() => navigation.navigate("Commanders' Vision")}
+            onPress={() => navigation.navigate("Batt Policies")}
           />
         </View>
         <View style={[styles.buttonView, { paddingBottom: 25 }]}>
@@ -77,7 +74,7 @@ export default function BattUnitScreen({ route }) {
             text="Call Roster"
             buttonSize={90}
             textSize={14}
-            onPress={() => navigation.navigate('Call Roster')}
+            onPress={() => navigation.navigate("Call Roster")}
           />
           <SquareButton
             name="star-circle"
