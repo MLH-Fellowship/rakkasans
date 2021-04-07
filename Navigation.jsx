@@ -1,24 +1,24 @@
-import * as React from 'react';
-import { StatusBar, View } from 'react-native';
-import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
-import { createSwitchNavigator, createAppContainer } from 'react-navigation';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import * as React from "react";
+import { StatusBar, View } from "react-native";
+import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
+import { NavigationContainer } from "@react-navigation/native";
+import { createStackNavigator } from "@react-navigation/stack";
+import { createSwitchNavigator, createAppContainer } from "react-navigation";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
 // custom icons
-import IcomoonConfig from './assets/icomoon/selection.json';
-import MyIcon from './assets/icomoon/iconConfig';
-import NavbarConfig from './assets/icomoon/navbar-icons/selection.json';
-import NavbarIcons from './assets/icomoon/navbar-icons/navbarConfig';
+import IcomoonConfig from "./assets/icomoon/selection.json";
+import MyIcon from "./assets/icomoon/iconConfig";
+import NavbarConfig from "./assets/icomoon/navbar-icons/selection.json";
+import NavbarIcons from "./assets/icomoon/navbar-icons/navbarConfig";
 
 // tabs
-import Colors from './constants/Colors';
-import HubTab from './tabs/HubTab';
-import NewsTab from './tabs/NewsTab';
-import CmdTab from './tabs/CmdTab';
-import GameTab from './tabs/GameTab';
-import AccountTab from './tabs/AccountTab';
+import Colors from "./constants/Colors";
+import HubTab from "./tabs/HubTab";
+import NewsTab from "./tabs/NewsTab";
+import CmdTab from "./tabs/CmdTab";
+import GameTab from "./tabs/GameTab";
+import AccountTab from "./tabs/AccountTab";
 
 // hub screens
 import BattScreen from './tabs/hubScreens/BattScreen';
@@ -36,9 +36,7 @@ import BattUnitScreen from './tabs/hubScreens/BattUnitScreen';
 import BattShopListScreen from './tabs/hubScreens/BattShopListScreen';
 import BattShopScreen from './tabs/hubScreens/BattShopScreen';
 import CallRosterScreen from './tabs/hubScreens/CallRosterScreen';
-
 import BattPolicyScreen from './tabs/hubScreens/BattPolicyScreen';
-
 import ResourcePageScreen from './tabs/hubScreens/ResourcePageScreen';
 import SchoolsPageScreen from './tabs/hubScreens/SchoolsPageScreen';
 import MoH from './tabs/hubScreens/MoHScreen';
@@ -51,31 +49,32 @@ import The38DEHistoryScreen from './tabs/hubScreens/The38DEHistoryScreen';
 import HistoryDetailScreen from './tabs/hubScreens/HistoryDetailScreen';
 
 // cmd screens
-import OffLimitsScreen from './tabs/cmdScreens/OffLimitsScreen';
-import PolicyLettersScreen from './tabs/cmdScreens/PolicyLettersScreen';
-import VisionScreen from './tabs/cmdScreens/VisionScreen';
-import WelcomeLetterScreen from './tabs/cmdScreens/WelcomeLetterScreen';
+import OffLimitsScreen from "./tabs/cmdScreens/OffLimitsScreen";
+import PolicyLettersScreen from "./tabs/cmdScreens/PolicyLettersScreen";
+import VisionScreen from "./tabs/cmdScreens/VisionScreen";
+import WelcomeLetterScreen from "./tabs/cmdScreens/WelcomeLetterScreen";
 
 // other screens
-import WelcomeScreen from './tabs/otherScreens/WelcomeScreen';
-import WelcomeVideo from './tabs/otherScreens/WelcomeVideo';
-import CheckList from './tabs/otherScreens/CheckList';
-import NewsScreen from './tabs/otherScreens/NewsScreen';
-import Topics from './tabs/otherScreens/Topics';
-import Posts from './tabs/otherScreens/Posts';
-import NewPost from './tabs/otherScreens/NewPost';
-import ChatRoom from './tabs/otherScreens/ChatRoom';
-import Comments from './tabs/otherScreens/Comments';
-import NewComment from './tabs/otherScreens/NewComment';
-import PostDetail from './tabs/otherScreens/PostDetail';
-import PostReply from './tabs/otherScreens/PostReply';
+import WelcomeScreen from "./tabs/otherScreens/WelcomeScreen";
+import WelcomeVideo from "./tabs/otherScreens/WelcomeVideo";
+import CheckList from "./tabs/otherScreens/CheckList";
+import NewsScreen from "./tabs/otherScreens/NewsScreen";
+import Topics from "./tabs/otherScreens/Topics";
+import Posts from "./tabs/otherScreens/Posts";
+import NewPost from "./tabs/otherScreens/NewPost";
+import ChatRoom from "./tabs/otherScreens/ChatRoom";
+import Comments from "./tabs/otherScreens/Comments";
+import NewComment from "./tabs/otherScreens/NewComment";
+import PostDetail from "./tabs/otherScreens/PostDetail";
+import PostReply from "./tabs/otherScreens/PostReply";
+import ConstructionScreen from "./tabs/otherScreens/Construction";
 
 // authentication screens
-import Login from './tabs/Login';
-import LogOut from './tabs/LogOut';
-import SignUp from './tabs/SignUp';
-import SplashScreen from './tabs/SplashScreen';
-import iconConfig from './assets/icomoon/iconConfig';
+import Login from "./tabs/Login";
+import LogOut from "./tabs/LogOut";
+import SignUp from "./tabs/SignUp";
+import SplashScreen from "./tabs/SplashScreen";
+import iconConfig from "./assets/icomoon/iconConfig";
 
 const HubStack = createStackNavigator();
 function HubStackScreen() {
@@ -102,12 +101,30 @@ function HubStackScreen() {
       <HubStack.Screen name="Bluebook" component={HandbookScreen} />
       <HubStack.Screen name="Training & Schools" component={SchoolsScreen} />
       <HubStack.Screen name="School" component={SchoolsPageScreen} />
-      <HubStack.Screen name="Processing" component={ProcessingScreen} />
+      <HubStack.Screen
+        name="Processing"
+        component={
+          // ProcessingScreen
+          ConstructionScreen
+        }
+      />
       <HubStack.Screen name="In Processing" component={InProcessing} />
       <HubStack.Screen name="Out Processing" component={OutProcessing} />
-      <HubStack.Screen name="Forum" component={ForumsScreen} />
+      <HubStack.Screen
+        name="Forum"
+        component={
+          // ForumsScreen
+          ConstructionScreen
+        }
+      />
       <HubStack.Screen name="Army Resources" component={ResourcesScreen} />
-      <HubStack.Screen name="RAKFIT" component={RakFitScreen} />
+      <HubStack.Screen
+        name="RAKFIT"
+        component={
+          // RakFitScreen
+          ConstructionScreen
+        }
+      />
       <HubStack.Screen name="Battalion" component={BattUnitScreen} />
       <HubStack.Screen name="Batt Shop List" component={BattShopListScreen} />
       <HubStack.Screen name="Batt Shop" component={BattShopScreen} />
@@ -117,7 +134,13 @@ function HubStackScreen() {
 
       <HubStack.Screen name="Resource" component={ResourcePageScreen} />
       <HubStack.Screen name="Chat Room" component={ChatRoom} />
-      <HubStack.Screen name="Topics" component={Topics} />
+      <HubStack.Screen
+        name="Topics"
+        component={
+          // Topics
+          ConstructionScreen
+        }
+      />
       <HubStack.Screen name="Posts" component={Posts} />
       <HubStack.Screen name="New Post" component={NewPost} />
       <HubStack.Screen name="Comments" component={Comments} />
@@ -160,7 +183,7 @@ function NewsStackScreen() {
       />
       <NewsStack.Screen
         name="News Article"
-        options={{ headerTitle: 'News' }}
+        options={{ headerTitle: "News" }}
         component={NewsScreen}
       />
     </NewsStack.Navigator>
@@ -195,11 +218,16 @@ function CommandStackScreen() {
         name="Policy Letters"
         component={PolicyLettersScreen}
       />
-      <CommandStack.Screen name="Off Limits" component={OffLimitsScreen} />
+      <CommandStack.Screen
+        name="Off Limits"
+        component={
+          // OffLimitsScreen
+          ConstructionScreen
+        }
+      />
     </CommandStack.Navigator>
   );
 }
-
 
 const GameStack = createStackNavigator();
 function GameStackScreen() {
@@ -254,7 +282,6 @@ function AuthStackScreen() {
       <Stack.Screen name="Account" component={AccountTab} />
       <Stack.Screen name="Log Out" component={LogOut} />
 */
-
 
 const Tab = createBottomTabNavigator();
 function TabBar() {
@@ -324,7 +351,10 @@ function TabBar() {
       />
       <Tab.Screen
         name="Runner"
-        component={GameStackScreen}
+        component={
+          // GameStackScreen
+          ConstructionScreen
+        }
         options={{
           tabBarIcon: ({ color }) => (
             <NavbarIcons
@@ -351,11 +381,9 @@ function TabBar() {
           ),
         }}
       />
-      
     </Tab.Navigator>
   );
 }
-
 
 const Stack = createStackNavigator();
 export default function Navigation() {
