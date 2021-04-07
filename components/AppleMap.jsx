@@ -2,6 +2,19 @@ import React from 'react';
 import { View, StyleSheet } from 'react-native';
 import MapView, { PROVIDER_GOOGLE, Marker } from 'react-native-maps'; // remove PROVIDER_GOOGLE import if not using Google Maps
 
+const styles = StyleSheet.create({
+  container: {
+    ...StyleSheet.absoluteFillObject,
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+  },
+  map: {
+    ...StyleSheet.absoluteFillObject,
+    borderWidth: 0.6,
+    borderColor: '#bebebe',
+  },
+});
+
 export default ({ height }) => (
   <View style={[styles.container, { height }]}>
     <MapView
@@ -26,16 +39,3 @@ export default ({ height }) => (
     </MapView>
   </View>
 );
-
-const styles = StyleSheet.create({
-  container: {
-    ...StyleSheet.absoluteFillObject,
-    justifyContent: 'flex-start',
-    alignItems: 'center',
-  },
-  map: {
-    ...StyleSheet.absoluteFillObject,
-    borderWidth: 0.6,
-    borderColor: '#bebebe',
-  },
-});

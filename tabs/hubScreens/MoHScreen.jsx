@@ -5,8 +5,6 @@ import {
 } from 'react-native';
 import { Card, CardItem, Body } from 'native-base';
 
-import MOHData from '../../assets/word_documents/MoH';
-
 export default function MoHDocument() {
   const [moh, setMoh] = useState([]);
 
@@ -16,8 +14,8 @@ export default function MoHDocument() {
         // 'http://192.168.1.230:3001/news-articles',
         'http://localhost:3001/medal-of-honors',
       );
-      const moh = request.data;
-      setMoh(moh);
+      const mohData = request.data;
+      setMoh(mohData);
     };
     getMoh();
   }, []);

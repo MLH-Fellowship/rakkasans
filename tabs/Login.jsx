@@ -51,6 +51,7 @@ const Login = ({ navigation }) => {
           console.log('An error occurred:', error.response);
           setLoading(false);
           Alert.alert('Incorrect Credentials!');
+          setPassword('');
         });
     }
   };

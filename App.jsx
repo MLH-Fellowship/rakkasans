@@ -15,6 +15,7 @@ import Bat3320 from './assets/images/battalions/3-320th.png';
 import Bat21BEB from './assets/images/battalions/21BEB.png';
 import Bat626 from './assets/images/battalions/626BSB.png';
 import Background from './assets/images/Background.png';
+import Sgm from './assets/images/BREWER.jpg';
 import Copic from './assets/images/COPIC.jpeg';
 import BatHHC from './assets/images/battalions/HHC.png';
 import Torri from './assets/images/Torri.png';

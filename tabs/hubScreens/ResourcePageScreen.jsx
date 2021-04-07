@@ -1,10 +1,12 @@
-import React from "react";
-import { View, Text, Image, StyleSheet } from "react-native";
-import { Table, Rows } from "react-native-table-component";
+import React from 'react';
+import {
+  View, Text, Image, StyleSheet,
+} from 'react-native';
+import { Table, Rows } from 'react-native-table-component';
 
-import Colors from "../../constants/Colors";
-import Dimensions from "../../constants/Dimensions";
-import RectButton from "../../components/RectButton";
+import Colors from '../../constants/Colors';
+import Dimensions from '../../constants/Dimensions';
+import RectButton from '../../components/RectButton';
 
 export default function ResourcePageScreen({ route }) {
   const {
@@ -18,11 +20,11 @@ export default function ResourcePageScreen({ route }) {
   } = route.params;
 
   const tableData = [
-    ["Phone:", `${phone}`],
-    ["Email:", `${email}`],
-    ["Location:", `${location}`],
-    ["Report Times:", `${report_times}`],
-    ["Grad Times:", `${grad_times}`],
+    ['Phone:', `${phone}`],
+    ['Email:', `${email}`],
+    ['Location:', `${location}`],
+    ['Report Times:', `${report_times}`],
+    ['Grad Times:', `${grad_times}`],
   ];
 
   const titleWidth = Dimensions.window.width * 0.27;
@@ -30,8 +32,8 @@ export default function ResourcePageScreen({ route }) {
   const styles = StyleSheet.create({
     container: {
       flex: 1,
-      width: "100%",
-      alignItems: "center",
+      width: '100%',
+      alignItems: 'center',
       backgroundColor: Colors.white,
     },
     buttonContainer: {
@@ -45,12 +47,12 @@ export default function ResourcePageScreen({ route }) {
       margin: 6,
     },
     image: {
-      width: "100%",
-      height: "30%",
+      width: '100%',
+      height: '30%',
     },
     title: {
       fontSize: 26,
-      alignItems: "center",
+      alignItems: 'center',
       marginTop: 20,
       marginBottom: 10,
     },
@@ -71,7 +73,7 @@ export default function ResourcePageScreen({ route }) {
         </Table>
       </View>
       <View style={styles.buttonContainer}>
-        <RectButton text="Documents" onPress={() => console.log("Pressed")} />
+        <RectButton text="Documents" onPress={() => console.log('Pressed')} />
       </View>
     </View>
   );
