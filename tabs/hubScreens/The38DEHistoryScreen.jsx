@@ -1,6 +1,5 @@
-
-import React, { useEffect, useState } from "react";
-import axios from "axios";
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 import {
   StyleSheet,
   SafeAreaView,
@@ -8,20 +7,17 @@ import {
   View,
   Linking,
   Image,
-  Body
-} from "react-native";
-import { Card, CardItem } from "native-base";
-import { ScrollView } from "react-native-gesture-handler";
-import Dimensions from "../../constants/Dimensions";
+} from 'react-native';
+import { Card, CardItem } from 'native-base';
+import { ScrollView } from 'react-native-gesture-handler';
 
 export default function The38DEHistoryScreen() {
   const [history, setHistory] = useState([]);
 
-
   console.log(history);
   useEffect(() => {
     const getHistory = async () => {
-      const request = await axios.get("http://localhost:3001/3-bde-histories");
+      const request = await axios.get('http://localhost:3001/3-bde-histories');
       const response = request.data;
       setHistory(response);
     };
@@ -30,27 +26,27 @@ export default function The38DEHistoryScreen() {
 
   const styles = StyleSheet.create({
     container: {
-      width: "100%",
-      height: "100%",
-      flexDirection: "column",
+      width: '100%',
+      height: '100%',
+      flexDirection: 'column',
       paddingHorizontal: 15,
       paddingVertical: 10,
     },
     title: {
       fontSize: 16,
-      fontWeight: "500",
+      fontWeight: '500',
     },
     header: {
       fontSize: 20,
-      fontWeight: "700",
-      textAlign: "center",
+      fontWeight: '700',
+      textAlign: 'center',
     },
     description: {
       fontSize: 13,
     },
     image: {
-      width: "100%",
-      height: "80%",
+      width: '100%',
+      height: '80%',
     },
   });
 
@@ -69,22 +65,28 @@ export default function The38DEHistoryScreen() {
                 <View>
                   <Text>Document Links:</Text>
                   <Text
-                    style={{ color: "blue", fontSize: 13 }}
+                    style={{ color: 'blue', fontSize: 13 }}
                     onPress={() => Linking.openURL(`${type.pdf[0].url}`)}
                   >
-                    - {type.pdf[0].name}
+                    -
+                    {' '}
+                    {type.pdf[0].name}
                   </Text>
                   <Text
-                    style={{ color: "blue", fontSize: 13 }}
+                    style={{ color: 'blue', fontSize: 13 }}
                     onPress={() => Linking.openURL(`${type.pdf[1].url}`)}
                   >
-                    - {type.pdf[1].name}
+                    -
+                    {' '}
+                    {type.pdf[1].name}
                   </Text>
                   <Text
-                    style={{ color: "blue", fontSize: 13 }}
+                    style={{ color: 'blue', fontSize: 13 }}
                     onPress={() => Linking.openURL(`${type.pdf[2].url}`)}
                   >
-                    - {type.pdf[2].name}
+                    -
+                    {' '}
+                    {type.pdf[2].name}
                   </Text>
                 </View>
               </CardItem>
@@ -95,4 +97,3 @@ export default function The38DEHistoryScreen() {
     </SafeAreaView>
   );
 }
-

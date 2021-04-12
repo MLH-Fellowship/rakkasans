@@ -5,10 +5,6 @@ import {
 
 import {
   FontAwesome as FontIcon,
-  MaterialIcons as MatIcon,
-  AntDesign as AntIcon,
-  Entypo as EnIcon,
-  Feather as FIcon,
 } from '@expo/vector-icons';
 
 const Post = ({

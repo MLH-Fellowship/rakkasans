@@ -1,5 +1,5 @@
 // components/login.js
-import React from 'react';
+import React from "react";
 import {
   Text,
   View,
@@ -8,49 +8,52 @@ import {
   Alert,
   StyleSheet,
   Image,
-} from 'react-native';
-import axios from 'axios';
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import Colors from '../constants/Colors';
-import Button from '../components/Button';
+} from "react-native";
+import axios from "axios";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import Colors from "../constants/Colors";
+import Button from "../components/Button";
 
 const Login = ({ navigation }) => {
   const [email, setEmail] = React.useState();
   const [password, setPassword] = React.useState();
   const [loading, setLoading] = React.useState(false);
-  const isNewUser = true;
+  const isNewUser = false;
 
   const storeData = async (value) => {
-    await AsyncStorage.setItem('@user_Data', JSON.stringify(value)).catch(console.log);
+    await AsyncStorage.setItem("@user_Data", JSON.stringify(value)).catch(
+      console.log
+    );
   };
 
   const userLogin = () => {
-    if (email === '' && password === '') {
-      Alert.alert('Enter details to signin!');
+    if (email === "" && password === "") {
+      Alert.alert("Enter details to signin!");
     } else {
       setLoading(true);
       axios
-        .post('http://localhost:3001/auth/local', {
+        .post("http://localhost:3001/auth/local", {
           identifier: email,
           password,
         })
         .then((response) => {
           // Handle success.
-          console.log('Well done!');
+          console.log("Well done!");
           // console.log('User profile', response.data.user);
           // console.log('User token', response.data.jwt);
           storeData(response.data);
           console.log(response.data);
           navigation.reset({
             index: 0,
-            routes: [{ name: isNewUser ? 'Welcome Video' : 'Tab Bar' }],
+            routes: [{ name: isNewUser ? "Welcome Video" : "Tab Bar" }],
           });
         })
         .catch((error) => {
           // Handle error.
-          console.log('An error occurred:', error.response);
+          console.log("An error occurred:", error.response);
           setLoading(false);
-          Alert.alert('Incorrect Credentials!');
+          Alert.alert("Incorrect Credentials!");
+          setPassword("");
         });
     }
   };
@@ -62,17 +65,17 @@ const Login = ({ navigation }) => {
       width: 275,
       height: 55,
       borderRadius: 8,
-      alignItems: 'center',
-      justifyContent: 'center',
+      alignItems: "center",
+      justifyContent: "center",
       shadowOffset: { width: 2, height: 2 },
-      shadowColor: 'black',
+      shadowColor: "black",
       shadowOpacity: 0.3,
       marginTop: 32,
     },
     buttonText: {
-      color: 'white',
+      color: "white",
       fontSize: 20,
-      fontWeight: 'bold',
+      fontWeight: "bold",
     },
 
     textInput: {
@@ -93,36 +96,36 @@ const Login = ({ navigation }) => {
     // },
   });
   return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
       <StatusBar barStyle="dark-content" />
       <View
-        style={{ flex: 1, justifyContent: 'flex-end', alignItems: 'center' }}
+        style={{ flex: 1, justifyContent: "flex-end", alignItems: "center" }}
       >
         {/* <Text style={{ fontSize: 50, fontFamily: "reggae-one" }}>
           RAKKASANS
         </Text> */}
 
         <Image
-          source={require('../assets/images/rakklogo.png')}
-          style={{ width: 320, height: 45, top: '30%' }}
+          source={require("../assets/images/rakklogo.png")}
+          style={{ width: 320, height: 45, top: "30%" }}
         />
       </View>
 
-      <Text style={{ fontSize: 18, fontFamily: 'reggae-one', top: '8%' }}>
+      <Text style={{ fontSize: 18, fontFamily: "reggae-one", top: "8%" }}>
         101st Airborne
       </Text>
 
       <View
         style={{
           flex: 2,
-          justifyContent: 'center',
-          alignItems: 'center',
+          justifyContent: "center",
+          alignItems: "center",
         }}
       >
         {/* <Text style={{ fontSize: 250 }}>⛩️</Text> */}
         <Image
-          source={require('../assets/images/Torri.png')}
-          style={{ width: 200, height: 200, top: '10%' }}
+          source={require("../assets/images/Torri.png")}
+          style={{ width: 200, height: 200, top: "10%" }}
         />
       </View>
       <View style={{ flex: 1 }}>
@@ -148,7 +151,7 @@ const Login = ({ navigation }) => {
         />
       </View>
 
-      <View style={{ flex: 1, alignItems: 'center' }}>
+      <View style={{ flex: 1, alignItems: "center" }}>
         <Button title="Sign in" loading={loading} onPress={userLogin} />
         <View style={{ height: 10 }} />
         <Text

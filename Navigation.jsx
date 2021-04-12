@@ -21,32 +21,32 @@ import GameTab from "./tabs/GameTab";
 import AccountTab from "./tabs/AccountTab";
 
 // hub screens
-import BattScreen from './tabs/hubScreens/BattScreen';
-import MapScreen from './tabs/hubScreens/MapScreen';
-import ForumsScreen from './tabs/hubScreens/ForumScreen';
-import ResourcesScreen from './tabs/hubScreens/ResourcesScreen';
-import HistoryScreen from './tabs/hubScreens/HistoryScreen';
-import SchoolsScreen from './tabs/hubScreens/SchoolsScreen';
-import HandbookScreen from './tabs/hubScreens/HandbookScreen';
-import ProcessingScreen from './tabs/hubScreens/ProcessingScreen';
-import InProcessing from './tabs/hubScreens/InProcessing';
-import OutProcessing from './tabs/hubScreens/OutProcessing';
-import RakFitScreen from './tabs/hubScreens/RakFitScreen';
-import BattUnitScreen from './tabs/hubScreens/BattUnitScreen';
-import BattShopListScreen from './tabs/hubScreens/BattShopListScreen';
-import BattShopScreen from './tabs/hubScreens/BattShopScreen';
-import CallRosterScreen from './tabs/hubScreens/CallRosterScreen';
-import BattPolicyScreen from './tabs/hubScreens/BattPolicyScreen';
-import ResourcePageScreen from './tabs/hubScreens/ResourcePageScreen';
-import SchoolsPageScreen from './tabs/hubScreens/SchoolsPageScreen';
-import MoH from './tabs/hubScreens/MoHScreen';
-import FallenScreen from './tabs/hubScreens/FallenScreen';
-import LineageHonorsScreen from './tabs/hubScreens/LineageHonorsScreen';
-import NotableEventsScreen from './tabs/hubScreens/NotableEventsScreen';
-import DivisionHistoryScreen from './tabs/hubScreens/DivisionHistoryScreen';
-import DMOR_HMOR_Screen from './tabs/hubScreens/DMOR_HMOR_Screen';
-import The38DEHistoryScreen from './tabs/hubScreens/The38DEHistoryScreen';
-import HistoryDetailScreen from './tabs/hubScreens/HistoryDetailScreen';
+import BattScreen from "./tabs/hubScreens/BattScreen";
+import MapScreen from "./tabs/hubScreens/MapScreen";
+import ForumsScreen from "./tabs/hubScreens/ForumScreen";
+import ResourcesScreen from "./tabs/hubScreens/ResourcesScreen";
+import HistoryScreen from "./tabs/hubScreens/HistoryScreen";
+import SchoolsScreen from "./tabs/hubScreens/SchoolsScreen";
+import HandbookScreen from "./tabs/hubScreens/HandbookScreen";
+import ProcessingScreen from "./tabs/hubScreens/ProcessingScreen";
+import InProcessing from "./tabs/hubScreens/InProcessing";
+import OutProcessing from "./tabs/hubScreens/OutProcessing";
+import RakFitScreen from "./tabs/hubScreens/RakFitScreen";
+import BattUnitScreen from "./tabs/hubScreens/BattUnitScreen";
+import BattShopListScreen from "./tabs/hubScreens/BattShopListScreen";
+import BattShopScreen from "./tabs/hubScreens/BattShopScreen";
+import CallRosterScreen from "./tabs/hubScreens/CallRosterScreen";
+import BattPolicyScreen from "./tabs/hubScreens/BattPolicyScreen";
+import ResourcePageScreen from "./tabs/hubScreens/ResourcePageScreen";
+import SchoolsPageScreen from "./tabs/hubScreens/SchoolsPageScreen";
+import MoH from "./tabs/hubScreens/MoHScreen";
+import FallenScreen from "./tabs/hubScreens/FallenScreen";
+import LineageHonorsScreen from "./tabs/hubScreens/LineageHonorsScreen";
+import NotableEventsScreen from "./tabs/hubScreens/NotableEventsScreen";
+import DivisionHistoryScreen from "./tabs/hubScreens/DivisionHistoryScreen";
+import DMOR_HMOR_Screen from "./tabs/hubScreens/DMOR_HMOR_Screen";
+import The38DEHistoryScreen from "./tabs/hubScreens/The38DEHistoryScreen";
+import HistoryDetailScreen from "./tabs/hubScreens/HistoryDetailScreen";
 
 // cmd screens
 import OffLimitsScreen from "./tabs/cmdScreens/OffLimitsScreen";
@@ -139,6 +139,15 @@ function HubStackScreen() {
         component={
           // Topics
           ConstructionScreen
+        }
+      />
+      <HubStack.Screen
+        name="Check List"
+        component={CheckList}
+        options={
+          ({ title: "Check List" },
+          { headerLeft: null },
+          { headerBackTitleVisible: false })
         }
       />
       <HubStack.Screen name="Posts" component={Posts} />
@@ -423,15 +432,7 @@ export default function Navigation() {
           { headerBackTitleVisible: false })
         }
       />
-      <Stack.Screen
-        name="Check List"
-        component={CheckList}
-        options={
-          ({ title: "Check List" },
-          { headerLeft: null },
-          { headerBackTitleVisible: false })
-        }
-      />
+
       <Stack.Screen
         name="Tab Bar"
         component={TabBar}

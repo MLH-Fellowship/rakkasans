@@ -1,17 +1,17 @@
-import React from 'react';
+import React from "react";
 import {
   StyleSheet,
   Text,
   View,
   StatusBar,
   TouchableOpacity,
-} from 'react-native';
-import { useNavigation } from '@react-navigation/native';
+} from "react-native";
+import { useNavigation } from "@react-navigation/native";
 
-import Colors from '../constants/Colors';
-import Dimensions from '../constants/Dimensions';
-import SquareButton from '../components/SquareButton';
-import AppleMap from '../components/AppleMap';
+import Colors from "../constants/Colors";
+import Dimensions from "../constants/Dimensions";
+import SquareButton from "../components/SquareButton";
+import AppleMap from "../components/AppleMap";
 
 export default function HubTab() {
   const navigation = useNavigation();
@@ -19,29 +19,29 @@ export default function HubTab() {
     container: {
       flex: 1,
       backgroundColor: Colors.white,
-      width: '100%',
-      alignItems: 'center',
-      justifyContent: 'center',
+      width: "100%",
+      alignItems: "center",
+      justifyContent: "center",
     },
     buttonView: {
-      width: '100%',
-      flexDirection: 'row',
-      alignItems: 'center',
-      justifyContent: 'space-evenly',
+      width: "100%",
+      flexDirection: "row",
+      alignItems: "center",
+      justifyContent: "space-evenly",
       paddingBottom: 15,
     },
 
     map: {
       flex: 1,
       elevation: 2, // android
-      shadowColor: 'black', // shadow - ios
+      shadowColor: "black", // shadow - ios
       shadowRadius: 4,
       shadowOffset: { width: 0, height: 1 },
       shadowOpacity: 0.26,
-      height: '75%',
-      width: '90%',
-      alignItems: 'flex-end',
-      justifyContent: 'flex-end',
+      height: "75%",
+      width: "90%",
+      alignItems: "flex-end",
+      justifyContent: "flex-end",
     },
     maptext: {
       fontSize: 20,
@@ -54,7 +54,7 @@ export default function HubTab() {
       <StatusBar barStyle="light-content" />
       <Text style={[styles.maptext, Dimensions.font]}>3rd BDE AO</Text>
       <TouchableOpacity
-        onPressIn={() => navigation.navigate('KMZ Map')}
+        onPressIn={() => navigation.navigate("KMZ Map")}
         style={styles.map}
         accessibilityRole="imagebutton"
       >
@@ -67,7 +67,7 @@ export default function HubTab() {
           text="Battalions"
           buttonSize={75}
           textSize={10}
-          onPress={() => navigation.navigate('Battalions')}
+          onPress={() => navigation.navigate("Battalions")}
           hubIcon
         />
         <SquareButton
@@ -75,7 +75,7 @@ export default function HubTab() {
           text="RAK History"
           buttonSize={75}
           textSize={10}
-          onPress={() => navigation.navigate('RAK History')}
+          onPress={() => navigation.navigate("RAK History")}
           hubIcon
         />
       </View>
@@ -85,7 +85,7 @@ export default function HubTab() {
           text="Bluebook"
           buttonSize={75}
           textSize={10}
-          onPress={() => navigation.navigate('Bluebook')}
+          onPress={() => navigation.navigate("Bluebook")}
           hubIcon
         />
         <SquareButton
@@ -93,7 +93,7 @@ export default function HubTab() {
           text="Training & Schools"
           buttonSize={75}
           textSize={10}
-          onPress={() => navigation.navigate('Training & Schools')}
+          onPress={() => navigation.navigate("Training & Schools")}
           hubIcon
         />
       </View>
@@ -103,7 +103,7 @@ export default function HubTab() {
           text="In/Out Processing"
           buttonSize={75}
           textSize={10}
-          onPress={() => navigation.navigate('Processing')}
+          onPress={() => navigation.navigate("Check List")}
           hubIcon
         />
         <SquareButton
@@ -111,7 +111,7 @@ export default function HubTab() {
           text="Forums"
           buttonSize={75}
           textSize={11}
-          onPress={() => navigation.navigate('Topics')}
+          onPress={() => navigation.navigate("Topics")}
           hubIcon
         />
       </View>
@@ -121,7 +121,7 @@ export default function HubTab() {
           text="Army Resources"
           buttonSize={75}
           textSize={10}
-          onPress={() => navigation.navigate('Army Resources')}
+          onPress={() => navigation.navigate("Army Resources")}
           hubIcon
         />
         <SquareButton
@@ -129,7 +129,7 @@ export default function HubTab() {
           text="RAKFIT"
           buttonSize={75}
           textSize={11}
-          onPress={() => navigation.navigate('RAKFIT')}
+          onPress={() => navigation.navigate("RAKFIT")}
           hubIcon
         />
       </View>

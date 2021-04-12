@@ -1,16 +1,8 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 import PDFReader from 'rn-pdf-reader-js';
-import { Asset } from 'expo-asset';
-
-import Colors from '../../constants/Colors';
-import RectButton from '../../components/RectButton';
-import Dimensions from '../../constants/Dimensions';
 
 export default function PolicyLettersScreen() {
-  // let absolute_path = Asset.fromModule(
-  //   require("../../assets/pdfs/POLICY_1.pdf")
-  // ).uri;
   const styles = StyleSheet.create({
     container: {
       flex: 1,
@@ -19,26 +11,17 @@ export default function PolicyLettersScreen() {
       paddingHorizontal: 20,
     },
     pdf: {
-      width: "100%",
-      height: "100%",
+      width: '100%',
+      height: '100%',
     },
   });
 
   return (
-    // <View style={styles.container}>
-    //   <RectButton text="Policy Letter 1" />
-    //   <RectButton text="Policy Letter 2" />
-    //   <RectButton text="Policy Letter 3" />
-    //   <RectButton text="Policy Letter 4" />
-    //   <RectButton text="Policy Letter 5" />
-    //   <RectButton text="Policy Letter 6" />
-    //   <RectButton text="Policy Letter 7" />
-    // </View>
-    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
       <PDFReader
         style={styles.pdf}
         source={{
-          uri: "https://rakapp.blob.core.windows.net/strapi/strapi/assets/Consolidated_Casualty_Database_May_2017_ed975d78b7.pdf",
+          uri: 'https://rakapp.blob.core.windows.net/strapi/strapi/assets/Consolidated_Casualty_Database_May_2017_ed975d78b7.pdf',
         }}
       />
     </View>
