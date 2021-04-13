@@ -54,9 +54,9 @@ export default function The38DEHistoryScreen() {
     <SafeAreaView style={styles.container}>
       <ScrollView>
         <Text style={styles.header} />
-        {history.map((type, id) => (
-          <View>
-            <Card key={id}>
+        {history.map((type) => (
+          <View key={type.id}>
+            <Card>
               <Image style={styles.image} source={type.image} />
               <CardItem>
                 <Text style={styles.title}>{type.title}</Text>
@@ -65,28 +65,22 @@ export default function The38DEHistoryScreen() {
                 <View>
                   <Text>Document Links:</Text>
                   <Text
-                    style={{ color: 'blue', fontSize: 13 }}
+                    style={{ color: "blue", fontSize: 13 }}
                     onPress={() => Linking.openURL(`${type.pdf[0].url}`)}
                   >
-                    -
-                    {' '}
-                    {type.pdf[0].name}
+                    - {type.pdf[0].name}
                   </Text>
                   <Text
-                    style={{ color: 'blue', fontSize: 13 }}
+                    style={{ color: "blue", fontSize: 13 }}
                     onPress={() => Linking.openURL(`${type.pdf[1].url}`)}
                   >
-                    -
-                    {' '}
-                    {type.pdf[1].name}
+                    - {type.pdf[1].name}
                   </Text>
                   <Text
-                    style={{ color: 'blue', fontSize: 13 }}
+                    style={{ color: "blue", fontSize: 13 }}
                     onPress={() => Linking.openURL(`${type.pdf[2].url}`)}
                   >
-                    -
-                    {' '}
-                    {type.pdf[2].name}
+                    - {type.pdf[2].name}
                   </Text>
                 </View>
               </CardItem>

@@ -42,8 +42,8 @@ export default function NotableEventsScreen() {
           data={notableEventsData}
           keyExtractor={(item) => item.id}
           renderItem={({ item }) => (
-            <View style={styles.container}>
-              <Card key={item.id}>
+            <View key={item.id} style={styles.container}>
+              <Card>
                 <CardItem>
                   <Text style={styles.title}>{item[0]}</Text>
                 </CardItem>
@@ -55,12 +55,7 @@ export default function NotableEventsScreen() {
                     </Text>
                     <Text>
                       Date:
-                      {item[3]}
-                      {' '}
-                      {item[2]}
-                      ,
-                      {' '}
-                      {item[4]}
+                      {item[3]} {item[2]}, {item[4]}
                     </Text>
                   </Body>
                 </CardItem>

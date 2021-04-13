@@ -17,7 +17,7 @@ export default function FallenScreen() {
 
   useEffect(() => {
     const getHonors = async () => {
-      const request = await axios.get("http://localhost:3001/fallens");
+      const request = await axios.get("http://192.168.4.23:3001/fallens");
       const response = request.data;
       setFallen(response);
     };
@@ -58,9 +58,9 @@ export default function FallenScreen() {
     <SafeAreaView style={styles.container}>
       <ScrollView>
         <Text style={styles.header} />
-        {fallen.map((type, id) => (
-          <View>
-            <Card key={id}>
+        {fallen.map((type) => (
+          <View key={type.id}>
+            <Card>
               <Image style={styles.image} source={url} />
               <CardItem>
                 <Text style={styles.title}>{type.title}</Text>

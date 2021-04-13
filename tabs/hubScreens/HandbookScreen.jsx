@@ -63,8 +63,8 @@ export default function BattScreen() {
       <ScrollView>
         <Text style={styles.header} />
         {book.map((type, id) => (
-          <View>
-            <Card key={id}>
+          <View key={id}>
+            <Card>
               <CardItem>
                 <Text style={styles.title}>{type.title}</Text>
               </CardItem>
@@ -76,12 +76,10 @@ export default function BattScreen() {
                 <View style={styles.pdf}>
                   <Text>Blue Book Link:</Text>
                   <Text
-                    style={{ color: 'blue', fontSize: 13 }}
+                    style={{ color: "blue", fontSize: 13 }}
                     onPress={() => Linking.openURL(`${type.pdf[0].url}`)}
                   >
-                    -
-                    {' '}
-                    {type.pdf[0].name}
+                    - {type.pdf[0].name}
                   </Text>
                 </View>
               </CardItem>
