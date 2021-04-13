@@ -10,10 +10,7 @@ export default function MoHDocument() {
 
   useEffect(() => {
     const getMoh = async () => {
-      const request = await axios.get(
-        // 'http://192.168.1.230:3001/news-articles',
-        'http://localhost:3001/medal-of-honors',
-      );
+      const request = await axios.get("http://192.168.4.23:3001/fallens");
       const mohData = request.data;
       setMoh(mohData);
     };

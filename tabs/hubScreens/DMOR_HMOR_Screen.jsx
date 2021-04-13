@@ -55,9 +55,9 @@ export default function DMOR_HMOR_Screen() {
     <SafeAreaView style={styles.container}>
       <ScrollView>
         <Text style={styles.header} />
-        {dmor.map((type, id) => (
-          <View>
-            <Card key={id}>
+        {dmor.map((type) => (
+          <View key={type.id}>
+            <Card>
               <Image style={styles.image} source={url} />
               <CardItem>
                 <Text style={styles.title}>{type.title}</Text>
@@ -66,12 +66,10 @@ export default function DMOR_HMOR_Screen() {
                 <View>
                   <Text>Document Links:</Text>
                   <Text
-                    style={{ color: 'blue', fontSize: 13 }}
+                    style={{ color: "blue", fontSize: 13 }}
                     onPress={() => Linking.openURL(`${type.pdf[0].url}`)}
                   >
-                    -
-                    {' '}
-                    {type.pdf[0].name}
+                    - {type.pdf[0].name}
                   </Text>
                 </View>
               </CardItem>

@@ -10,7 +10,9 @@ export default function LineageHonorsScreen() {
 
   useEffect(() => {
     const getHonors = async () => {
-      const request = await axios.get('http://localhost:3001/lineage-honors');
+      const request = await axios.get(
+        'http://192.168.4.23:3001/lineage-honors'
+      );
       const response = request.data;
       setHonors(response);
     };
@@ -44,8 +46,8 @@ export default function LineageHonorsScreen() {
     <SafeAreaView style={styles.container}>
       <ScrollView>
         <Text style={styles.header}>187th Infantry Regiment</Text>
-        {honors.map((type, id) => (
-          <Card key={id}>
+        {honors.map((type) => (
+          <Card key={type.id}>
             <CardItem>
               <Text style={styles.title}>{type.type}</Text>
             </CardItem>
