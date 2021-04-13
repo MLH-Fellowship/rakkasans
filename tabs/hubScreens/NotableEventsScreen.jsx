@@ -1,10 +1,9 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   StyleSheet, SafeAreaView, View, FlatList, Text,
 } from 'react-native';
 import { Card, CardItem, Body } from 'native-base';
-
-import notableEventsData from '../../assets/word_documents/notable_events';
+import axios from 'axios';
 
 export default function NotableEventsScreen() {
   const styles = StyleSheet.create({
@@ -32,6 +31,18 @@ export default function NotableEventsScreen() {
     },
   });
 
+  const [notables, setNotables] = useState();
+
+  useEffect(() => {
+    const getNotables = async () => {
+      const request = await axios.get('http://localhost:3001/notable-events');
+      const response = request.data;
+      console.log(response);
+      setNotables(response);
+    };
+    getNotables();
+  }, []);
+
   return (
     <SafeAreaView>
       <View style={styles.main}>
@@ -39,7 +50,7 @@ export default function NotableEventsScreen() {
           History of the 187th Infantry Regiment and the 3d Brigade Combat Team
         </Text>
         <FlatList
-          data={notableEventsData}
+          data={notables}
           keyExtractor={(item) => item.id}
           renderItem={({ item }) => (
             <View style={styles.container}>
@@ -51,16 +62,16 @@ export default function NotableEventsScreen() {
                   <Body>
                     <Text>
                       Unit:
-                      {item[1]}
+                      {item.Unit}
                     </Text>
                     <Text>
                       Date:
-                      {item[3]}
+                      {item.Date}
                       {' '}
-                      {item[2]}
+                      {item.Year}
                       ,
                       {' '}
-                      {item[4]}
+                      {item.Description}
                     </Text>
                   </Body>
                 </CardItem>
