@@ -66,16 +66,13 @@ export default function NotableEventsScreen() {
                     </Text>
                     <Text>
                       Date:
-<<<<<<< HEAD
                       {item[3]} {item[2]}, {item[4]}
-=======
                       {item.Date}
                       {' '}
                       {item.Year}
                       ,
                       {' '}
                       {item.Description}
->>>>>>> df2c826ae975d5104505b2eca6fb19f4f49b8ad3
                     </Text>
                   </Body>
                 </CardItem>
