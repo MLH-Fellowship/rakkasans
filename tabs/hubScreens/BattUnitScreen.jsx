@@ -61,7 +61,7 @@ export default function BattUnitScreen({ route }) {
             text="News"
             buttonSize={90}
             textSize={14}
-            // onPress={() => navigation.navigate("Welcome Letter")}
+            onPress={() => navigation.navigate("Training & Schools")}
           />
 
           <SquareButton

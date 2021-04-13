@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import {
-  Alert, StyleSheet, Text, View,
+  Alert, StyleSheet, Text, View, TouchableOpacity,
 } from 'react-native';
 
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -85,15 +85,41 @@ export default function AccountTab({ navigation }) {
   return (
     <View style={styles.container}>
       <View style={styles.profileContainer}>
-        <UserIcon />
+        <TouchableOpacity
+          onPress={() =>
+            alert(
+              "This feature is not available in the alpha version of RAKapp. Check back at a later time."
+            )
+          }
+          style={{ height: 140, width: 140 }}
+        >
+          <UserIcon />
+        </TouchableOpacity>
+
         <View style={styles.profileInfo}>
           <Text style={[styles.name, Dimensions.font]}>{username}</Text>
           <Text style={[styles.email, Dimensions.font]}>{email}</Text>
         </View>
       </View>
       <View style={styles.listContainer}>
-        <ListItem title="Preferences" leftIcon="chevron-right" />
-        <ListItem title="Terms & Agreements" leftIcon="chevron-right" />
+        <ListItem
+          title="Preferences"
+          leftIcon="chevron-right"
+          onPress={() =>
+            alert(
+              "This feature is not available in the alpha version of RAKapp. Check back at a later time."
+            )
+          }
+        />
+        <ListItem
+          title="Terms & Agreements"
+          leftIcon="chevron-right"
+          onPress={() =>
+            alert(
+              "This feature is not available in the alpha version of RAKapp. Check back at a later time."
+            )
+          }
+        />
       </View>
       <View style={styles.logoutContainer}>
         <ListItem

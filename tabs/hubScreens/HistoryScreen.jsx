@@ -88,7 +88,9 @@ export default function HistoryScreen() {
           }}
           icons
         />
-        <RectButton text="BN History" onPress={() => {}} icons />
+        <RectButton text="BN History" onPress={() => {
+            navigation.navigate('Training & Schools');
+          }} icons />
         <RectButton
           text="3BDE History"
           onPress={() => {

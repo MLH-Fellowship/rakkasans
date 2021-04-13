@@ -1,7 +1,7 @@
-import React from 'react';
-import { View, Text } from 'react-native';
-import { CheckBox as DefaultCheckBox } from 'react-native-elements';
-import Button from '../../components/Button';
+import React from "react";
+import { View, Text } from "react-native";
+import { CheckBox as DefaultCheckBox } from "react-native-elements";
+import Button from "../../components/Button";
 
 export default function WelcomeScreen({ navigation }) {
   const CheckBox = (x) => (
@@ -11,13 +11,13 @@ export default function WelcomeScreen({ navigation }) {
     <View
       style={{
         flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: '#ecf0f1',
+        justifyContent: "center",
+        alignItems: "center",
+        backgroundColor: "#ecf0f1",
       }}
     >
-      <View style={{ flex: 1, justifyContent: 'center' }}>
-        <Text style={{ fontSize: 25, fontWeight: 'bold' }}>
+      <View style={{ flex: 1, justifyContent: "center" }}>
+        <Text style={{ fontSize: 25, fontWeight: "bold" }}>
           RAKApp Onboarding Checklist
         </Text>
       </View>
@@ -28,12 +28,6 @@ export default function WelcomeScreen({ navigation }) {
         <CheckBox title="Other stuff" />
         <CheckBox title="Other stuff" />
         <CheckBox title="Other stuff" />
-      </View>
-      <View style={{ flex: 1, justifyContent: 'center' }}>
-        <Button
-          title="Continue"
-          onPress={() => navigation.navigate('Tab Bar')}
-        />
       </View>
     </View>
   );

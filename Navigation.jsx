@@ -99,7 +99,13 @@ function HubStackScreen() {
       <HubStack.Screen name="Battalions" component={BattScreen} />
       <HubStack.Screen name="RAK History" component={HistoryScreen} />
       <HubStack.Screen name="Bluebook" component={HandbookScreen} />
-      <HubStack.Screen name="Training & Schools" component={SchoolsScreen} />
+      <HubStack.Screen
+        name="Training & Schools"
+        component={
+          // SchoolsScreen
+          ConstructionScreen
+        }
+      />
       <HubStack.Screen name="School" component={SchoolsPageScreen} />
       <HubStack.Screen
         name="Processing"
@@ -117,7 +123,13 @@ function HubStackScreen() {
           ConstructionScreen
         }
       />
-      <HubStack.Screen name="Army Resources" component={ResourcesScreen} />
+      <HubStack.Screen
+        name="Army Resources"
+        component={
+          // ResourcesScreen
+          ConstructionScreen
+        }
+      />
       <HubStack.Screen
         name="RAKFIT"
         component={
@@ -126,11 +138,35 @@ function HubStackScreen() {
         }
       />
       <HubStack.Screen name="Battalion" component={BattUnitScreen} />
-      <HubStack.Screen name="Batt Shop List" component={BattShopListScreen} />
-      <HubStack.Screen name="Batt Shop" component={BattShopScreen} />
-      <HubStack.Screen name="Call Roster" component={CallRosterScreen} />
+      <HubStack.Screen
+        name="Batt Shop List"
+        component={
+          // BattShopListScreen
+          ConstructionScreen
+        }
+      />
+      <HubStack.Screen
+        name="Batt Shop"
+        component={
+          // BattShopScreen
+          ConstructionScreen
+        }
+      />
+      <HubStack.Screen
+        name="Call Roster"
+        component={
+          // CallRosterScreen
+          ConstructionScreen
+        }
+      />
 
-      <HubStack.Screen name="Batt Policies" component={BattPolicyScreen} />
+      <HubStack.Screen
+        name="Batt Policies"
+        component={
+          // BattPolicyScreen
+          ConstructionScreen
+        }
+      />
 
       <HubStack.Screen name="Resource" component={ResourcePageScreen} />
       <HubStack.Screen name="Chat Room" component={ChatRoom} />
@@ -220,9 +256,18 @@ function CommandStackScreen() {
       <CommandStack.Screen name="Welcome" component={WelcomeScreen} />
       <CommandStack.Screen
         name="Welcome Letter"
-        component={WelcomeLetterScreen}
+        component={
+          // WelcomeLetterScreen
+          ConstructionScreen
+        }
       />
-      <CommandStack.Screen name="Commanders' Vision" component={VisionScreen} />
+      <CommandStack.Screen
+        name="Commanders' Vision"
+        component={
+          // VisionScreen
+          ConstructionScreen
+        }
+      />
       <CommandStack.Screen
         name="Policy Letters"
         component={PolicyLettersScreen}
