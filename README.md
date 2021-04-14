@@ -62,9 +62,9 @@ Each collection type created with Strapi has all the API endpoints you’d expec
 
 #### Additional Resources:
 
-[General Overview of Strapi]("https://strapi.io/features")
-[Frontend development & Strapi]("https://strapi.io/blog/frontend-developers-headless-cms")
-[Quick Start Guide (For prototyping)]("https://strapi.io/documentation/developer-docs/latest/getting-started/quick-start.html")
+<a href = 'https://strapi.io/features'>General Overview of Strapi </a>
+<a href ="https://strapi.io/blog/frontend-developers-headless-cms"> Strapi & Frontend development </a>
+<a href ="https://strapi.io/documentation/developer-docs/latest/getting-started/quick-start.html"> Quick Start Guide (for prototyping)</a>
 
 ## Testing
 
