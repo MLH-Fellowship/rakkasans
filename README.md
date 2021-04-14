@@ -54,7 +54,9 @@ To get everything running, run:
 
 ## Strapi
 
-Rakkasan App communicates with a REST API built with Strapi. Strapi is a headless CMS solution that will make future maintenance and customization easier. The API’s database is written in mongoDB. To access the API you’ll need to run Rakkasan API locally but accessing the database is slightly different. The database is currently hosted on mongoDBs cloud platform Atlas. This means that updated entries do not have to be pushed for other members of your team to view them. However, changes related to the design of the API like new collection types still need to be pushed. Keep this in mind while working on the Strapi GUI.
+Rakkasan App communicates with a REST API built with Strapi. Strapi is a headless CMS solution that will make future maintenance and customization easier.
+
+To access the API you’ll need to run Rakkasan API locally but accessing the database is slightly different.The API database is written in mongoDB and currently hosted on mongoDBs cloud platform Atlas. This means that updated entries do not have to be pushed for other members of your team to view them. However, changes related to the design of the API like new collection types still need to be pushed. Keep this in mind while working on the Strapi GUI.
 
 Each collection type created with Strapi has all the API endpoints you’d expect.<a href="https://strapi.io/documentation/developer-docs/latest/developer-resources/content-api/content-api.html#api-endpoints"> Click here </a> for more information on interacting with collections.
 
