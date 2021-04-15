@@ -18,7 +18,7 @@ export default function FallenScreen() {
 
   useEffect(() => {
     const getHonors = async () => {
-      let { jwt } = getData();
+      let { jwt } = await getData();
       const request = await axios.get("http://localhost:3001/fallens", {
         headers: {
           Authorization: `Bearer ${jwt}`,

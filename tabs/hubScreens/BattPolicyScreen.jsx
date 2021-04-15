@@ -10,7 +10,7 @@ export default function BattPolicyScreen() {
 
   useEffect(() => {
     const getPolicy = async () => {
-      let { jwt } = getData();
+      let { jwt } = await getData();
       const request = await axios.get("http://localhost:3001/hhc-policies", {
         headers: {
           Authorization: `Bearer ${jwt}`,

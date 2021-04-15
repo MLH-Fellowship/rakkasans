@@ -9,7 +9,8 @@ export default function MoHDocument() {
 
   useEffect(() => {
     const getMoh = async () => {
-      let { jwt } = getData();
+      let { jwt } = await getData();
+      console.log(jwt);
       const request = await axios.get("http://localhost:3001/medal-of-honors", {
         headers: {
           Authorization: `Bearer ${jwt}`,

@@ -10,7 +10,7 @@ export default function LineageHonorsScreen() {
 
   useEffect(() => {
     const getHonors = async () => {
-      let { jwt } = getData();
+      let { jwt } = await getData();
       const request = await axios.get("http://localhost:3001/lineage-honors", {
         headers: {
           Authorization: `Bearer ${jwt}`,
