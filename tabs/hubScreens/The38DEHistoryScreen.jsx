@@ -17,7 +17,7 @@ export default function The38DEHistoryScreen() {
   console.log(history);
   useEffect(() => {
     const getHistory = async () => {
-      let { jwt } = getData();
+      let { jwt } = await getData();
       const request = await axios.get("http://localhost:3001/3-bde-histories", {
         headers: {
           Authorization: `Bearer ${jwt}`,
