@@ -1,9 +1,8 @@
-import React, { useEffect, useState } from 'react';
-import {
-  StyleSheet, SafeAreaView, View, FlatList, Text,
-} from 'react-native';
-import { Card, CardItem, Body } from 'native-base';
-import axios from 'axios';
+import React, { useEffect, useState } from "react";
+import { StyleSheet, SafeAreaView, View, FlatList, Text } from "react-native";
+import { Card, CardItem, Body } from "native-base";
+import axios from "axios";
+import getData from "../../assets/Async/getData";
 
 export default function NotableEventsScreen() {
   const styles = StyleSheet.create({
@@ -12,22 +11,22 @@ export default function NotableEventsScreen() {
     },
     container: {
       flex: 1,
-      width: '100%',
-      height: '100%',
-      flexDirection: 'column',
+      width: "100%",
+      height: "100%",
+      flexDirection: "column",
       paddingHorizontal: 15,
       paddingVertical: 10,
     },
     title: {
       fontSize: 15,
-      fontWeight: '500',
+      fontWeight: "500",
     },
     header: {
       fontSize: 20,
-      fontWeight: '700',
+      fontWeight: "700",
       marginTop: 20,
       marginBottom: 20,
-      textAlign: 'center',
+      textAlign: "center",
     },
   });
 
@@ -35,7 +34,12 @@ export default function NotableEventsScreen() {
 
   useEffect(() => {
     const getNotables = async () => {
-      const request = await axios.get('http://localhost:3001/notable-events');
+      let { jwt } = await getData();
+      const request = await axios.get("http://localhost:3001/notable-events", {
+        headers: {
+          Authorization: `Bearer ${jwt}`,
+        },
+      });
       const response = request.data;
       console.log(response);
       setNotables(response);
@@ -67,12 +71,7 @@ export default function NotableEventsScreen() {
                     <Text>
                       Date:
                       {item[3]} {item[2]}, {item[4]}
-                      {item.Date}
-                      {' '}
-                      {item.Year}
-                      ,
-                      {' '}
-                      {item.Description}
+                      {item.Date} {item.Year}, {item.Description}
                     </Text>
                   </Body>
                 </CardItem>
