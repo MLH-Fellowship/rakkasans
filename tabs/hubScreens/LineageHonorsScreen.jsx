@@ -1,18 +1,22 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
-import { StyleSheet, SafeAreaView, Text } from 'react-native';
-import { Card, CardItem, Body } from 'native-base';
-import { ScrollView } from 'react-native-gesture-handler';
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import { StyleSheet, SafeAreaView, Text } from "react-native";
+import { Card, CardItem, Body } from "native-base";
+import { ScrollView } from "react-native-gesture-handler";
+import getData from "../../assets/Async/getData";
 
 export default function LineageHonorsScreen() {
   const [honors, setHonors] = useState([]);
-  console.log('honors');
 
   useEffect(() => {
     const getHonors = async () => {
-      const request = await axios.get(
-        'http://192.168.4.23:3001/lineage-honors'
-      );
+      let { jwt } = getData();
+      const request = await axios.get("http://localhost:3001/lineage-honors", {
+        headers: {
+          Authorization: `Bearer ${jwt}`,
+        },
+      });
+
       const response = request.data;
       setHonors(response);
     };
@@ -21,22 +25,22 @@ export default function LineageHonorsScreen() {
 
   const styles = StyleSheet.create({
     container: {
-      width: '100%',
-      height: '100%',
-      flexDirection: 'column',
+      width: "100%",
+      height: "100%",
+      flexDirection: "column",
       paddingHorizontal: 15,
       paddingVertical: 10,
     },
     title: {
       fontSize: 15,
-      fontWeight: '500',
+      fontWeight: "500",
     },
     header: {
       fontSize: 20,
-      fontWeight: '700',
+      fontWeight: "700",
       marginTop: 20,
       marginBottom: 20,
-      textAlign: 'center',
+      textAlign: "center",
     },
     description: {
       fontSize: 12,

@@ -7,7 +7,6 @@ import {
   TouchableOpacity,
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
-
 import Colors from "../constants/Colors";
 import Dimensions from "../constants/Dimensions";
 import SquareButton from "../components/SquareButton";
