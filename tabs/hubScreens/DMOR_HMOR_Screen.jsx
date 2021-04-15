@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 import {
   StyleSheet,
   SafeAreaView,
@@ -7,47 +7,53 @@ import {
   View,
   Linking,
   Image,
-} from 'react-native';
-import { Card, CardItem } from 'native-base';
-import { ScrollView } from 'react-native-gesture-handler';
+} from "react-native";
+import { Card, CardItem } from "native-base";
+import { ScrollView } from "react-native-gesture-handler";
+import getData from "../../assets/Async/getData";
 
 export default function DMOR_HMOR_Screen() {
   const [dmor, setDmor] = useState([]);
 
   useEffect(() => {
     const getDmor = async () => {
-      const request = await axios.get('http://localhost:3001/DMOR-HMORS');
+      let { jwt } = await getData();
+      const request = await axios.get("http://localhost:3001/DMOR-HMORS", {
+        headers: {
+          Authorization: `Bearer ${jwt}`,
+        },
+      });
       const response = request.data;
       setDmor(response);
     };
     getDmor();
   }, []);
 
-  const url = { uri: 'https://picsum.photos/300/300' };
+  const url = { uri: "https://picsum.photos/300/300" };
 
   const styles = StyleSheet.create({
     container: {
-      width: '100%',
-      height: '100%',
-      flexDirection: 'column',
+      width: "100%",
+      height: "100%",
+      flexDirection: "column",
       paddingHorizontal: 15,
       paddingVertical: 10,
     },
     title: {
       fontSize: 16,
-      fontWeight: '500',
+      fontWeight: "500",
     },
     header: {
       fontSize: 20,
-      fontWeight: '700',
-      textAlign: 'center',
+      fontWeight: "700",
+      textAlign: "center",
     },
     description: {
       fontSize: 13,
     },
     image: {
-      width: '100%',
-      height: '80%',
+      width: "100%",
+      height: "80%",
     },
   });
 
