@@ -6,6 +6,7 @@ getData = async () => {
     return jsonValue != null ? JSON.parse(jsonValue) : null;
   } catch (e) {
     // error reading value
+    console.error(e);
   }
 };
 
