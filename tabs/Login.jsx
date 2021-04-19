@@ -21,7 +21,7 @@ const Login = ({ navigation }) => {
   const isNewUser = false;
 
   const storeData = async (value) => {
-    await AsyncStorage.setItem("@user_Data", JSON.stringify(value)).catch(
+    await AsyncStorage.setItem("@user_data", JSON.stringify(value)).catch(
       console.log
     );
   };
@@ -32,7 +32,7 @@ const Login = ({ navigation }) => {
     } else {
       setLoading(true);
       axios
-        .post("http://192.168.4.23:3001/auth/local", {
+        .post("http://localhost:3001/auth/local", {
           // .post("http://localhost:3001/auth/local", {
           identifier: email,
           password,

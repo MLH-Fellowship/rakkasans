@@ -1,21 +1,21 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
-import {
-  StyleSheet,
-  SafeAreaView,
-  Text,
-  View,
-  Linking,
-} from 'react-native';
-import { Card, CardItem } from 'native-base';
-import { ScrollView } from 'react-native-gesture-handler';
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import { StyleSheet, SafeAreaView, Text, View, Linking } from "react-native";
+import { Card, CardItem } from "native-base";
+import { ScrollView } from "react-native-gesture-handler";
+import getData from "../../assets/Async/getData";
 
 export default function BattPolicyScreen() {
   const [policy, setPolicy] = useState([]);
 
   useEffect(() => {
     const getPolicy = async () => {
-      const request = await axios.get('http://localhost:3001/hhc-policies');
+      let { jwt } = await getData();
+      const request = await axios.get("http://localhost:3001/hhc-policies", {
+        headers: {
+          Authorization: `Bearer ${jwt}`,
+        },
+      });
       const response = request.data;
       setPolicy(response);
     };
@@ -24,9 +24,9 @@ export default function BattPolicyScreen() {
 
   const styles = StyleSheet.create({
     container: {
-      width: '100%',
-      height: '100%',
-      flexDirection: 'column',
+      width: "100%",
+      height: "100%",
+      flexDirection: "column",
       paddingHorizontal: 15,
       paddingVertical: 10,
     },
@@ -35,8 +35,8 @@ export default function BattPolicyScreen() {
     },
     header: {
       fontSize: 20,
-      fontWeight: '700',
-      textAlign: 'center',
+      fontWeight: "700",
+      textAlign: "center",
     },
     description: {
       fontSize: 13,

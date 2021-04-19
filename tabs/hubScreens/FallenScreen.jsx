@@ -11,13 +11,19 @@ import {
 import { Card, CardItem, Body } from "native-base";
 import { ScrollView } from "react-native-gesture-handler";
 import Dimensions from "../../constants/Dimensions";
+import getData from "../../assets/Async/getData";
 
 export default function FallenScreen() {
   const [fallen, setFallen] = useState([]);
 
   useEffect(() => {
     const getHonors = async () => {
-      const request = await axios.get("http://192.168.4.23:3001/fallens");
+      let { jwt } = await getData();
+      const request = await axios.get("http://localhost:3001/fallens", {
+        headers: {
+          Authorization: `Bearer ${jwt}`,
+        },
+      });
       const response = request.data;
       setFallen(response);
     };
