@@ -10,11 +10,13 @@ export default function WelcomeVideo({ navigation }) {
       flex: 1,
       justifyContent: "center",
       alignItems: "center",
+      marginTop: 100,
       backgroundColor: "#ecf0f1",
     },
     text: {
-      fontSize: 30,
+      fontSize: 50,
       fontWeight: "bold",
+      textAlign: "center",
     },
     video: {
       borderWidth: 1,
@@ -23,26 +25,35 @@ export default function WelcomeVideo({ navigation }) {
       width: 400,
       height: 250,
     },
+    secondaryText: {
+      fontSize: 18,
+      paddingHorizontal: 40,
+      textAlign: "center",
+      marginTop: 32,
+    },
     buttons: {
       flex: 1,
-      justifyContent: "center",
+      justifyContent: "flex-end",
+      marginBottom: 40,
     },
   });
   return (
     <View style={styles.container}>
       <View style={{ flex: 1, justifyContent: "center" }}>
         <Text style={styles.text}>Welcome to RAKapp!</Text>
+        <Text style={styles.secondaryText}>
+          Watch the introductory video below to get started.
+        </Text>
       </View>
-      <View style={{ flex: 3, justifyContent: "center" }}>
-        <Video
-          style={styles.video}
-          source={{
-            uri: "http://d23dyxeqlo5psv.cloudfront.net/big_buck_bunny.mp4",
-          }}
-          resizeMode="cover"
-          useNativeControls
-        />
-      </View>
+      <Video
+        style={styles.video}
+        source={{
+          uri:
+            "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4",
+        }}
+        resizeMode="cover"
+        useNativeControls
+      />
 
       <View style={styles.buttons}>
         <Button
