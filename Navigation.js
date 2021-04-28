@@ -22,10 +22,13 @@ import GameTab from "./tabs/GameTab";
 import AccountTab from "./tabs/AccountTab";
 import ChatTab from "./tabs/ChatTab";
 
-//chat screens
+//chat screen
+//import LoginScreen from "./tabs/chatScreens/LoginScreen";
+//import RegisterScreen from "./tabs/chatScreens/RegisterScreen";
 import HomeScreen from "./tabs/chatScreens/HomeScreen";
 import AddChatScreen from "./tabs/chatScreens/AddChatScreen";
 import ChatScreen from "./tabs/chatScreens/ChatScreen";
+import UserList from "./tabs/chatScreens/UserList";
 
 // hub screens
 import BattScreen from "./tabs/hubScreens/BattScreen";
@@ -80,7 +83,7 @@ import SplashScreen from "./tabs/SplashScreen";
 import iconConfig from "./assets/icomoon/iconConfig";
 
 const HubStack = createStackNavigator();
-function HubStackScreen() {
+function HubStackScreen({ navigation }) {
   return (
     <HubStack.Navigator
       headerMode="float"
@@ -91,8 +94,9 @@ function HubStackScreen() {
         headerTintColor: Colors.white,
         headerTitleStyle: { fontSize: 25, fontFamily: "fira-sans" },
         headerRight: () => (
-          <Button
-            component={AccountStack.Screen}
+          <IconButton
+            icon="account"
+            onPress={() => navigation.navigate("Account")}
             title="Account"
             color="#fff"
           />
@@ -145,11 +149,16 @@ function HubStackScreen() {
         component={DivisionHistoryScreen}
       />
       <HubStack.Screen name="38DE History" component={The38DEHistoryScreen} />
+      <HubStack.Screen
+        name="Account"
+        component={AccountTab}
+        options={{ headerLeft: null }}
+      />
     </HubStack.Navigator>
   );
 }
 const NewsStack = createStackNavigator();
-function NewsStackScreen() {
+function NewsStackScreen({ navigation }) {
   return (
     <NewsStack.Navigator
       headerMode="float"
@@ -158,8 +167,9 @@ function NewsStackScreen() {
           backgroundColor: Colors.primary,
         },
         headerRight: () => (
-          <Button
-            onPress={() => alert("This will be the account button")}
+          <IconButton
+            icon="account"
+            onPress={() => navigation.navigate("Account")}
             title="Account"
             color="#fff"
           />
@@ -174,11 +184,16 @@ function NewsStackScreen() {
         options={{ headerLeft: null }}
       />
       <NewsStack.Screen name="News Article" component={NewsScreen} />
+      <NewsStack.Screen
+        name="Account"
+        component={AccountTab}
+        options={{ headerLeft: null }}
+      />
     </NewsStack.Navigator>
   );
 }
 const CommandStack = createStackNavigator();
-function CommandStackScreen() {
+function CommandStackScreen({ navigation }) {
   return (
     <CommandStack.Navigator
       headerMode="float"
@@ -187,8 +202,9 @@ function CommandStackScreen() {
           backgroundColor: Colors.primary,
         },
         headerRight: () => (
-          <Button
-            onPress={() => alert("This will be the account button")}
+          <IconButton
+            icon="account"
+            onPress={() => navigation.navigate("Account")}
             title="Account"
             color="#fff"
           />
@@ -218,11 +234,16 @@ function CommandStackScreen() {
         name="Off Limits Establishments"
         component={OffLimitsScreen}
       />
+      <CommandStack.Screen
+        name="Account"
+        component={AccountTab}
+        options={{ headerLeft: null }}
+      />
     </CommandStack.Navigator>
   );
 }
 const GameStack = createStackNavigator();
-function GameStackScreen() {
+function GameStackScreen({ navigation }) {
   return (
     <GameStack.Navigator
       headerMode="float"
@@ -231,8 +252,9 @@ function GameStackScreen() {
           backgroundColor: Colors.primary,
         },
         headerRight: () => (
-          <Button
-            onPress={() => alert("This will be the account button")}
+          <IconButton
+            icon="account"
+            onPress={() => navigation.navigate("Account")}
             title="Account"
             color="#fff"
           />
@@ -246,31 +268,36 @@ function GameStackScreen() {
         component={GameTab}
         options={{ headerLeft: null }}
       />
-    </GameStack.Navigator>
-  );
-}
-const AccountStack = createStackNavigator();
-function AccountStackScreen() {
-  return (
-    <AccountStack.Navigator
-      headerMode="float"
-      screenOptions={{
-        headerStyle: {
-          backgroundColor: Colors.primary,
-        },
-        headerTintColor: Colors.white,
-        headerTitleStyle: { fontSize: 25, fontFamily: "fira-sans" },
-      }}
-    >
-      <AccountStack.Screen
+      <GameStack.Screen
         name="Account"
         component={AccountTab}
         options={{ headerLeft: null }}
       />
-      <AccountStack.Screen name="Log Out" component={LogOut} />
-    </AccountStack.Navigator>
+    </GameStack.Navigator>
   );
 }
+// const AccountStack = createStackNavigator();
+// function AccountStackScreen() {
+//   return (
+//     <AccountStack.Navigator
+//       headerMode="float"
+//       screenOptions={{
+//         headerStyle: {
+//           backgroundColor: Colors.primary,
+//         },
+//         headerTintColor: Colors.white,
+//         headerTitleStyle: { fontSize: 25, fontFamily: "fira-sans" },
+//       }}
+//     >
+//       <AccountStack.Screen
+//         name="Account"
+//         component={AccountTab}
+//         options={{ headerLeft: null }}
+//       />
+//       <AccountStack.Screen name="Log Out" component={LogOut} />
+//     </AccountStack.Navigator>
+//   );
+// }
 const ChatStack = createStackNavigator();
 function ChatStackScreen({ navigation }) {
   return (
@@ -307,14 +334,20 @@ function ChatStackScreen({ navigation }) {
         component={HomeScreen}
         options={{ headerLeft: null }}
       />
-      <ChatStack.Screen
-        name="AddChat"
-        component={AddChatScreen}
-        options={{ headerLeft: null }}
-      />
+
       <ChatStack.Screen
         name="ChatScreen"
         component={ChatScreen}
+        options={{ headerLeft: null }}
+      />
+      <ChatStack.Screen
+        name="UserList"
+        component={UserList}
+        options={{ headerLeft: null }}
+      />
+      <ChatStack.Screen
+        name="AddChatScreen"
+        component={AddChatScreen}
         options={{ headerLeft: null }}
       />
       <ChatStack.Screen

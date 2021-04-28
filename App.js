@@ -9,6 +9,8 @@ import { AppLoading } from "expo";
 import { Asset } from "expo-asset";
 console.disableYellowBox = true;
 
+//AppRegistry.registerComponent("main", () => App);
+
 const _loadResourcesAsync = () => {
   return Promise.all([
     Asset.loadAsync([
